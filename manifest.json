@@ -1,7 +1,7 @@
 {
-  "name": "讲法",
-  "short_name": "讲法",
-  "description": "法师讲佛法的方法 - 含测试与场景",
+  "name": "善叙述",
+  "short_name": "善叙述",
+  "description": "善叙述 - 含测试与场景",
   "start_url": "https://wang-wei66.github.io/fashi-jiangfufa-app/",
   "scope": "https://wang-wei66.github.io/fashi-jiangfufa-app/",
   "display": "standalone",
