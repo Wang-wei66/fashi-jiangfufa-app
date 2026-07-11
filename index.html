@@ -1,0 +1,1165 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="讲佛法">
+<meta name="theme-color" content="#9c3b2e">
+<title>法师讲佛法的方法</title>
+<link rel="manifest" href='data:application/manifest+json,{"name":"法师讲佛法的方法","short_name":"讲佛法","start_url":"./","display":"standalone","background_color":"#faf7f0","theme_color":"9c3b2e","orientation":"portrait","icons":[]}'>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+
+:root{
+  --bg:#faf7f0; --surface:#ffffff; --text:#2a2622; --muted:#6b6258;
+  --accent:#9c3b2e; --accent-soft:#f3e2dc; --gold:#c8a45c;
+  --baihua-bg:#fdf6e3; --baihua-bd:#d9b96a;
+  --code-bg:#2b2620; --code-fg:#f3ead7; --hr:#e6ddcc;
+  --border:#e7ddc9; --shadow:0 4px 20px rgba(0,0,0,.1);
+  --quiz-correct:#4a7c59; --quiz-wrong:#c0392b;
+  --scene-bg:#f5efe0; --scene-bd:#c8a45c;
+  --tab-bg:#ffffff; --tab-active:#9c3b2e;
+  --header-bg:#ffffff; --font-size:17px;
+  --safe-bottom:env(safe-area-inset-bottom, 0px);
+  --safe-top:env(safe-area-inset-top, 0px);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1a1815; --surface:#242019; --text:#e8e0d2; --muted:#a89e8c;
+    --accent:#e08a6f; --accent-soft:#3a2a24; --gold:#c8a45c;
+    --baihua-bg:#2a2418; --baihua-bd:#6b5a2e;
+    --code-bg:#0f0d0a; --code-fg:#f3ead7; --hr:#3a342a;
+    --border:#3a342a; --shadow:0 4px 20px rgba(0,0,0,.4);
+    --quiz-correct:#5a9d6e; --quiz-wrong:#e05a4a;
+    --scene-bg:#2a2418; --scene-bd:#6b5a2e;
+    --tab-bg:#242019; --tab-active:#e08a6f;
+    --header-bg:#242019;
+  }
+}
+[data-theme="dark"]{
+  --bg:#1a1815; --surface:#242019; --text:#e8e0d2; --muted:#a89e8c;
+  --accent:#e08a6f; --accent-soft:#3a2a24; --gold:#c8a45c;
+  --baihua-bg:#2a2418; --baihua-bd:#6b5a2e;
+  --code-bg:#0f0d0a; --code-fg:#f3ead7; --hr:#3a342a;
+  --border:#3a342a; --shadow:0 4px 20px rgba(0,0,0,.4);
+  --quiz-correct:#5a9d6e; --quiz-wrong:#e05a4a;
+  --scene-bg:#2a2418; --scene-bd:#6b5a2e;
+  --tab-bg:#242019; --tab-active:#e08a6f;
+  --header-bg:#242019;
+}
+[data-theme="light"]{
+  --bg:#faf7f0; --surface:#ffffff; --text:#2a2622; --muted:#6b6258;
+  --accent:#9c3b2e; --accent-soft:#f3e2dc; --gold:#c8a45c;
+  --baihua-bg:#fdf6e3; --baihua-bd:#d9b96a;
+  --code-bg:#2b2620; --code-fg:#f3ead7; --hr:#e6ddcc;
+  --border:#e7ddc9; --shadow:0 4px 20px rgba(0,0,0,.1);
+  --quiz-correct:#4a7c59; --quiz-wrong:#c0392b;
+  --scene-bg:#f5efe0; --scene-bd:#c8a45c;
+  --tab-bg:#ffffff; --tab-active:#9c3b2e;
+  --header-bg:#ffffff;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:var(--font-size); line-height:1.85;
+  padding-top:calc(56px + var(--safe-top));
+  padding-bottom:calc(60px + var(--safe-bottom));
+  overflow-x:hidden;
+}
+
+/* ========== 顶部栏 ========== */
+.app-header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:var(--header-bg); box-shadow:0 1px 6px rgba(0,0,0,.08);
+  padding-top:var(--safe-top);
+  display:flex; align-items:center; height:calc(56px + var(--safe-top));
+  padding:0 12px; padding-top:var(--safe-top);
+}
+.header-back{
+  min-width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  background:none; border:none; font-size:22px; color:var(--accent); cursor:pointer;
+  font-family:inherit;
+}
+.header-title{
+  flex:1; text-align:center; font-size:17px; font-weight:700; color:var(--text);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 8px;
+}
+.header-actions{display:flex; gap:4px; align-items:center}
+.header-btn{
+  min-width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+  background:none; border:none; font-size:18px; color:var(--muted); cursor:pointer;
+  font-family:inherit; border-radius:8px;
+}
+.header-btn:active{background:var(--accent-soft)}
+
+/* ========== 底部Tab栏 ========== */
+.tab-bar{
+  position:fixed; bottom:0; left:0; right:0; z-index:100;
+  background:var(--tab-bg); box-shadow:0 -1px 6px rgba(0,0,0,.08);
+  display:flex; padding-bottom:var(--safe-bottom);
+  border-top:1px solid var(--border);
+}
+.tab-item{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:8px 4px; min-height:56px; background:none; border:none;
+  color:var(--muted); font-size:11px; font-family:inherit; cursor:pointer;
+  transition:color .2s;
+}
+.tab-item.active{color:var(--tab-active); font-weight:700}
+.tab-icon{font-size:22px; margin-bottom:2px; line-height:1}
+
+/* ========== 页面容器 ========== */
+.page{display:none; animation:fadeIn .3s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}}
+
+/* ========== 首页 ========== */
+.home-hero{
+  background:linear-gradient(135deg, var(--accent), #b85544);
+  color:#fff; padding:32px 20px; text-align:center; border-radius:0 0 20px 20px;
+  margin-bottom:20px;
+}
+.home-hero h1{font-size:1.5em; margin:0 0 8px; color:#fff; font-weight:700}
+.home-hero p{margin:0; opacity:.9; font-size:.9em}
+.home-section{padding:0 16px; margin-bottom:24px}
+.home-section-title{
+  font-size:1.1em; font-weight:700; color:var(--accent); margin-bottom:12px;
+  padding-left:12px; border-left:4px solid var(--gold);
+}
+.home-card{
+  background:var(--surface); border-radius:12px; padding:16px 18px; margin-bottom:10px;
+  box-shadow:var(--shadow); cursor:pointer; transition:transform .15s;
+  display:flex; align-items:center; gap:12px;
+}
+.home-card:active{transform:scale(.97)}
+.home-card-icon{font-size:28px; flex-shrink:0}
+.home-card-body{flex:1; min-width:0}
+.home-card-title{font-weight:700; color:var(--text); font-size:1em}
+.home-card-desc{font-size:.82em; color:var(--muted); margin-top:2px}
+
+/* 快速入口网格 */
+.quick-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:0 16px}
+.quick-card{
+  background:var(--surface); border-radius:12px; padding:16px; text-align:center;
+  box-shadow:var(--shadow); cursor:pointer; transition:transform .15s;
+}
+.quick-card:active{transform:scale(.95)}
+.quick-card-icon{font-size:32px; margin-bottom:6px}
+.quick-card-title{font-weight:700; font-size:.95em; color:var(--text)}
+.quick-card-count{font-size:.78em; color:var(--muted); margin-top:2px}
+
+/* ========== 章节列表页 ========== */
+.list-page{padding:16px}
+.list-group-title{
+  font-size:1.05em; font-weight:700; color:var(--accent);
+  margin:20px 0 10px; padding-left:12px; border-left:4px solid var(--gold);
+}
+.list-item{
+  background:var(--surface); border-radius:12px; padding:14px 16px; margin-bottom:10px;
+  box-shadow:var(--shadow); cursor:pointer; transition:transform .15s;
+  display:flex; align-items:center; gap:12px;
+}
+.list-item:active{transform:scale(.97)}
+.list-item-num{
+  background:var(--accent); color:#fff; border-radius:50%;
+  width:32px; height:32px; min-width:32px; display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:700;
+}
+.list-item-title{flex:1; font-weight:600; color:var(--text); font-size:.95em}
+.list-item-arrow{color:var(--muted); font-size:18px}
+.list-item-badge{
+  font-size:.72em; padding:2px 8px; border-radius:10px;
+  background:var(--accent-soft); color:var(--accent); font-weight:600;
+}
+
+/* ========== 阅读详情页 ========== */
+.reader-page{padding:0 16px}
+.reader-content{
+  max-width:720px; margin:0 auto;
+}
+.reader-content h1{font-size:1.5em; text-align:center; margin:.2em 0 .6em; color:var(--accent)}
+.reader-content h2{
+  font-size:1.3em; margin:1.5em 0 .6em; padding-bottom:.3em;
+  border-bottom:3px solid var(--accent); position:relative;
+}
+.reader-content h2::before{content:""; position:absolute; left:0; bottom:-3px; width:56px; height:3px; background:var(--gold)}
+.reader-content h3{font-size:1.12em; margin:1.2em 0 .5em; color:var(--accent); padding-left:10px; border-left:4px solid var(--gold)}
+.reader-content h4{font-size:1em; margin:1em 0 .3em; color:var(--muted)}
+.reader-content p{margin:.6em 0}
+.reader-content strong{color:var(--accent); font-weight:700}
+.reader-content a{color:var(--accent); text-decoration:none}
+.reader-content hr{border:none; border-top:1px solid var(--hr); margin:1.5em 0}
+.reader-content blockquote{
+  margin:.8em 0; padding:.7em 1em; background:var(--accent-soft);
+  border-left:4px solid var(--gold); border-radius:8px;
+}
+.reader-content blockquote p{margin:.2em 0}
+.reader-content ul,.reader-content ol{padding-left:1.4em}
+.reader-content li{margin:.3em 0}
+.reader-content code{background:var(--accent-soft); padding:.1em .3em; border-radius:4px; font-size:.88em; font-family:Consolas,monospace}
+.reader-content pre{background:var(--code-bg); color:var(--code-fg); padding:14px; border-radius:8px; overflow-x:auto; font-size:.82em; line-height:1.5}
+.reader-content pre code{background:none; padding:0; color:inherit}
+.reader-content .table-wrap{width:100%; overflow-x:auto; margin:.8em 0; border-radius:8px}
+.reader-content table{border-collapse:collapse; width:100%; font-size:.9em; background:var(--surface)}
+.reader-content th,.reader-content td{border:1px solid var(--border); padding:.45em .6em; text-align:left}
+.reader-content th{background:var(--accent-soft); color:var(--accent); font-weight:700; white-space:nowrap}
+.reader-content tr:nth-child(even) td{background:rgba(200,164,92,.06)}
+.reader-content .baihua{
+  list-style:none; margin:.6em 0; padding:.7em 1em;
+  background:var(--baihua-bg); border-left:5px solid var(--baihua-bd); border-radius:8px;
+}
+.reader-content .baihua strong{color:var(--accent)}
+.reader-content .mermaid{background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px; margin:1em 0; text-align:center; overflow-x:auto}
+
+.reader-quiz-btn{
+  display:block; width:100%; max-width:400px; margin:24px auto;
+  background:var(--accent); color:#fff; border:none; border-radius:12px;
+  padding:14px; font-size:1em; font-weight:700; cursor:pointer; font-family:inherit;
+  box-shadow:var(--shadow); transition:transform .15s;
+}
+.reader-quiz-btn:active{transform:scale(.97)}
+
+/* ========== 答题（逐题即时反馈） ========== */
+.quiz-container{padding:0 16px; max-width:600px; margin:0 auto}
+.quiz-header{
+  text-align:center; margin-bottom:16px; padding:16px;
+  background:var(--surface); border-radius:12px; box-shadow:var(--shadow);
+}
+.quiz-header h2{font-size:1.2em; margin:0 0 6px; color:var(--accent)}
+.quiz-progress-bar{
+  height:6px; background:var(--border); border-radius:3px; margin-top:10px; overflow:hidden;
+}
+.quiz-progress-fill{
+  height:100%; background:var(--accent); border-radius:3px;
+  transition:width .3s ease;
+}
+.quiz-progress-text{font-size:.82em; color:var(--muted); margin-top:6px}
+
+.quiz-q-card{
+  background:var(--surface); border-radius:12px; padding:18px 16px; margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.quiz-q-num{
+  display:inline-block; background:var(--accent); color:#fff;
+  border-radius:50%; width:28px; height:28px; line-height:28px;
+  text-align:center; font-size:14px; font-weight:700; margin-right:8px;
+}
+.quiz-q-text{font-weight:600; margin-bottom:14px; font-size:1.02em; line-height:1.6}
+.quiz-opt{
+  padding:12px 14px; margin:8px 0; border-radius:10px;
+  border:2px solid var(--border); cursor:pointer;
+  transition:all .2s; font-size:.95em; display:flex; align-items:flex-start; gap:10px;
+  min-height:48px;
+}
+.quiz-opt:active{transform:scale(.98)}
+.quiz-opt .opt-label{flex-shrink:0; font-weight:700; color:var(--accent); min-width:22px}
+.quiz-opt.selected{border-color:var(--accent); background:var(--accent-soft)}
+.quiz-opt.correct{border-color:var(--quiz-correct); background:rgba(74,124,89,.12)}
+.quiz-opt.correct .opt-label{color:var(--quiz-correct)}
+.quiz-opt.wrong{border-color:var(--quiz-wrong); background:rgba(192,57,43,.1)}
+.quiz-opt.wrong .opt-label{color:var(--quiz-wrong)}
+.quiz-opt.disabled{pointer-events:none; opacity:.7}
+.quiz-opt.disabled.correct{opacity:1}
+
+.quiz-feedback{
+  margin-top:12px; padding:12px 14px; border-radius:8px;
+  font-size:.9em; display:none; animation:fadeIn .3s;
+}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:rgba(74,124,89,.1); border-left:3px solid var(--quiz-correct)}
+.quiz-feedback.wrong{background:rgba(192,57,43,.08); border-left:3px solid var(--quiz-wrong)}
+.quiz-feedback strong{color:var(--accent)}
+.quiz-feedback .fb-icon{font-size:1.2em; margin-right:4px}
+
+.quiz-next-btn{
+  display:block; width:100%; margin-top:14px;
+  background:var(--accent); color:#fff; border:none; border-radius:10px;
+  padding:12px; font-size:.95em; font-weight:700; cursor:pointer; font-family:inherit;
+  transition:transform .15s;
+}
+.quiz-next-btn:active{transform:scale(.97)}
+
+.quiz-result{
+  text-align:center; padding:30px 20px; background:var(--surface);
+  border-radius:12px; box-shadow:var(--shadow); margin:20px 0;
+}
+.quiz-result-score{font-size:2.5em; font-weight:700; color:var(--accent)}
+.quiz-result-total{font-size:1.2em; color:var(--muted)}
+.quiz-result-msg{margin:12px 0; color:var(--text)}
+.quiz-restart-btn{
+  background:var(--accent); color:#fff; border:none; border-radius:10px;
+  padding:12px 30px; font-size:1em; font-weight:700; cursor:pointer; font-family:inherit;
+  margin-top:10px;
+}
+
+/* ========== 场景模块 ========== */
+.scene-page{padding:16px}
+.scene-filter{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px}
+.scene-tag-btn{
+  background:var(--surface); border:1.5px solid var(--border); color:var(--text);
+  border-radius:20px; padding:5px 12px; font-size:.82em; cursor:pointer;
+  font-family:inherit; transition:all .2s; min-height:36px;
+}
+.scene-tag-btn:active{transform:scale(.95)}
+.scene-tag-btn.active{background:var(--accent); color:#fff; border-color:var(--accent)}
+.scene-card{
+  background:var(--scene-bg); border:1px solid var(--scene-bd);
+  border-radius:12px; padding:16px; margin-bottom:12px;
+  box-shadow:var(--shadow); cursor:pointer; transition:transform .15s;
+}
+.scene-card:active{transform:scale(.98)}
+.scene-card-header{display:flex; align-items:center; gap:10px; margin-bottom:8px}
+.scene-num{
+  background:var(--accent); color:#fff; border-radius:50%;
+  width:28px; height:28px; min-width:28px; line-height:28px; text-align:center;
+  font-size:13px; font-weight:700;
+}
+.scene-title{flex:1; font-weight:700; font-size:.98em; color:var(--text)}
+.scene-tags{display:flex; gap:4px; flex-wrap:wrap}
+.scene-tag{font-size:.7em; padding:2px 8px; border-radius:10px; background:var(--accent-soft); color:var(--accent); font-weight:600}
+.scene-detail{display:none; margin-top:10px; font-size:.9em; line-height:1.75}
+.scene-detail.show{display:block; animation:fadeIn .3s}
+.scene-detail p{margin:.4em 0}
+.scene-label{font-weight:700; color:var(--accent)}
+.scene-detail-box{
+  margin-top:8px; padding:10px 12px; background:var(--baihua-bg);
+  border-left:3px solid var(--gold); border-radius:6px; font-size:.88em;
+}
+
+/* ========== 字体大小调节弹窗 ========== */
+.font-popup{
+  position:fixed; top:calc(56px + var(--safe-top)); right:12px; z-index:200;
+  background:var(--surface); border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,.2);
+  padding:14px; display:none; min-width:160px;
+}
+.font-popup.show{display:block; animation:fadeIn .2s}
+.font-popup-title{font-size:.82em; color:var(--muted); margin-bottom:8px; font-weight:600}
+.font-size-options{display:flex; gap:8px}
+.font-size-btn{
+  flex:1; padding:8px; border:2px solid var(--border); background:var(--surface);
+  border-radius:8px; cursor:pointer; font-family:inherit; color:var(--text);
+  text-align:center; transition:all .2s; min-height:44px;
+}
+.font-size-btn.active{border-color:var(--accent); background:var(--accent-soft); color:var(--accent); font-weight:700}
+.font-size-btn:active{transform:scale(.95)}
+
+/* ========== 响应式 ========== */
+@media (min-width:768px){
+  body{padding-bottom:calc(60px + var(--safe-bottom))}
+  .quick-grid{grid-template-columns:repeat(3,1fr)}
+  .tab-bar{max-width:720px; left:50%; transform:translateX(-50%); border-radius:20px 20px 0 0}
+}
+
+/* 隐藏mermaid加载前的原始代码 */
+.mermaid svg{max-width:100%; height:auto}
+
+</style>
+</head>
+<body>
+
+<!-- 顶部栏 -->
+<header class="app-header">
+  <button class="header-back" id="back-btn" onclick="goBack()">‹</button>
+  <div class="header-title">法师讲佛法的方法</div>
+  <div class="header-actions">
+    <button class="header-btn" id="font-btn" onclick="toggleFontPopup()">A</button>
+    <button class="header-btn" id="theme-btn" onclick="toggleTheme()">🌙</button>
+  </div>
+</header>
+
+<!-- 字体大小弹窗 -->
+<div class="font-popup" id="font-popup">
+  <div class="font-popup-title">字体大小</div>
+  <div class="font-size-options">
+    <button class="font-size-btn" data-size="15" onclick="setFontSize(15)">小</button>
+    <button class="font-size-btn active" data-size="17" onclick="setFontSize(17)">中</button>
+    <button class="font-size-btn" data-size="19" onclick="setFontSize(19)">大</button>
+    <button class="font-size-btn" data-size="21" onclick="setFontSize(21)">特大</button>
+  </div>
+</div>
+
+<!-- 页面容器 -->
+<div id="page-container"></div>
+
+<!-- 底部Tab栏 -->
+<nav class="tab-bar">
+  <button class="tab-item active" data-tab="home" onclick="navigate('/home')">
+    <span class="tab-icon">🏠</span>首页
+  </button>
+  <button class="tab-item" data-tab="method" onclick="navigate('/method')">
+    <span class="tab-icon">📖</span>手法
+  </button>
+  <button class="tab-item" data-tab="school" onclick="navigate('/school')">
+    <span class="tab-icon">⛩️</span>宗派
+  </button>
+  <button class="tab-item" data-tab="quiz" onclick="navigate('/quiz')">
+    <span class="tab-icon">✍️</span>测试
+  </button>
+  <button class="tab-item" data-tab="scene" onclick="navigate('/scene')">
+    <span class="tab-icon">🌐</span>场景
+  </button>
+</nav>
+
+<script>
+
+// ========== 应用数据 ==========
+var APP_DATA = {"chapters": [{"id": "overview", "title": "概览：法师讲法的总逻辑", "category": "home", "content": "<h2 id=\"_2\">概览：法师讲法的总逻辑</h2>\n<p>法师面对的听众，根器千差万别：有识字有不识字，有利根有钝根，有求福报有求解脱。佛法的核心义理（空、无常、缘起、涅槃）又是高度抽象、反直觉的。因此「怎么讲」与「讲什么」同样重要。</p>\n<p>讲法方法可归为四层：</p>\n<ol>\n<li><strong>临场手法层</strong>（十二种）：譬喻、故事、举例、问答、偈颂、引经、现身说法、对比、反问、演示、唱诵、图像——法师手边的「工具箱」。</li>\n<li><strong>体裁层</strong>（十二部经）：佛经本身的十二种体裁，本身即是讲法方式。</li>\n<li><strong>策略层</strong>（四悉檀、化仪四教、三转法轮）：按听众根器选择手法的「方法论」。</li>\n<li><strong>原则层</strong>（方便 upāya）：一切方法的总根——为令众生入佛知见，而不拘一法。</li>\n</ol>\n<p>本文重点是第 1 层（手法）与第 5 部分（宗派操作）的深度展开。</p>\n<div class=\"mermaid\">graph TD\n    A[讲法四层] --> B[手法层·十二种]\n    A --> C[体裁层·十二部经]\n    A --> D[策略层·四悉檀/化仪四教/三转法轮]\n    A --> E[原则层·方便 upāya]\n    B --> F[本文深度展开对象]\n    E --> G[总根：观机逗教 应病与药]\n</div>", "quizId": null}, {"id": "method-1", "title": "1. 譬喻（比喻）", "category": "method", "content": "<h2 id=\"1\">1. 譬喻（比喻）</h2>\n<h3 id=\"1_1\">（1）含义与定位</h3>\n<p>「譬喻」是以甲事物（喻体，听众熟悉）说明乙事物（法义，听众陌生）的手法。佛经中专列「譬喻」（Avadāna，十二部经第 7 项）为一部，足见其地位。它不创造新真理，而是「指月亮的手指」——借具体之相，指向抽象之理。</p>\n<h3 id=\"2\">（2）使用的意义：为什么譬喻最有效</h3>\n<ul>\n<li><strong>认知层面</strong>：人类理解抽象概念，依赖「具身认知」与「图式（schema）」。人先有「火会烧、梦会醒、泡会破」的生活图式，才能借此理解「三界如火宅、人生如梦幻」。没有喻体，抽象义理就是悬空的词。</li>\n<li><strong>记忆层面</strong>：双编码理论（Paivio）指出，图像+语言双重编码的记忆远强于纯语言。比喻在脑中生成画面，故易记。</li>\n<li><strong>情感层面</strong>：比喻降低防御。直接说「你执著名利是错的」会引发抗拒；说「手握炭火必自灼」，听者自己点头，防御自然卸下。</li>\n<li><strong>教学层面</strong>：先「权」后「实」，先以喻摄心，再点出真实义，符合「先以欲钩牵，后令入佛智」。</li>\n</ul>\n<h3 id=\"3\">（3）背后的佛理见解</h3>\n<ul>\n<li><strong>二谛</strong>：俗谛说「有喻」，真谛说「喻亦空」。比喻是俗谛方便，不可执喻废法（《金刚经》「如来说世界，即非世界，是名世界」）。</li>\n<li class=\"baihua\"><strong>白话</strong>：这句是说——如来所说的「世界」，其实并不是真实不变的世界，只是勉强给它一个「世界」的名字罢了。意思是：连用来打比方的「世界」都不可当真，何况其他比喻？所以用了比喻，要懂得放下比喻，别把手指当成月亮。</li>\n<li><strong>指月之指</strong>：喻如指，月如真理；愚者执指为月，智者因指见月。</li>\n<li><strong>假名引导</strong>：一切言说皆是假名施设，目的是「令众生从名言入实相」。</li>\n</ul>\n<h3 id=\"4\">（4）具体操作步骤</h3>\n<p><strong>法师临场七步：</strong></p>\n<ol>\n<li><strong>锁定难点</strong>：判断听众卡在哪个概念（如「无我」难懂）。</li>\n<li><strong>近取喻体</strong>：选听众经验内的物（车、病、梦、烛）。</li>\n<li><strong>建立对应表</strong>：把法义逐点映射到喻体（烦恼=火，觉=出宅）。</li>\n<li><strong>先喻后合</strong>：先讲喻的故事，再「此法合于……」点出。</li>\n<li><strong>设问推进</strong>：「云何？此喻与彼法，何处相似？」引导自悟。</li>\n<li><strong>收归实义</strong>：必回到胜义，不滞留比喻。</li>\n<li><strong>防堕两边</strong>：提醒「喻非实法」，免执指废月。</li>\n</ol>\n<p><strong>学者自练：</strong> 每天选一个佛法词（如「布施」），强迫自己想三个生活比喻，并写出「喻体→法义」对应表。</p>\n<h3 id=\"5\">（5）详细案例</h3>\n<p><strong>案例甲：《法华经·譬喻品》火宅喻（最完整的譬喻教学）</strong></p>\n<ul>\n<li><strong>背景与缘起</strong>：佛陀晚年于灵鹫山说《法华经》，核心目的是「会三归一」——此前四十余年，因众生根未熟，佛权说声闻、缘觉、菩萨「三乘」；此时根熟，要说「唯有一佛乘」。但许多声闻弟子（阿罗汉）自认已究竟，不愿再求成佛。佛若直说「你们得的不是究竟」，他们可能惊疑退转。于是佛用「火宅喻」善巧导入。</li>\n<li><strong>基本故事</strong>：有一长者，财富无量，唯有一大宅。宅年久失修，柱梁腐朽，「四面俱时欻然火起」——喻三界（欲界、色界、无色界）如同燃烧的旧宅，内有生老病死忧悲苦恼之火。宅中有一群孩童（喻众生），正嬉戏快乐，对火毫无觉察，不惊不怖，亦不想出（喻众生迷于五欲，不知轮回是苦）。长者见火逼子，忧怖万分，急呼诸子「速出！门外有羊车、鹿车、牛车，任汝所玩！」诸子贪玩乐，虽闻父言，仍恋戏具，不肯即出。长者权智方便，知子所好，复言「汝等所喜之车，今在门外，可速往取！」诸子闻已，竞奔而出，免于火难。既出，长者各赐「大白牛车」——车驾肥壮白牛，行步平正，其疾如风，庄严无比（喻佛乘，一乘实相）。</li>\n<li class=\"baihua\"><strong>白话重述（火宅喻大白话）</strong>：一位老富翁家房子又老又破，四面突然同时着起大火（比喻：我们活着的这个世界——欲界、色界、无色界，就像一栋着了火的危楼，里面全是生老病死等种种痛苦）。屋里一群小孩正玩得开心，根本不知道起火了，也不想逃（比喻：我们凡夫沉迷在吃喝玩乐里，不知道轮回是苦）。老父亲一看火快烧到孩子，又急又怕，喊：「快出来！门外有羊车、鹿车、牛车，随你们玩！」孩子们贪玩，光听见不挪步。父亲只好说：「你们最喜欢的车就在门外，快去拿！」孩子们一听，这才争先恐后跑出来，逃过一死。出来后，父亲每人送一辆大白牛车——又白又壮、跑得飞快、装饰华美（比喻：佛把最圆满的「一佛乘」真理平等赐给所有人）。</li>\n<li><strong>前因后果</strong>：因——众生乐著三界、声闻滞于小果；果——佛以三车诱引令出（权），再以大车平等赐与（实）。重点在「平等赐大车」：无论声闻缘觉菩萨，最终皆入佛乘，无有差别。</li>\n<li><strong>法义点</strong>：① 三界是苦（火宅）；② 佛以大悲欲救（长者忧怖）；③ 众生难化需方便（诱以三车）；④ 究竟唯一佛乘（大白牛车）；⑤ 权实关系：三乘是「化城」式方便，一乘是真实。</li>\n<li><strong>现代启示</strong>：教育/管理中，对认知未到的对象，先给其想要的「羊车」（短期激励），再慢慢导向真正的「大车」（长期成长），比硬灌道理有效。</li>\n</ul>\n<p><strong>案例乙：化城喻（权实二智的进阶比喻）</strong></p>\n<ul>\n<li><strong>背景</strong>：接火宅喻之后，佛说「化城喻」解释为何要说「二乘涅槃」这个中间站。</li>\n<li><strong>故事</strong>：一善知识（喻佛）作大导师，领众多人（喻众生）过五百由旬险难恶道（喻生死长夜），求宝所（喻佛果）。大众行久，疲极怖畏，生退心：「前途尚远，不如退还。」导师以神通力，于险道中化一化城（喻二乘涅槃/阿罗汉果），告众「此城可歇，非是退处」。众入城，得止息，安稳快乐。导师知众已歇，复灭化城，语众「宝所在近，此城非实，是吾所化」。众遂鼓勇前进，终至宝所。</li>\n<li class=\"baihua\"><strong>白话重述（化城喻大白话）</strong>：一位好向导（比喻佛）带着一大批人（比喻我们众生）走一条长达「五百由旬」的险恶之路（比喻漫长的生死轮回），去找宝藏（比喻成佛）。走得太久，大家累垮了、害怕了，想打退堂鼓：「路还远着呢，不如回去吧。」向导就用神通在半路变出一座城（比喻「二乘阿罗汉的涅槃」——一个暂时歇脚的地方），告诉大家：「进城歇歇，这儿不是回头路。」大家进城，安顿下来，不累也不怕了。等大家歇够了，向导又把城变没，说：「宝藏就在前面，这城是我变的，不是真终点。」大家这才鼓起勇气继续走，终于拿到宝藏。</li>\n<li><strong>前因后果</strong>：因——众生畏菩提道长远，易生退心；果——佛设「化城」（有余涅槃）暂歇其心，待堪任时，破化城而引向真实宝所。</li>\n<li><strong>法义点</strong>：二乘涅槃是「方便休息处」非终点；佛之智慧是「权实二智」——实智见真实，权智设方便。</li>\n<li><strong>现代启示</strong>：目标太大让人却步时，设置「中途里程碑」（化城）维持动力，是极有效的引导术。</li>\n</ul>\n<p><strong>案例丙：《百喻经》「愚人食盐」</strong></p>\n<ul>\n<li><strong>故事</strong>：昔有愚人，至友人家。主食淡无味，主人见之，加少许盐，愚人食之，觉味甚美。便自念：「所以美者，缘有盐故。少尚如此，况多！」归家，空口取盐食之，咸苦败口，乃至伤身。</li>\n<li><strong>来龙去脉</strong>：外道修苦行，见佛弟子得安乐解脱，误以为「苦行即是道」，遂盲目自苦（如空食盐），反障解脱。</li>\n<li><strong>法义点</strong>：中道——盐（方便/苦行）适量则益，执之过度则害；修行须「离于二边，行于中道」。</li>\n<li><strong>现代启示</strong>：任何方法（包括佛法、包括工作方法）都讲「度」，过了头就异化。</li>\n</ul>\n<p><strong>案例丁：《百喻经》「楼阁喻」（次第教学）</strong></p>\n<ul>\n<li><strong>故事</strong>：富人造楼，匠人从平地起基、累砖至上层。富人急功，谓匠「不须作下二屋，先为我作最上第五层。」匠答「无有是理，不筑基何有上层？」</li>\n<li><strong>法义点</strong>：修行如造楼，须次第（持戒→修定→发慧），妄求「顿证高层」如欲无基之楼。</li>\n<li><strong>现代启示</strong>：能力成长有顺序，跳级往往塌房。</li>\n</ul>\n<h3 id=\"6\">（6）常见误区</h3>\n<ul>\n<li>喻体太冷僻＝没比喻；</li>\n<li>执喻为实＝「认指为月」；</li>\n<li>一个喻硬套所有法＝牵强。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：譬喻（比喻） ========== -->", "quizId": "quiz-1"}, {"id": "method-2", "title": "2. 讲故事", "category": "method", "content": "<h2 id=\"2_1\">2. 讲故事（本生 / 本事 / 因缘 / 公案）</h2>\n<h3 id=\"1_2\">（1）含义与定位</h3>\n<p>叙事是最古老、最普世的教化方式。佛教故事分四类：本生（佛前生）、本事（弟子前生）、因缘（说法缘起）、公案（禅宗机锋故事）。故事把抽象戒定慧「穿」进情节，让人「记得住、代入得、学得会」。</p>\n<h3 id=\"2_2\">（2）使用的意义</h3>\n<ul>\n<li><strong>叙事传输（narrative transportation）</strong>：人听故事时，自我防线降低，进入「代入态」，价值观悄然被故事重塑（Green &amp; Brock 研究）。所以「舍身饲虎」比「应行布施」有力百倍。</li>\n<li><strong>榜样替代学习</strong>：班杜拉社会学习理论——看主角怎么做、得什么果，听众间接习得。</li>\n<li><strong>情感共鸣</strong>：故事有角色、有苦难、有抉择，触动同情与敬畏，比概念更能驱动修行。</li>\n</ul>\n<h3 id=\"3_1\">（3）背后的佛理见解</h3>\n<ul>\n<li><strong>三世因果、生死轮回</strong>：本生故事预设「菩萨累劫修行」，显发菩提心的长程性。</li>\n<li><strong>菩萨道精神</strong>：佛前生种种难行苦行，示「难行能行、难忍能忍」。</li>\n<li><strong>公案即「活句」</strong>：禅宗公案不是知识，是逼人离识的「火炉」。</li>\n</ul>\n<h3 id=\"4_1\">（4）具体操作步骤</h3>\n<p><strong>叙事教学六步：</strong></p>\n<ol>\n<li><strong>选材</strong>：对贪者说布施本生，对怯者说勇猛本生。</li>\n<li><strong>铺境</strong>：时间、人物、困境（「过去世……」）。</li>\n<li><strong>设难</strong>：主角面临抉择/苦难，制造张力。</li>\n<li><strong>显行</strong>：主角如何以佛法应对。</li>\n<li><strong>点题</strong>：「佛告比丘，尔时某某即我身」，收归法义。</li>\n<li><strong>回向</strong>：「汝等亦当如是学」。</li>\n</ol>\n<h3 id=\"5_1\">（5）详细案例</h3>\n<p><strong>案例甲：本生·摩诃萨埵太子舍身饲虎</strong></p>\n<ul>\n<li><strong>背景与来龙去脉</strong>：此故事出自《贤愚经》《菩萨本生鬘论》等。释迦牟尼佛往昔劫中，曾为摩诃萨埵（意「大勇」）王子，与二兄游山。这是佛「菩萨道」无量劫修行的其中一段，用以显示「布施波罗蜜」的极致——连身命都可舍。</li>\n<li><strong>基本故事</strong>：一日，萨埵与二兄漫游山林，见一母虎刚产七子，饥饿至极，将食其子。虎母羸弱，无力的乳汁与疲极之身，眼看七虎命在顷刻。萨埵心生大悲，思惟：「此虎母子，不久俱死。」便设方便，令二兄先行，独自留后。他来到虎前，脱衣刺颈，以干竹刺颈出血，卧身虎前，任虎啖食。虎因饿极，先饮其血，次食其肉。当时大地震动，天华乱坠，虚空中天神赞叹。二兄寻弟不遇，还至原处，唯见残骨余血、衣物狼藉，方知弟已舍身。举国悲恸，父母收骨起塔供养。</li>\n<li><strong>前因后果</strong>：因——萨埵宿世修习大悲、发菩提心，故见众生苦能即刻舍身；果——以此施身因缘，速满布施度，近佛果；感得大地震动、天华供养之瑞，显菩萨行感天动地。</li>\n<li><strong>法义点</strong>：① 布施不仅舍财，乃至舍头目脑髓；② 大悲为动力；③ 菩萨以「众生苦」为修行田；④ 「难行能行」。</li>\n<li><strong>现代启示</strong>：真正的利他，是把自己「放上天平」——你愿意为所信之事付出多少？这个故事把「奉献」推到极致，照见日常的吝啬。</li>\n</ul>\n<p><strong>案例乙：本生·尸毗王割肉喂鹰</strong></p>\n<ul>\n<li><strong>背景</strong>：出自《杂宝藏经》等。佛往昔为尸毗王，修忍辱与平等救护。</li>\n<li><strong>故事</strong>：帝释天（天帝）欲试菩萨心，化一鹰，毗首羯摩天化一鸽。鹰逐鸽，鸽投尸毗王怀中乞命。王曰「我当救汝」。鹰言「我食鸽活，王救鸽是杀我。」王曰「吾以余肉代鸽。」鹰索「与鸽等重之肉」。王命割身肉秤之，屡割犹轻于鸽；王乃举身悉称盘中。天帝证明，王身还复如故，大地震动，诸天赞叹。</li>\n<li><strong>前因后果</strong>：因——王久修忍辱平等，故能于剧痛中不动嗔；果——天平持平，显「慈悲等观、怨亲一视」，证忍辱波罗蜜圆满。</li>\n<li><strong>法义点</strong>：冤亲平等、忍辱无嗔、以自身代众生苦。</li>\n</ul>\n<p><strong>案例丙：本事·莲花色比丘尼</strong></p>\n<ul>\n<li><strong>背景</strong>：佛说其过去生因缘。莲花色本为富贵家女，遭家变流转，历经坎坷，后遇佛出家证果。</li>\n<li><strong>故事与意义</strong>：佛以她的宿世业缘（曾因嫉妒造恶、又因忏悔修善）说明「今生之果各有前因」，劝人莫怨天、当勤修。显「业果不虚、忏悔有力」。</li>\n</ul>\n<p><strong>案例丁：因缘·给孤独长者布金买园</strong></p>\n<ul>\n<li><strong>背景与来龙去脉</strong>：佛陀成道后，需固定说法处。舍卫城须达多（给孤独，赈济孤贫得名）长者，闻佛说法生大信心，欲请佛来舍卫。看中祇陀太子之园，太子年少，不欲卖，戏言「金布地遍乃卖」。须达以金饼（金币）布地，只余一门未覆。太子见其诚，感佩，言「园中树木是我施佛」，故寺名「祇树给孤独园」。</li>\n<li><strong>前因后果</strong>：因——长者真诚恳切、不惜巨财；果——成就佛陀重要道场，佛于此说《金刚经》《阿弥陀经》等多经，利益无量。</li>\n<li><strong>法义点</strong>：檀越（施主）请法之因缘；真诚感格；布施庄严道场。</li>\n</ul>\n<p><strong>案例戊：公案·赵州「吃茶去」</strong>（详禅宗节）\n<strong>案例己：公案·百丈野狐</strong>（详禅宗节）</p>\n<h3 id=\"6_1\">（6）常见误区</h3>\n<ul>\n<li>故事讲长离题，忘了点题＝闲聊；</li>\n<li>把本生当「神话迷信」而轻藐＝失其象征义；</li>\n<li>公案当故事听＝浪费「活句」。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：讲故事（本生/本事/因缘/公案） ========== -->", "quizId": "quiz-2"}, {"id": "method-3", "title": "3. 举例子", "category": "method", "content": "<h2 id=\"3_2\">3. 举例子（现事例证）</h2>\n<h3 id=\"1_3\">（1）含义与定位</h3>\n<p>「举例」与「譬喻」相近但不同：譬喻用「物」（梦、泡），举例用「事」（生病、种田、堵车）。它是把法义锚定在听众当下生活情境中的手法。</p>\n<h3 id=\"2_3\">（2）意义</h3>\n<ul>\n<li>抽象义理若不与生活挂钩，听众「听听感动，回家不动」。举例让法「落地」。</li>\n<li>近端例子降低理解门槛，特别适合初机大众。</li>\n</ul>\n<h3 id=\"3_3\">（3）背后见解</h3>\n<ul>\n<li><strong>佛法在世间</strong>：《六祖坛经》「佛法在世间，不离世间觉」——举生活例，正是显此。</li>\n<li><strong>缘起法遍一切处</strong>：穿衣吃饭皆是缘起，皆可作法例。</li>\n</ul>\n<h3 id=\"4_2\">（4）操作步骤</h3>\n<ol>\n<li>从听众日常提取素材（病、田、灯、路）。</li>\n<li>一对一映射（病→烦恼，药→法，种因→感果）。</li>\n<li>引其「啊，原来如此」自悟。</li>\n<li>收束到修行应用。</li>\n</ol>\n<h3 id=\"5_2\">（5）详细案例</h3>\n<p><strong>案例：病药喻（对治悉檀的核心例子）</strong></p>\n<ul>\n<li><strong>背景</strong>：众生有「三毒」（贪、嗔、痴）如病。佛说「对治悉檀」——针对病下药。</li>\n<li><strong>展开</strong>：法师讲：「你失眠焦虑，医生会开安眠药、抗焦虑药，对不对？那你的『嗔恨病』『贪著病』『愚痴病』，佛也有对症之药：贪者修不净观（观身不净，破身见贪），嗔者修慈悲观（观众生皆曾为我父母，生怜悯），痴者修因缘观（观诸法因缘生，破无明）。药不对病，再名贵也无效；法不对机，再高深也无用。」</li>\n<li><strong>前因后果</strong>：因——众生根器不同，烦恼侧重不同；果——以不同对治法，各得解脱。</li>\n<li><strong>法义点</strong>：应病与药、因材施教。</li>\n<li><strong>现代启示</strong>：管理/教育中，先诊断对象「病」在哪，再给方案，而非一刀切。</li>\n</ul>\n<p><strong>案例：燃灯喻</strong></p>\n<ul>\n<li><strong>故事</strong>：一灯可燃千灯，光光不绝，而本灯之光不减。法师以实际点烛演示（见第 10 项「演示」）。</li>\n<li><strong>法义点</strong>：智慧相传、布施不竭（财布施竭，法布施不竭）。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：举例子（现事例证） ========== -->", "quizId": "quiz-3"}, {"id": "method-4", "title": "4. 问答 / 对话", "category": "method", "content": "<h2 id=\"4_3\">4. 问答 / 对话</h2>\n<h3 id=\"1_4\">（1）含义与定位</h3>\n<p>以「提问—回答」推动思辨。佛经多「弟子问、佛答」结构（《金刚经》须菩提问、《楞严经》阿难问）。它把单向灌输变成双向探索。</p>\n<h3 id=\"2_4\">（2）意义</h3>\n<ul>\n<li><strong>主动建构</strong>：被问的人被迫组织思路，学习从被动变主动（建构主义教学）。</li>\n<li><strong>破执显正</strong>：先破错误预设，正见自然显。须菩提问「云何住」，佛答「应无所住」——先破「住」的执，再立「无住生心」。</li>\n<li><strong>苏格拉底产婆术</strong>：佛的问答，正是东方的「产婆术」——答案不在给，而在引出。</li>\n</ul>\n<h3 id=\"3_4\">（3）背后见解</h3>\n<ul>\n<li><strong>转迷启悟</strong>：疑问是觉悟的入口；「大疑大悟」。</li>\n<li><strong>四悉檀中「为人悉檀」</strong>：针对此人此问而答。</li>\n</ul>\n<h3 id=\"4_4\">（4）操作步骤</h3>\n<ol>\n<li><strong>设问</strong>：抛根本问题。</li>\n<li><strong>破执</strong>：先破听众错误预设。</li>\n<li><strong>显正</strong>：正面开示。</li>\n<li><strong>再难</strong>：追诘深入。</li>\n<li><strong>印可</strong>：佛以「善哉」印可，或令疑情顿断。</li>\n</ol>\n<h3 id=\"5_3\">（5）详细案例</h3>\n<p><strong>案例甲：《金刚经》须菩提之问（破执显正的典范）</strong></p>\n<ul>\n<li><strong>背景与来龙去脉</strong>：佛陀在舍卫国祇树给孤独园，食时著衣持钵、洗足已，敷座而坐——示现「平常心是道」。千二百五十比丘围绕。须菩提（解空第一）从座起，偏袒右肩，右膝着地，合掌请法。他观察到：发菩提心者虽多，但「云何安住其心、云何降伏其妄心」是根本难题——若心住于色声香味触法，便非菩萨。</li>\n<li>\n<p><strong>问答经过</strong>：\n  须菩提：「希有世尊！善男子善女人，发阿耨多罗三藐三菩提心，应云何住？云何降伏其心？」\n  佛：「善哉善哉！须菩提，如汝所说……诸菩萨摩诃萨，应如是降伏其心：所有一切众生之类……我皆令入无余涅槃而灭度之。如是灭度无量众生，实无众生得灭度者。」\n  ——先破「有众生可度、有我能度」之执。\n  须菩提再问「何以故（云何是菩萨庄严佛土）」，佛答「庄严佛土者，即非庄严，是名庄严」「若菩萨通达无我法者，如来说名真是菩萨」。\n  最终核心句：「应无所住而生其心。」「若见诸相非相，即见如来。」</p>\n</li>\n<li class=\"baihua\">\n<p><strong>白话翻译（这段对话在说什么）</strong>：</p>\n<ul>\n<li>须菩提问：「了不起的世尊！发了‘成佛’大愿的善男信女，心应当安住在哪里？又该怎么降伏那颗胡思乱想的心？」</li>\n<li>佛说：「问得好！菩萨应当这样降伏妄心：所有一切众生，我都要帮助他们进入涅槃、得到解脱。可是——虽然度化了无量众生，心里却要清楚：其实并没有一个真实的‘众生’被我度，也没有一个真实的‘我’在度人。」</li>\n<li>佛又说：「所谓‘庄严佛土’，并不是真的有个庄严可得，只是勉强叫它庄严罢了；一个菩萨若能通达‘无我’的道理，才是佛真正认可的菩萨。」</li>\n<li>最后两句大白话：①「应当不执着任何东西，同时又能积极行善、生起利他之心」——这就是修行该有的心态。②「如果能看透一切相状都不是真实不变的，你就见到了佛（真理）」。</li>\n</ul>\n</li>\n<li><strong>前因后果</strong>：因——众生执「我、人、众生、寿者」四相，障碍菩提；果——佛以「无住生心」破四相，显金刚般若。</li>\n<li><strong>法义点</strong>：空有不二、无我、应无所住；问答即破立。</li>\n<li><strong>现代启示</strong>：面对焦虑，不「压住」念头，而是「不黏著」地生心——心理学中的「认知解离」与之相通。</li>\n</ul>\n<p><strong>案例乙：《楞严经》七处征心</strong></p>\n<ul>\n<li><strong>背景</strong>：阿难被摩登伽女以幻术所惑，佛敕文殊持咒救回。佛问阿难「当初因何出家？」阿难答「见佛相好，心生爱乐」。佛诃其「不知真心」。遂令阿难「何处是心？」</li>\n<li><strong>问答经过</strong>：阿难七次作答——心在身内、在身外、潜伏根里、在见明见暗之中、在随所合处、在中间、在无著。佛逐一破之：「若心在身内，何不见内？若在身外，何不相知？……」七破皆非。阿难茫然，佛方说「一切众生，从无始来，认物为己，失于本心」——引出「常住真心、性净明体」。</li>\n<li><strong>前因后果</strong>：因——阿难依妄识（攀缘心）为心；果——七破显妄，为说真妄二心之别，开「反闻闻自性」之门。</li>\n<li><strong>法义点</strong>：妄心（攀缘）vs 真心（常住）；破妄显真。</li>\n</ul>\n<p><strong>案例丙：《维摩诘经》不二法门</strong></p>\n<ul>\n<li><strong>背景</strong>：维摩诘示疾，文殊率众问疾。维摩诘令诸菩萨各说「不二法门」。</li>\n<li><strong>经过</strong>：三十余菩萨各说（生灭不二、垢净不二、罪福不二……）。文殊曰：「于一切法，无言无说、无示无识，离诸问答，是为不二法门。」问维摩诘，维摩诘「默然无言」。文殊叹「善哉！乃至无有文字语言，是真入不二法门」。</li>\n<li><strong>法义点</strong>：不二超越言诠；以「不答之答」（默然）收摄——问答的极处是离言。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：问答 / 对话 ========== -->", "quizId": "quiz-4"}, {"id": "method-5", "title": "5. 偈颂 / 诗歌", "category": "method", "content": "<h2 id=\"5_4\">5. 偈颂 / 诗歌</h2>\n<h3 id=\"1_5\">（1）含义与定位</h3>\n<p>偈（gāthā）是梵语韵文，四句或多句成颂。佛经中「长行（散文）」说毕，常以「重颂」再偈说一遍（十二部经第 2 项）；也有独立「孤起颂」（第 4 项）。偈颂浓缩要义，便于记诵。</p>\n<h3 id=\"2_5\">（2）意义</h3>\n<ul>\n<li><strong>记忆经济</strong>：韵文有节律，古人无印刷、无手机，全靠偈颂口耳相传。</li>\n<li><strong>情感韵律</strong>：唱诵偈颂摄心，比散文更能入心。</li>\n<li><strong>总摄纲要</strong>：长行细说，偈颂提纲领，符合「详略双彰」。</li>\n</ul>\n<h3 id=\"3_5\">（3）背后见解</h3>\n<ul>\n<li><strong>声名句文</strong>：佛语以声名句文为体，偈颂是「文」的最佳载体。</li>\n<li><strong>二道（方便道、般若道）</strong>：偈颂多属般若道之总持。</li>\n</ul>\n<h3 id=\"4_5\">（4）操作步骤</h3>\n<ol>\n<li>将散文要义提炼四/八句。</li>\n<li>押韵对仗，易诵。</li>\n<li>先长行详说，后偈颂总摄（或孤起颂独立）。</li>\n<li>领众齐诵，摄心入法。</li>\n</ol>\n<h3 id=\"5_5\">（5）详细案例</h3>\n<p><strong>案例甲：七佛通诫偈</strong></p>\n<ul>\n<li><strong>内容</strong>：「诸恶莫作，众善奉行，自净其意，是诸佛教。」</li>\n<li class=\"baihua\"><strong>白话翻译</strong>：①「诸恶莫作」＝所有的坏事都不要做；②「众善奉行」＝所有的好事都要去做；③「自净其意」＝把自己的心打扫干净（把贪嗔痴这些脏东西清掉，让心安定、清醒）；④「是诸佛教」＝这就是一切佛共同的教导。四句话把「戒、定、慧」全包了：前两句是戒，第三句是定和慧。</li>\n<li><strong>来龙去脉</strong>：过去七佛（毗婆尸至释迦）皆说此偈，总摄戒定慧三学：诸恶莫作＝戒，众善奉行＝戒之广，自净其意＝定慧。这是佛教最精简的「总纲」，跨部派、跨时代。</li>\n<li><strong>意义</strong>：一句偈含摄全体佛法，显「偈颂总持」之力。</li>\n<li><strong>现代启示</strong>：任何复杂体系，都应能压缩成一句口号/原则。</li>\n</ul>\n<p><strong>案例乙：《心经》陀罗尼</strong></p>\n<ul>\n<li><strong>内容</strong>：「揭谛揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃。」</li>\n<li><strong>意义</strong>：以密语总持「去吧去吧，到彼岸去吧，完全到彼岸，成就菩提」，显「般若总持」。</li>\n<li class=\"baihua\"><strong>白话</strong>：这是一句梵文咒语，意思大略是：「去吧、去吧，渡过生死之河到彼岸去吧，大家一起完全到彼岸，成就无上觉悟（菩提）」。它不要求你懂梵文，只管用清净心念，就起到「总持般若智慧」的作用。</li>\n</ul>\n<p><strong>案例丙：六祖「菩提本无树」</strong></p>\n<ul>\n<li><strong>背景</strong>：五祖弘忍欲传衣法，令门人作偈。神秀（上座）偈：「身是菩提树，心如明镜台，时时勤拂拭，勿使惹尘埃。」（渐修门）。惠能（舂米行者）闻之，请人代书：「菩提本无树，明镜亦非台，本来无一物，何处惹尘埃。」（顿悟门）。</li>\n<li class=\"baihua\"><strong>白话翻译（两首偈在说什么）</strong>：</li>\n<li>神秀（渐修派）：「身体就像一棵菩提树，心就像一面明亮的镜子；要时时勤快地擦拭，别让上面沾了灰尘。」——意思是：我们的心本来清净，但会被烦恼（灰尘）污染，所以要不断修行、打扫，慢慢恢复清净。这是「慢慢来」的路。</li>\n<li>惠能（顿悟派）：「菩提本来不是树，明镜也不是台子；本来什么都没有，哪里来的灰尘？」——意思是：你的清净本性根本不是个「东西」，本来空寂、本来干净，连「要擦的灰尘」都是你想出来的；直接悟到「本来无一物」，当下就是清净。这是「一下到位」的路。</li>\n<li><strong>前因后果</strong>：因——神秀执「有染可拂」，惠能彻「性本空寂」；果——五祖见惠能偈，夜半传衣法，惠能成六祖。</li>\n<li><strong>法义点</strong>：顿渐之别；空性本净。偈颂在此成了「印心」之具。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：偈颂 / 诗歌 ========== -->", "quizId": "quiz-5"}, {"id": "method-6", "title": "6. 引经据典", "category": "method", "content": "<h2 id=\"6_2\">6. 引经据典</h2>\n<h3 id=\"1_6\">（1）含义与定位</h3>\n<p>引用佛说经文、祖师语录，建立权威、互相印证。是「以经证经」的严谨手法。</p>\n<h3 id=\"2_6\">（2）意义</h3>\n<ul>\n<li><strong>权威背书</strong>：听众易生信心（「这是佛亲说的，不是我编的」）。</li>\n<li><strong>防师心自用</strong>：依法不依人，引经约束主观发挥。</li>\n<li><strong>体系互证</strong>：一经之难，以他经解之，显佛法一贯。</li>\n</ul>\n<h3 id=\"3_6\">（3）背后见解</h3>\n<ul>\n<li><strong>四依止</strong>：「依法不依人、依义不依语、依了义经不依不了义经、依智不依识」——引经须依了义。</li>\n<li><strong>判教必要</strong>：不同经有「权实、顿渐」之别，引经须知所处教相（天台四教）。</li>\n</ul>\n<h3 id=\"4_6\">（4）操作步骤</h3>\n<ol>\n<li>立一义，即引一经文为据（「如《经》云……」）。</li>\n<li>以经证经，避免师心。</li>\n<li>判摄引用（依五重玄义、四教定位）。</li>\n<li>归到现前修行。</li>\n</ol>\n<h3 id=\"5_6\">（5）详细案例</h3>\n<p><strong>案例甲：智者大师讲《法华》以经证经</strong></p>\n<ul>\n<li><strong>背景</strong>：天台智顗判一代时教为「五时八教」。《法华》是「第五时」圆教，会三归一。</li>\n<li><strong>经过</strong>：智者讲《法华》时，引《大品般若》（说空）、《涅槃》（说佛性）、《华严》（说圆顿）互证，立「开权显实、会三归一」：昔日说三乘是「权」（方便），今说一佛乘是「实」（究竟）。引《信解品》穷子喻、《药草喻品》证明「一雨普润，而草木大小不同」——显佛一音说法、众生随类得解。</li>\n<li><strong>法义点</strong>：判教使群经各得其所；引经贵在「会通」非「堆砌」。</li>\n</ul>\n<p><strong>案例乙：蕅益大师《弥陀要解》</strong></p>\n<ul>\n<li><strong>背景</strong>：明末蕅益智旭，以天台心印注《阿弥陀经》。</li>\n<li><strong>特点</strong>：句句引经，判净土为「巧方便中之极巧、圆顿中最极圆顿」，引《华严》《法华》证「持名念佛即是一心不乱、即契实相」。</li>\n<li><strong>意义</strong>：引经非掉书袋，而是「以圣言量镇住异说」。</li>\n</ul>\n<h3 id=\"6_3\">（6）常见误区</h3>\n<ul>\n<li>断章取义、乱引；</li>\n<li>以经压人、不作解；</li>\n<li>不知权实，把「不了义经」当究竟。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：引经据典 ========== -->", "quizId": "quiz-6"}, {"id": "method-7", "title": "7. 现身说法", "category": "method", "content": "<h2 id=\"7\">7. 现身说法</h2>\n<h3 id=\"1_7\">（1）含义与定位</h3>\n<p>法师以自身修行体验、人生转折、亲身证悟来说法。不是讲别人的故事，是「我自己的事」。</p>\n<h3 id=\"2_7\">（2）意义</h3>\n<ul>\n<li><strong>可信度最高</strong>：听众数「道理谁都会讲」，但「你做到没做到」一眼可感。亲历者说话有「体验权威」。</li>\n<li><strong>情感连接最强</strong>： Vulnerability（坦诚脆弱）拉近距离，听众从「他好厉害」变成「原来我也可以」。</li>\n<li><strong>破玄学感</strong>：佛法不再是空谈，而是「有人真走通了」的证据。</li>\n</ul>\n<h3 id=\"3_7\">（3）背后见解</h3>\n<ul>\n<li><strong>解行相应</strong>：《楞严》「因地不真，果招纡曲」——说者须先自修。</li>\n<li><strong>以身作则</strong>：菩萨「现同类身，说同法语」，与众生同行。</li>\n</ul>\n<h3 id=\"4_7\">（4）操作步骤</h3>\n<ol>\n<li>法师先有真实修证或切身转变（不可编造）。</li>\n<li>以「我当初也……后来如何……」自述。</li>\n<li>不炫己德，重在「同是凡夫，依法可转」。</li>\n<li>引导听众效学：「你也可以」。</li>\n</ol>\n<h3 id=\"5_7\">（5）详细案例</h3>\n<p><strong>案例甲：目连救母与盂兰盆</strong></p>\n<ul>\n<li><strong>背景与来龙去脉</strong>：佛陀大弟子摩诃目犍连，证阿罗汉后，以道眼观见亡母堕在饿鬼道，皮骨连立，饿渴不堪。目连以钵盛饭往饷，饭未入口化成火炭。目连悲号，白佛求救。佛言：「汝母罪根深结，非汝一人力所能救。当于七月十五僧自恣日，以百味饮食供养十方僧众，以此功德，方得拔济。」目连依教奉行，母即得脱饿鬼之苦，生人天中。</li>\n<li><strong>前因后果</strong>：因——母生前悭贪（不舍）、轻慢僧，感饿鬼报；果——目连依佛方、借僧力，转其业。佛因此事立「盂兰盆法会」，流传至今。</li>\n<li><strong>法义点</strong>：① 孝道贯通出世（大孝度亲）；② 自力有限，须借众僧和合之力（福田）；③ 因果不虚，然可借法转业。</li>\n<li><strong>现代启示</strong>：想帮所爱之人，单靠个人情感不够，须借「对的方法+集体的善力」。</li>\n</ul>\n<p><strong>案例乙：近代例证（印光、虚云）</strong></p>\n<ul>\n<li><strong>印光大师</strong>：自号「粥饭僧」，一生不蓄徒众、不任住持，专弘「老实念佛」。其开示多自述「我亦薄地凡夫」，以谦卑现身，劝人「莫换题目」。</li>\n<li><strong>虚云老和尚</strong>：一生朝山、燃指供佛、住茅棚苦行，以百年行持示「行解相应」。其开示常以自身参禅落处为例，令学人知「路是这样走的」。</li>\n</ul>\n<h3 id=\"6_4\">（6）误区</h3>\n<ul>\n<li>编造经历＝打妄语、失根基；</li>\n<li>变炫耀＝「我相」未破；</li>\n<li>只诉苦不点法＝成抱怨。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：现身说法 ========== -->", "quizId": "quiz-7"}, {"id": "method-8", "title": "8. 对比 / 对照", "category": "method", "content": "<h2 id=\"8\">8. 对比 / 对照</h2>\n<h3 id=\"1_8\">（1）含义与定位</h3>\n<p>把两个相关项并列对照（世间/出世、凡/圣、权/实、真/俗），让差异与关系自显。</p>\n<h3 id=\"2_8\">（2）意义</h3>\n<ul>\n<li><strong>辨别学习</strong>：人靠「差异」理解事物。不比不知「净」，不比不知「染」。</li>\n<li><strong>凸显价值</strong>：把「轮回苦」与「涅槃乐」一比，出离心自然生。</li>\n<li><strong>防混淆</strong>：权实一比，知何者是方便、何者是真实。</li>\n</ul>\n<h3 id=\"3_8\">（3）背后见解</h3>\n<ul>\n<li><strong>二谛中道</strong>：俗谛说有（因果），真谛说空（性寂）；不二而二、二而不二。</li>\n<li><strong>开权显实</strong>：对比是「权实」关系的显影。</li>\n</ul>\n<h3 id=\"4_8\">（4）操作步骤</h3>\n<ol>\n<li>列对照项（如凡夫 vs 圣人）。</li>\n<li>逐项并比，凸显矛盾/层次。</li>\n<li>归到「舍此取彼」或「圆融无碍」。</li>\n</ol>\n<h3 id=\"5_8\">（5）详细案例</h3>\n<p><strong>案例甲：权实对比（《法华》开权显实）</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：佛成道后，观众生根未熟，先说阿含（小乘，令出生死），次说方等（弹偏斥小），次说般若（说空），皆是「权」；至《法华》根熟，方说「十方佛土中，唯有一乘法，无二亦无三」——显「实」。</li>\n<li class=\"baihua\"><strong>白话</strong>：佛成道后，看大家根基还没成熟，就先讲《阿含经》（小乘法，先帮你跳出生死），再讲《方等经》（批评偏空、斥责小乘），再讲《般若经》（讲「空」的道理）——这些都属于「权」，是临时拐杖。等到讲《法华经》时，大家根基成熟了，佛才直说：「在十方一切佛土里，只有一条成佛的路（一佛乘），没有第二条、第三条。」这就是「实」，是最终真相。</li>\n<li class=\"baihua\"><strong>白话（关键引文）</strong>：「十方佛土中，唯有一乘法，无二亦无三」＝在一切世界里，只有「成佛」这一条真正的路，没有声闻、缘觉、菩萨三种不同的究竟出路（那三种只是方便诱导）。</li>\n<li><strong>对比呈现</strong>：三乘（声闻、缘觉、菩萨）是「方便门」，一佛乘是「真实相」；如三车是诱子出火宅的权，大白牛车是真实赐与。</li>\n<li><strong>法义点</strong>：权实不二——权即实之巧施，实即权之归趣。</li>\n</ul>\n<p><strong>案例乙：真俗二谛对比</strong></p>\n<ul>\n<li><strong>对比</strong>：俗谛——万法宛然有（吃饭、因果、修行）；真谛——万法性本空（无自性）。执著俗则迷，执空则堕断灭；中道「色即是空，空即是色」。</li>\n<li class=\"baihua\"><strong>白话</strong>：「俗谛」＝从我们凡夫的眼光看，万事万物清清楚楚地存在——要吃饭、有因果、要修行，这些都不能否认。「真谛」＝从究竟真理看，万事万物都没有固定不变的自性（都是条件凑合起来的，会变化）。如果只信「有」而执着不放，就迷了；如果只信「空」而说什么都没有，就掉进「什么都不管的断灭见」。正确的中道是「色即是空，空即是色」＝「物质现象（色）的当下就是空性，空性也不离物质现象」——有和空是一体的两面，不矛盾。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：对比 / 对照 ========== -->", "quizId": "quiz-8"}, {"id": "method-9", "title": "9. 反问 / 设疑", "category": "method", "content": "<h2 id=\"9\">9. 反问 / 设疑</h2>\n<h3 id=\"1_9\">（1）含义与定位</h3>\n<p>先抛一个「似矛盾、难直答」的问题，不急给答案，令疑情生，逼其自参。禅宗尤重。</p>\n<h3 id=\"2_9\">（2）意义</h3>\n<ul>\n<li><strong>制造认知失调</strong>：人遇「答不上」会不舒服，这不适正是求悟的动力（「小疑小悟，大疑大悟，不疑不悟」）。</li>\n<li><strong>破「知识障」</strong>：直接给答案，听者只记概念；让他自己参破，才是真悟。</li>\n<li><strong>苏格拉底式</strong>：东方的产婆术。</li>\n</ul>\n<h3 id=\"3_9\">（3）背后见解</h3>\n<ul>\n<li><strong>疑情为舟</strong>：疑到「山穷水尽」，忽一转身，桶底脱落。</li>\n<li><strong>离言契入</strong>：真如非思议境，反问逼人离思议。</li>\n</ul>\n<h3 id=\"4_9\">（4）操作步骤</h3>\n<ol>\n<li>设一似矛盾、难直答之问。</li>\n<li>不急答，令疑情生。</li>\n<li>逼到「路穷心绝」，再点或令自省。</li>\n<li>悟后须明师印证。</li>\n</ol>\n<h3 id=\"5_9\">（5）详细案例</h3>\n<p><strong>案例甲：赵州「狗子佛性」话头</strong></p>\n<ul>\n<li><strong>背景</strong>：僧问赵州「狗子还有佛性也无？」依经教「一切众生皆有佛性」，狗是众生，应有。然赵州答「无！」</li>\n<li><strong>来龙去脉与前因后果</strong>：因——学人执「有佛性」为概念知解；果——赵州以「无」字截断情识，令其参「一切含灵皆有佛性，狗子为何却无？」此「无」非断灭无，是逼人离「有无」两边之活句。后世立为「无字公案」，作为话头参究，疑情成熟，忽见「本来面目」。</li>\n<li><strong>法义点</strong>：超越有无二边；话头是「敲门的砖」。</li>\n<li class=\"baihua\"><strong>白话</strong>：按佛经道理，「一切众生都有佛性」，狗是众生，那狗就该有佛性。可赵州偏说「无！」他不是真说狗没有佛性，而是用这个「无」字，把学人脑子里「狗有佛性」的死知识猛地截断——逼你去参：「明明说众生皆有佛性，狗子怎么却‘无’？」这个「无」不是「没有」的意思，而是逼你跳出「有」和「无」这两个边见的一句活话。后人把「无」当话头天天参，参到疑团爆破，就见到自己的「本来面目」（佛性）了。</li>\n</ul>\n<p><strong>案例乙：六祖「风幡」</strong></p>\n<ul>\n<li><strong>背景</strong>：二僧争议「风动还是幡动」。六祖曰「不是风动，不是幡动，仁者心动。」</li>\n<li><strong>意义</strong>：破「动」之执，点出「能所二取」皆心识分别。</li>\n<li class=\"baihua\"><strong>白话</strong>：两个和尚争论「到底是风在动，还是旗子在动」。六祖说：「既不是风动，也不是幡动，是<strong>你的心在动</strong>。」意思是：风动、幡动都是外在现象，你之所以起争论，是因为你的心在分别、在执着「谁动」。对外境的「能动/被动」这种对立分别，其实都源于自心的妄识。</li>\n</ul>\n<p><strong>案例丙：「念佛的是谁」</strong></p>\n<ul>\n<li><strong>背景</strong>：净土行人念佛，师忽问「念佛的是谁？」——返观能念之心，由「所念」回头向「能念」，是禅净融通之反问。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：反问 / 设疑 ========== -->", "quizId": "quiz-9"}, {"id": "method-10", "title": "10. 实物 / 动作演示", "category": "method", "content": "<h2 id=\"10\">10. 实物 / 动作演示</h2>\n<h3 id=\"1_10\">（1）含义与定位</h3>\n<p>以动作、器物代替长篇，于关键处突施，截断情识流，令「于言外得旨」。</p>\n<h3 id=\"2_10\">（2）意义</h3>\n<ul>\n<li><strong>非语言沟通</strong>：有些境界离言，动作比语言直接（拈花一笑，不立文字）。</li>\n<li><strong>冲击注意</strong>：突然而来的动作，打破听众惯性思维，制造「顿悟窗口」。</li>\n<li><strong>具身记忆</strong>：动作记忆深刻（你忘不了一个竖指）。</li>\n</ul>\n<h3 id=\"3_10\">（3）背后见解</h3>\n<ul>\n<li><strong>教外别传</strong>：禅宗「不立文字，教外别传，直指人心，见性成佛」——演示是此精神的体现。</li>\n<li><strong>言语道断</strong>：真如离言，动作是「无言之说」。</li>\n</ul>\n<h3 id=\"4_10\">（4）操作步骤</h3>\n<ol>\n<li>选具象动作/器物（花、指、棒、烛、钵）。</li>\n<li>于关键处突施，截断情识。</li>\n<li>配合简短一言或默然。</li>\n<li>令会者「于言外得旨」。</li>\n</ol>\n<h3 id=\"5_10\">（5）详细案例</h3>\n<p><strong>案例甲：拈花微笑（禅宗初祖公案）</strong></p>\n<ul>\n<li><strong>背景与来龙去脉</strong>：佛陀在灵山会上，大梵天王献金波罗华，请佛说法。佛登座，默然拈华示众，不置一词。百万闻法众中，唯大迦叶破颜微笑（理解佛意）。佛宣告：「吾有正法眼藏，涅槃妙心，实相无相，微妙法门，不立文字，教外别传，付嘱摩诃迦叶。」</li>\n<li><strong>前因后果</strong>：因——众生久习言说，须一「离言」之教破之；果——迦叶以「微笑」印心，成禅宗西天初祖，衣钵相传至菩提达摩东来。</li>\n<li><strong>法义点</strong>：最极的演示——以「无言」传「无相法」；心心相印，不假文字。</li>\n<li class=\"baihua\"><strong>白话</strong>：佛在灵山法会上，大梵天王献上一朵金莲花，请佛说法。佛上了座，一句话也不说，只是默默拈起那朵花给大家看。满场百万人，只有大迦叶看懂了，破颜一笑。佛就说：「我有‘正法眼藏、涅槃妙心’这样最微妙、不落形相的法门，不靠文字记载，是教外别传的，现在交给摩诃迦叶。」——这就是禅宗「不立文字、以心传心」的源头。一句话不说，却把最深的法传过去了，靠的是师徒「心心相印」。</li>\n<li><strong>现代启示</strong>：最高明的沟通有时是「做给你看」，而非「说给你听」。</li>\n</ul>\n<p><strong>案例乙：俱胝一指</strong></p>\n<ul>\n<li><strong>故事</strong>：俱胝和尚凡有所问，唯竖一指。有一童子，因见人问师，师竖指，便效竖指作答。俱胝闻，潜藏刀，唤童子「你识得佛法否？」童竖指，俱胝挥刀断其指；童负痛走，俱胝复唤，童回首，俱胝竖指，童子豁然开悟。</li>\n<li><strong>法义点</strong>：一指象征「一心全体」；断指去「模仿的相」，方见「活的指」。</li>\n</ul>\n<p><strong>案例丙：德山棒 / 临济喝</strong>（详禅宗节）\n<strong>案例丁：法师日常演示</strong></p>\n<ul>\n<li>举钵：「这饭碗就是福田，你惜福，福就长。」</li>\n<li>点烛引千烛：「一灯传千灯，慧命不绝——法布施不竭。」</li>\n<li>撒米：「布施如种，因地果还生。」</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：实物 / 动作演示 ========== -->", "quizId": "quiz-10"}, {"id": "method-11", "title": "11. 唱诵 / 梵呗", "category": "method", "content": "<h2 id=\"11\">11. 唱诵 / 梵呗</h2>\n<h3 id=\"1_11\">（1）含义与定位</h3>\n<p>经咒以旋律唱出（梵呗），摄受人心，本身即是「讲」。念佛号亦属此类。</p>\n<h3 id=\"2_11\">（2）意义</h3>\n<ul>\n<li><strong>声入八识</strong>：音声直入阿赖耶，潜移默化（「一历耳根，永为道种」）。</li>\n<li><strong>摄散入定</strong>：唱诵节奏引心专注，散乱顿息。</li>\n<li><strong>共修凝聚力</strong>：大众同唱，气势与归属感强。</li>\n</ul>\n<h3 id=\"3_11\">（3）背后见解</h3>\n<ul>\n<li><strong>呗赞供养</strong>：以此音声作佛事，庄严道场。</li>\n</ul>\n<h3 id=\"4_11\">（4）操作步骤</h3>\n<ol>\n<li>选适宜赞、偈、咒（如《炉香赞》《忏悔文》《往生咒》）。</li>\n<li>以梵呗腔调领唱，大众和之。</li>\n<li>借音声摄心，令散乱息。</li>\n<li>唱后略说其义，音声与义理双运。</li>\n</ol>\n<h3 id=\"5_11\">（5）详细案例</h3>\n<p><strong>案例甲：鱼山梵呗之源</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：东汉末，陈思王曹植（曹操子）游山东东阿鱼山，闻岩谷水声，自然流响，清彻哀婉，乃仿其声制梵呗，撰文制音，传为「鱼山梵呗」——汉地梵呗之始。此前胡僧来华，讽诵依西域音调，汉人难解；曹植以中土宫商谱之，梵呗始汉化流传。</li>\n<li><strong>因果</strong>：因——佛法东传需「易解之音」；果——梵呗汉化，令中土大众易入，讽诵大兴。</li>\n<li><strong>法义点</strong>：方便随方；以音声作佛事。</li>\n</ul>\n<p><strong>案例乙：焰口与蒙山施食</strong></p>\n<ul>\n<li><strong>背景</strong>：阿难夜见饿鬼（面然），告佛。佛说《救拔焰口饿鬼陀罗尼》，以饮食施饿鬼，脱其苦。后演变为「焰口」「蒙山」仪轨，以唱诵召请六道、施食说法。</li>\n<li><strong>意义</strong>：慈悲普济，幽显同资；唱诵即是「救拔之舟」。</li>\n</ul>\n<p><strong>案例丙：称名念佛</strong></p>\n<ul>\n<li><strong>背景</strong>：净土宗以称「南无阿弥陀佛」为正行。四字六字，人人能念；以声摄心，以心归佛。</li>\n<li><strong>意义</strong>：最简单之「唱诵」，三根普被。</li>\n</ul>\n<h3 id=\"6_5\">（6）误区</h3>\n<ul>\n<li>只图腔调好听，忘失经义＝「执声迷义」；</li>\n<li>共修时较量高低＝失和合。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：唱诵 / 梵呗 ========== -->", "quizId": "quiz-11"}, {"id": "method-12", "title": "12. 图像 / 变相", "category": "method", "content": "<h2 id=\"12\">12. 图像 / 变相</h2>\n<h3 id=\"1_12\">（1）含义与定位</h3>\n<p>以造像、壁画、曼荼罗等「图像」表法，利益不识字大众。敦煌壁画即是古代「连环画讲经」。</p>\n<h3 id=\"2_12\">（2）意义</h3>\n<ul>\n<li><strong>视觉直入</strong>：文盲、童稚、异语者，看图即懂。</li>\n<li><strong>象征密度高</strong>：一幅曼荼罗含摄全体教理（方位、本尊、种子字）。</li>\n<li><strong>长久熏习</strong>：像立千年，持续教化。</li>\n</ul>\n<h3 id=\"3_12\">（3）背后见解</h3>\n<ul>\n<li><strong>以像表法</strong>：相即性之显；像非偶像，是「法之载体」。</li>\n<li><strong>庄严国土</strong>：造像功德，令见者种善根。</li>\n</ul>\n<h3 id=\"4_12\">（4）操作步骤</h3>\n<ol>\n<li>选经典片段绘成变相/造像（如《观经》十六观变相）。</li>\n<li>指画说法：「此画中……即是……」</li>\n<li>以色彩、构图表深义。</li>\n<li>令观者「见像即见法」。</li>\n</ol>\n<h3 id=\"5_12\">（5）详细案例</h3>\n<p><strong>案例甲：敦煌壁画《九色鹿》</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：壁画据《鹿王本生》绘于莫高窟。故事：九色神鹿救一溺人，溺人受鹿嘱「勿泄吾处」。后王后欲取鹿皮为衣，悬赏；溺人贪赏，引王猎鹿。鹿临危向王陈情救溺之事；王感其德，敕「举国不得伤鹿」。溺人周身生疮（背恩之报），王后亦死。画以连环构图，左、右向中央叙事汇聚。</li>\n<li><strong>因果</strong>：因——鹿布施无畏，溺人背恩贪赏；果——鹿得王护，溺人遭报。壁画让丝路商旅、村妇一眼即懂「忘恩背义有因果」。</li>\n<li><strong>法义点</strong>：本生故事的「图像化」；因果不虚。</li>\n</ul>\n<p><strong>案例乙：云冈、龙门石窟</strong></p>\n<ul>\n<li><strong>意义</strong>：以巨像表佛身功德，礼拜即受化；北魏皇室造像，政治与信仰合一。</li>\n</ul>\n<p><strong>案例丙：曼荼罗（胎藏界、金刚界）</strong></p>\n<ul>\n<li><strong>背景</strong>：密教以曼荼罗（坛城）表法界。胎藏界显「理」（大日如来居中，四佛四菩萨环绕，表理具万行）；金刚界显「智」（九会，表智断次第）。</li>\n<li><strong>意义</strong>：一图摄全体教理，行者观坛即观法界。</li>\n</ul>\n<p><strong>案例丁：水陆画</strong></p>\n<ul>\n<li><strong>意义</strong>：以画召请六道鬼神，普度幽冥；图像是「普度的请柬」。</li>\n</ul>\n<h3 id=\"6_6\">（6）误区</h3>\n<ul>\n<li>执像为神（偶像崇拜）＝迷于相；</li>\n<li>只欣赏艺术不解法＝失表法本意。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：图像 / 变相 ========== -->", "quizId": "quiz-12"}, {"id": "twelve-sutras", "title": "十二部经（体裁即讲法）", "category": "school", "content": "<h1 id=\"_4\">二、十二部经（体裁即讲法 · 深度）</h1>\n<p>十二部经（十二分教）是佛教学者对一代时教的体裁归纳，每一「部」既是一种经文体裁，本身也是一种讲法方式。以下逐部说明其讲法性格与案例：</p>\n<ol>\n<li><strong>契经（Sūtra 修多罗）</strong>：散文直说，如线串珠，贯穿义理。多为佛直接开示（如《心经》长行、《阿含》诸经）。讲法性格＝「直陈法要」。</li>\n<li><strong>重颂（Geya 祇夜）</strong>：散文后，以偈重说一遍。作用＝「详略双彰、便于记诵」。如各经「尔时世尊而说偈曰」。</li>\n<li><strong>授记（Vyākaraṇa 和伽罗那）</strong>：佛预言弟子「汝于来世当得作佛，号曰……」。讲法性格＝「给信心与方向」。《法华·授记品》为千二百阿罗汉授记。</li>\n<li><strong>孤起颂（Gāthā 伽陀）</strong>：不依前文、独立成颂。讲法性格＝「以诗独立表法」。《法集要颂经》全属此类。</li>\n<li><strong>自说（Udāna 优陀那）</strong>：无人请问，佛主动宣说。讲法性格＝「无问自说，显佛悲心」。《阿弥陀经》无启问者，佛自说净土。</li>\n<li><strong>因缘（Nidāna 尼陀那）</strong>：交代「因何缘起而说此经」。讲法性格＝「叙事伏笔」。各经序分「如是我闻，一时佛在……」即因缘。</li>\n<li><strong>譬喻（Avadāna 阿波陀那）</strong>：以比喻说法。讲法性格＝「借物说理」。《百喻经》《法华》譬喻品。</li>\n<li><strong>本事（Itivṛttaka 伊帝目多伽）</strong>：佛弟子过去生故事。讲法性格＝「以弟子宿缘显因果」。</li>\n<li><strong>本生（Jātaka 阇陀伽）</strong>：佛过去生修行故事。讲法性格＝「以佛因地显菩萨道」。舍身饲虎等。</li>\n<li><strong>方广（Vaipulya 毘佛略）</strong>：广大深妙之教。讲法性格＝「说深妙理、境界无量」。《华严》《大般若》。</li>\n<li><strong>希法（Adbhuta-dharma 阿浮陀达磨）</strong>：稀有神变、不可思议事。讲法性格＝「以神变摄信」。（佛现神变、放光动地等。）</li>\n<li><strong>论议（Upadeśa 优波提舍）</strong>：问答辨析、逻辑讨论。讲法性格＝「以理服人」。《大智度论》释《大品》，即论议体。</li>\n</ol>\n<blockquote>\n<p>注：十二部非「十二本书」，是「十二种体裁」。一部经常兼多种（如《法华》有契经、重颂、譬喻、授记等）。</p>\n</blockquote>\n<hr />\n\n<!-- ========== 测试：十二部经（体裁即讲法） ========== -->", "quizId": "quiz-13"}, {"id": "framework", "title": "应机施教的框架", "category": "school", "content": "<h1 id=\"_5\">三、应机施教的框架（选方法的策略 · 深度）</h1>\n<h2 id=\"1_13\">1. 四悉檀（智者大师归纳佛说法四角度）</h2>\n<ul>\n<li><strong>世界悉檀</strong>：顺世间情宜而说，先令欢喜生信。例：佛说布施得福，顺世人求福之心，先摄其入。</li>\n<li><strong>各各为人悉檀（为人悉檀）</strong>：看个人根性因材施教。例：对持戒者说戒功德，对智慧者说空。</li>\n<li><strong>对治悉檀</strong>：针对具体烦恼下药。例：贪者不净观，嗔者慈悲观，痴者因缘观，慢者界分别观。</li>\n<li><strong>第一义悉檀</strong>：终指诸法实相、究竟真理。前三是「权」，此一是「实」。</li>\n<li><strong>意义与见解</strong>：四悉檀显示佛法「由浅入深、由权入实」的善巧；亦是法师选方法的元框架——先令喜（世界），再观机（为人），对症药（对治），终显实（第一义）。</li>\n</ul>\n<h2 id=\"2_13\">2. 化仪四教（讲法风格 · 天台）</h2>\n<ul>\n<li><strong>顿</strong>：直下全提，不假阶次。例：《华严》对圆顿大根，说「初发心时便成正觉」。</li>\n<li><strong>渐</strong>：由浅入深。例：阿含（破执）→方等（弹偏）→般若（说空）→法华（显实）。</li>\n<li><strong>秘密</strong>：同听一味，各人异解，互不相知（「同听异闻」）。</li>\n<li><strong>不定</strong>：同听一味，随人得益不同（或顿或渐无定）。</li>\n<li><strong>意义</strong>：讲法无定式，须看「听者得益」而定，非固守某风格。</li>\n</ul>\n<h2 id=\"3_13\">3. 三转法轮（一场讲法的三步结构）</h2>\n<p>佛陀初转法轮（鹿野苑说四谛）即示三转：</p>\n<ol>\n<li><strong>示相转</strong>：开示「此是苦（逼迫性）、此是集（招感性）、此是灭（可证性）、此是道（可修性）」——先让你「认识」。</li>\n<li><strong>劝修转</strong>：劝「苦应知、集应断、灭应证、道应修」——再让你「行动」。</li>\n<li><strong>作证转</strong>：佛以果证「我已知苦、已断集、已证灭、已修道，此法真实不虚」——最后「印证」。</li>\n</ol>\n<ul>\n<li><strong>意义</strong>：任何一场有效讲法，都暗合「认知→行动→印证」三转；法师可自检：我让听众「知」了吗？「修」了吗？「信」了吗？</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：应机施教的框架（四悉檀/化仪四教/三转法轮） ========== -->", "quizId": "quiz-14"}, {"id": "upaya", "title": "方便（upāya）", "category": "school", "content": "<h1 id=\"upaya\">四、根本原则——方便（upāya，善巧 · 深度）</h1>\n<h3 id=\"_6\">含义</h3>\n<p>「方便」译自 upāya，意「善巧方便」——为达究竟目的（令众生入佛知见）而施设的种种善巧方法。它不是「不究竟」，而是「究竟的善巧显现」。</p>\n<h3 id=\"_7\">意义</h3>\n<ul>\n<li><strong>桥梁</strong>：众生在彼岸，佛在此岸说法，方便是桥。《法华》「诸佛以一大事因缘出现于世」——为令众生开示悟入佛之知见，而不惜施设无量方便。</li>\n<li class=\"baihua\"><strong>白话</strong>：「诸佛以一大事因缘出现于世」＝一切佛降生到这世上，只为了一件大事因缘——就是让众生「开、示、悟、入」佛的知见（也就是觉悟真理、成佛）。为了这件大事，佛不惜用尽各种方便手段（比喻、故事、棒喝……）来接引不同根器的人。方便，就是架在「佛（此岸说法者）」和「众生（彼岸迷惑者）」之间的一座桥。</li>\n<li><strong>弹性</strong>：正因为「方便」，佛法才能随地域、时代、根器而变化（汉传、藏传、南传各异其「方便」，同契一实相）。</li>\n</ul>\n<h3 id=\"_8\">背后见解</h3>\n<ul>\n<li><strong>权实不二</strong>：方便是「权」，实相是「实」；然权即实之巧施，非离实别有方便。《法华》「开权显实」——权终归实。</li>\n<li><strong>大乘精神</strong>：菩萨「以方便力，教化众生」，不住涅槃、还入生死，皆方便之用。</li>\n</ul>\n<h3 id=\"_9\">操作要领</h3>\n<ul>\n<li><strong>应病与药</strong>：听众患何烦恼，即予何法，不执一法。</li>\n<li><strong>观机逗教</strong>：先观根器（利/钝、僧/俗、老/少、文化程度），再定方法。</li>\n<li><strong>随顺众生</strong>：顺其情宜、近其生活，使其易入。</li>\n<li><strong>契理契机</strong>：顺机（契机）而不违实相（契理）——方便之尺度。越契理，方便越广；越契机，方便越巧。</li>\n</ul>\n<h3 id=\"_10\">案例</h3>\n<ul>\n<li><strong>《法华》三车喻</strong>：以羊鹿牛三车（权）引子出火宅，终赐大白牛车（实）——方便之典型。</li>\n<li><strong>维摩诘「入不二法门」</strong>：对利根说「默然」，即是最高方便。</li>\n<li><strong>现代启示</strong>：教育、管理、沟通，皆需「方便」——目标坚定（契理），方法灵活（契机）。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：根本原则——方便（upāya） ========== -->", "quizId": "quiz-15"}, {"id": "school-chan", "title": "（一）禅宗", "category": "school", "content": "<h2 id=\"_12\">（一）禅宗</h2>\n<h3 id=\"1_14\">（1）含义与定位</h3>\n<p>禅宗自称「教外别传，不立文字，直指人心，见性成佛」。它不依赖经教次第，而以「顿悟」为归，手法偏重公案、反问、实物演示（棒喝、默照）。</p>\n<h3 id=\"2_14\">（2）意义</h3>\n<ul>\n<li>对「义学繁琐」的纠偏：直探心源，免于「说食不饱」。</li>\n<li>人人可修：不待知识，只待回光。</li>\n<li>活活泼泼：在生活中「吃茶、搬柴」皆是禅。</li>\n</ul>\n<h3 id=\"3_14\">（3）背后见解</h3>\n<ul>\n<li><strong>心佛众生三无差别</strong>：你本具佛性，只因妄想执著不能证得。</li>\n<li><strong>烦恼即菩提</strong>：转身处即是，不须外求。</li>\n<li><strong>言语道断，心行处灭</strong>：真如非思议境，故以「默然、动作」传。</li>\n</ul>\n<h3 id=\"4_13\">（4）具体操作步骤</h3>\n<p><strong>A. 参话头（看话禅，宋后主流）</strong></p>\n<ol>\n<li>择一话头（「念佛的是谁？」「狗子无佛性」「万法归一，一归何处？」）。</li>\n<li>行住坐卧提起话头，如鸡抱卵，疑情不断。</li>\n<li>不思维卜度、不落情解，只「疑」着。</li>\n<li>至「行不知行、坐不知坐」，疑团将破。</li>\n<li>遇缘触着（棒喝、声色），豁然打破，桶底脱落。</li>\n<li>觅明师印证，防堕光影。</li>\n</ol>\n<p><strong>B. 默照禅（曹洞）</strong>：只管打坐，身心脱落，灵然独照，日用保任。\n<strong>C. 棒喝与机锋</strong>：学人提问，师不答理路，忽施棒喝，截断葛藤。</p>\n<h3 id=\"5_13\">（5）详细案例</h3>\n<p><strong>案例甲：达摩安心</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：南朝梁时，菩提达摩自南天竺来，面壁少林。有居士神光（后赐名慧可），闻达摩大乘，往求法。时值严冬，雪深过膝，慧可立雪不去。达摩曰「诸佛无上妙道，旷劫精勤，岂以小德小智轻心慢心可得？」慧可潜取利刀，断左臂于达摩前，表求法之诚。达摩问「汝久立雪中，当求何事？」慧可「我心未安，乞师与安。」达摩「将心来，与汝安！」慧可良久「觅心了不可得。」达摩「我与汝安心竟。」</li>\n<li><strong>前因后果</strong>：因——慧可认「有不安之心」为实；果——达摩以「觅心了不可得」破其执，安心竟。断臂示「舍身命以求法」之诚。</li>\n<li><strong>法义点</strong>：心本不可得，安即得；「觅心」之问是反问手法的极则。</li>\n<li class=\"baihua\"><strong>白话</strong>：达摩问慧可「把你的心拿来，我替你安顿！」慧可找了半天，说「我找来找去，根本找不到一个实在的‘心’。」达摩说：「我已经替你把心安顿好了。」这段对话的妙处：你以为有个「不安的心」要安，其实「心」本性是空、了不可得——一旦你发现「找不到心」，那份「不安」也就消融了，当下就是安心。达摩不给你讲道理，而是用一个反问让你自己照见。</li>\n</ul>\n<p><strong>案例乙：六祖惠能（闻经、风幡、菩提偈）</strong></p>\n<ul>\n<li><strong>背景</strong>：惠能姓卢，岭南樵夫，不识字。</li>\n<li><strong>闻经悟入</strong>：卖柴过客店，闻客诵《金刚经》「应无所住而生其心」，恍然有省，问经何处受持，人告「黄梅弘忍大师」。遂辞母赴黄梅。</li>\n<li><strong>风幡公案</strong>：后于广州法性寺，二僧争「风动／幡动」。惠能曰「不是风动，不是幡动，仁者心动。」印宗法师闻之，延为上座。</li>\n<li><strong>菩提偈</strong>：弘忍令门人作偈，上座神秀「身是菩提树……时时勤拂拭」；惠能令童子书「菩提本无树，明镜亦非台，本来无一物，何处惹尘埃」。弘忍夜半密传衣法，嘱「不宜速说」，惠能南遁，后于曹溪弘法，成禅宗六祖。</li>\n<li><strong>前因后果</strong>：因——神秀执「有染可拂」（渐），惠能彻「性本空寂」（顿）；果——五祖传衣法于惠能，禅宗重心南移，开出「顿悟」法门。</li>\n<li><strong>法义点</strong>：顿渐之别；空性本净；反问（心动）之妙。</li>\n</ul>\n<p><strong>案例丙：赵州「吃茶去」</strong></p>\n<ul>\n<li><strong>背景与来龙去脉</strong>：赵州从谂禅师，唐时高僧，住赵州观音院。有僧新到、有僧重参（曾来过），赵州皆问「曾到此间么？」答「曾到」「不曾到」，州皆曰「吃茶去」。院主不解「为何曾到也吃茶去、不曾到也吃茶去？」州唤「院主」，主应诺，州曰「吃茶去」。</li>\n<li><strong>前因后果</strong>：因——院主分别「曾到/不曾到」，落二边；果——赵州以「吃茶去」一语扫却分别，显「不二」——无论新故，喝茶的「这个」无别。</li>\n<li><strong>法义点</strong>：平常心是道；以最平常事显最甚深理；演示+反问合一。</li>\n</ul>\n<p><strong>案例丁：德山棒</strong></p>\n<ul>\n<li><strong>背景</strong>：德山宣鉴禅师，原精《金刚经》，负疏钞入南方「破禅」。途遇卖饼婆，问「《金刚经》‘过去心不可得、现在心不可得、未来心不可得’，上座点哪个心？」德山哑然。后参龙潭，悟入，焚疏钞，专事棒喝。</li>\n<li><strong>手法</strong>：德山上堂「道得也三十棒，道不得也三十棒。」——无论你说得对不对，皆棒，逼离「说」之执。</li>\n<li class=\"baihua\"><strong>白话</strong>：卖饼老婆婆问德山：「《金刚经》说‘过去的心得不到、现在的心得不到、未来的心也得不到’，上座您到底点的是哪一个心？」这话把德山问傻了——因为他只会讲经，却没真悟「心了不可得」。后来德山开悟，上堂就说：「说得对的，打三十棒；说不对的，也打三十棒。」意思是不管你嘴上说得对不对，只要还在「说」、还在用脑子琢磨，就棒喝截断，逼你离开言语思辨，直接体认。</li>\n<li><strong>法义点</strong>：棒是「截断」，不令落言诠。</li>\n</ul>\n<p><strong>案例戊：临济喝</strong></p>\n<ul>\n<li><strong>背景</strong>：临济义玄，禅宗临济宗开祖。其「喝」有四样：「有时一喝如金刚王宝剑（斩断妄执），有时一喝如踞地金毛狮子（震慑），有时一喝如探竿影草（探虚实），有时一喝不作一喝用（泯绝）。」四喝显机用之妙。</li>\n<li><strong>法义点</strong>：喝与棒同，皆「以声色逼人离识」。</li>\n</ul>\n<p><strong>案例己：俱胝一指</strong>（见第 10 法）\n<strong>案例庚：南泉斩猫</strong></p>\n<ul>\n<li><strong>背景</strong>：南泉普愿禅院，东西两堂争一只猫（欲蓄之）。南泉提起猫「道得即不斩，道不得即斩。」众无对，南泉遂斩猫为两段。赵州闻，明日见南泉，以鞋顶头上而出。</li>\n<li><strong>前因后果</strong>：因——大众为猫起争执（执物生诤）；果——南泉以「斩」破执，赵州以「鞋顶头」显超越（不落斩/不斩二边）。</li>\n<li><strong>法义点</strong>：机锋之「断」与「活」。</li>\n</ul>\n<p><strong>案例辛：百丈野狐</strong></p>\n<ul>\n<li><strong>背景</strong>：百丈怀海禅师上堂，常有一老人听法随众散。一日不退，谓百丈「某甲往昔为迦叶佛时比丘，有人问‘大修行底人还落因果也无？’某甲答‘不落因果’，堕野狐身五百世。今请和尚代一转语。」百丈「汝且问。」老人「大修行底人还落因果也无？」百丈「不昧因果。」老人于言下大悟，脱野狐身，白众「已免野狐，乞依亡僧例」。</li>\n<li><strong>前因后果</strong>：因——错答「不落因果」（落断见），感五百世野狐；果——正答「不昧因果」（因果昭昭，不昧不失），脱身。一字之差，天渊之别。</li>\n<li><strong>法义点</strong>：因果不昧；一字误答，堕五百世；显「言句须谛当」。</li>\n<li class=\"baihua\"><strong>白话</strong>：那位老人前世答「大修行人‘不落因果’」（以为解脱了就不受因果报应），结果这一字之差，让他做了五百世野狐。百丈改答「不昧因果」——「不昧」是不糊涂、清清楚楚，意思是：大修行人照样清清楚楚地落在因果里，只是不迷惑、不恐惧、不造恶业，所以不受苦报。一字之差：把「不受因果」（错，落断见）改成「不昧因果」（对，明明白白面对因果），老人当下就解脱了野狐身。说明说话、答问必须精确，错一个字都能让人误导五百世。</li>\n</ul>\n<p><strong>案例壬：丹霞烧佛</strong></p>\n<ul>\n<li><strong>背景</strong>：丹霞天然禅师，冬日寒冷，取木佛烧火取暖。院主诃「何得烧佛？」丹霞「我觅舍利。」主「木佛何有舍利？」霞「既无舍利，更取两尊烧。」主虽诃，而丹霞之「烧」正显「佛性是火？是木？——执相即迷」。</li>\n<li><strong>法义点</strong>：破偶像执；真佛非木。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：禅宗 ========== -->", "quizId": "quiz-16"}, {"id": "school-pureland", "title": "（二）净土宗", "category": "school", "content": "<h2 id=\"_13\">（二）净土宗</h2>\n<h3 id=\"1_15\">（1）含义与定位</h3>\n<p>以「信、愿、行」三资粮，持名念佛，求生阿弥陀佛极乐净土，于彼土继续修行直至成佛。手法偏重唱诵、故事感化、现身说法，三根普被。</p>\n<h3 id=\"2_15\">（2）意义</h3>\n<ul>\n<li><strong>易行道</strong>：比起禅之「难行」，念佛「下手易、成功高」。</li>\n<li><strong>他力本愿</strong>：乘阿弥陀佛本愿力，非凡夫自力可拟。</li>\n<li><strong>普摄群机</strong>：老弱、识字不识字，皆能念。</li>\n</ul>\n<h3 id=\"3_15\">（3）背后见解</h3>\n<ul>\n<li><strong>佛力不可思议</strong>：弥陀本愿「十念必生」。</li>\n<li><strong>心净土净</strong>：念佛净心，心净则国土净；求生实为使心转净。</li>\n<li><strong>横超生死</strong>：一生净土，即超轮回，不待历劫。</li>\n</ul>\n<h3 id=\"4_14\">（4）具体操作步骤</h3>\n<p><strong>A. 持名念佛（正行）</strong></p>\n<ol>\n<li>备「六字（南无阿弥陀佛）/四字（阿弥陀佛）」。</li>\n<li>摄心称念：口念、耳听、心忆，三业相应。</li>\n<li>定课：晨昏十念、或万声、或追顶念。</li>\n<li>以计数（念珠/计数器）防散。</li>\n<li>念时想佛光注照、己身即莲花。</li>\n</ol>\n<p><strong>B. 观想念佛（十六观，《观无量寿经》）</strong>：日观→水观→地观→树观→佛身观……渐次观极乐依正。\n<strong>C. 回向与三福</strong>：念佛功德回向众生、回向净土；以世福、戒福、行福为基。</p>\n<h3 id=\"5_14\">（5）详细案例</h3>\n<p><strong>案例甲：庐山慧远结白莲社</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：东晋慧远，雁门贾氏子，博通儒老，从道安出家。道安分张徒众，慧远南下，驻锡庐山东林寺。太元十五年（390），率刘遗民、雷次宗等百二十三贤，结「白莲社」，凿池种莲，建斋立誓，共期往生净土。慧远以「念佛三昧」为宗，著《沙门不敬王者论》，确立僧格。</li>\n<li><strong>前因后果</strong>：因——众生惧生死、自力难期；果——创中国净土门庭，念佛求生之风自此大行。</li>\n<li><strong>法义点</strong>：结社共修、回向净土之始。</li>\n</ul>\n<p><strong>案例乙：善导大师（光明和尚）</strong></p>\n<ul>\n<li><strong>背景</strong>：唐善导，净土宗二祖（实际创立者）。</li>\n<li><strong>故事与因果</strong>：传说善导每念佛一声，即有一道光明从口出；写《阿弥陀经》十万卷，画净土变相三百壁。著《观经四帖疏》，力倡「一切善恶凡夫，皆可念佛往生，唯在遇缘」——破「凡夫不能生」之疑。长安道俗受其化，念佛者众，有「满城断肉」之效。</li>\n<li><strong>法义点</strong>：他力本愿、凡夫可生；善导被尊为弥陀化身。</li>\n</ul>\n<p><strong>案例丙：少康法师（后善导）</strong></p>\n<ul>\n<li><strong>故事</strong>：唐少康，于乌龙山建净土道场。每升座，令小儿念佛，念一声，口中出一佛；念十声，出十佛，如连珠状。小儿见之欣喜，皆竞念佛。</li>\n<li><strong>意义</strong>：以「图像（佛从口出）」+「唱诵」+「故事感化」三法合一，摄化童稚，显净土「易信易行」。</li>\n</ul>\n<p><strong>案例丁：昙鸾舍仙归净</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：北魏昙鸾，本习仙道求长寿，访江南陶弘景得仙经。北归遇菩提流支，问「此土有长生术否？」支曰「此方何足贵？吾有《观无量寿经》，念佛往生，寿同无量。」鸾遂焚仙经，专修净土，著《往生论注》，立「二道（难行/易行）」说。</li>\n<li><strong>前因后果</strong>：因——求长生而不得究竟；果——转依净土，开「易行道」理论先河。</li>\n<li><strong>法义点</strong>：佛法「易行道」之理论奠基。</li>\n</ul>\n<p><strong>案例戊：印光大师《文钞》</strong></p>\n<ul>\n<li><strong>意义</strong>：近代以书信开示「老实念佛，莫换题目」，文字弘法，摄现代众生。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：净土宗 ========== -->", "quizId": "quiz-17"}, {"id": "school-tiantai", "title": "（三）天台宗", "category": "school", "content": "<h2 id=\"_14\">（三）天台宗</h2>\n<h3 id=\"1_16\">（1）含义与定位</h3>\n<p>以《法华》为宗骨，立「一念三千、三谛圆融、一心三观」，并以「五时八教」判摄一代时教。手法重论议、体系判摄，最讲次第。</p>\n<h3 id=\"2_16\">（2）意义</h3>\n<ul>\n<li><strong>系统化</strong>：把庞杂经典排成「时间表（五时）+ 风格表（化仪）+ 内容表（化法）」，学者有路可循。</li>\n<li><strong>圆融中道</strong>：三谛（空假中）圆融，不偏空有。</li>\n</ul>\n<h3 id=\"3_16\">（3）背后见解</h3>\n<ul>\n<li><strong>诸法实相</strong>：一切法皆是实相，一念心具足三千世间。</li>\n<li><strong>权实不二</strong>：判教非分高下，是显「皆佛方便、终归一实」。</li>\n</ul>\n<h3 id=\"4_15\">（4）具体操作步骤</h3>\n<p><strong>A. 五重玄义（解经通法）</strong></p>\n<ol>\n<li>释名（解经题）；2. 辨体（明所依体＝实相）；3. 明宗（修行宗要）；4. 论用（力用）；5. 判教（所属教相）。\n<strong>B. 一心三观</strong>：观空（破假实）→观假（立一切法）→观中（空假不二），于一念心具观三谛。\n<strong>C. 十乘观法 / 止观</strong>：依《摩诃止观》次第修。</li>\n</ol>\n<h3 id=\"5_15\">（5）详细案例</h3>\n<p><strong>案例甲：智者大师（智顗）</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：智顗（538–597），陈隋间人，师慧思，受法华三昧。驻天台山，讲《法华玄义》《法华文句》《摩诃止观》（天台三大部）。判「五时」（华严、鹿苑、方等、般若、法华涅槃）、「八教」（化仪四＋化法四：藏通别圆）。隋炀帝（晋王广）授「智者」号。讲《法华》显「开权显实、会三归一」。</li>\n<li><strong>前因后果</strong>：因——群经纷杂、学者迷于权实；果——天台判教使一代时教各得其所，禅教合一，台宗蔚为大乘首宗。</li>\n<li><strong>法义点</strong>：判教是「应机框架」的集大成；五重玄义是「引经据典」的系统化。</li>\n</ul>\n<p><strong>案例乙：湛然「无情有性」</strong></p>\n<ul>\n<li><strong>背景</strong>：唐湛然，天台九祖。著《金刚錍》，倡「无情有性」——草木瓦石皆有佛性。</li>\n<li><strong>意义</strong>：扩如来藏义，破「唯有情有性」之局，显法界一体。</li>\n</ul>\n<p><strong>案例丙：四明知礼</strong></p>\n<ul>\n<li><strong>背景</strong>：宋知礼，中兴天台，著《十不二门指要钞》，严辨「山家（正统）」与「山外（异说）」之争，护持圆顿之旨。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：天台宗 ========== -->", "quizId": "quiz-18"}, {"id": "school-huayan", "title": "（四）华严宗", "category": "school", "content": "<h2 id=\"_15\">（四）华严宗</h2>\n<h3 id=\"1_17\">（1）含义与定位</h3>\n<p>以《华严经》为宗，立「法界缘起、理事无碍、周遍含容」，以「帝网无尽」显一即一切、一切即一。手法重图像、方广教理、圆融对照。</p>\n<h3 id=\"2_17\">（2）意义</h3>\n<ul>\n<li><strong>境界宏大</strong>：展现「一即一切」的宇宙观，破孤立执著。</li>\n<li><strong>圆融无碍</strong>：事事无碍，的生活即是华严。</li>\n</ul>\n<h3 id=\"3_17\">（3）背后见解</h3>\n<ul>\n<li><strong>法界缘起</strong>：一切法互为缘起，相即相入。</li>\n<li><strong>理事无碍</strong>：理（真如）遍在事（万法），事揽理成；金与狮子不一不二。</li>\n<li><strong>周遍含容</strong>：一微尘中含容法界，如因陀罗网。</li>\n</ul>\n<h3 id=\"4_16\">（4）具体操作步骤</h3>\n<p><strong>A. 法界三观（杜顺《法界观门》）</strong></p>\n<ol>\n<li>真空绝相观（观性空离相）；2. 理事无碍观（理遍事、事揽理）；3. 周遍含容观（一多相即、重重无尽）。\n<strong>B. 十玄门（智俨、法藏）</strong>：同时具足、广狭自在、一多相即、隐显俱成……显缘起无碍。\n<strong>C. 六相圆融</strong>：总别、同异、成坏，六相无碍。</li>\n</ol>\n<h3 id=\"5_16\">（5）详细案例</h3>\n<p><strong>案例甲：杜顺《法界观门》</strong></p>\n<ul>\n<li><strong>背景</strong>：杜顺（557–640），华严初祖，创「法界三观」，为华严观法奠基。传说杜顺有神异，然以「观门」授人，令依观契法界。</li>\n</ul>\n<p><strong>案例乙：法藏「金狮子章」</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：唐法藏（643–712），华严三祖。武则天读《华严》不解「法界缘起」，法藏即以殿前金狮子为喻开示，成《金狮子章》。</li>\n<li><strong>讲解经过</strong>：法藏执金狮子：「此狮子相，是‘事’；其‘金’性，是‘理’。狮子相千差，金性无二——理遍于事（金遍狮身），事揽理成（狮揽金成）。一一毛皆含金性，一一毛中又含无尽毛——‘一即一切，一切即一’（帝网喻）。狮子生灭，金性不动——‘不变随缘，随缘不变’。」武后闻之，豁然开朗。</li>\n<li><strong>前因后果</strong>：因——帝王读经滞于名相；果——以「金狮」俗物，顿显「理事无碍、周遍含容」之极理。</li>\n<li class=\"baihua\"><strong>白话（法藏这段话在说什么）</strong>：法藏拿着殿前的金狮子说：「你们看这狮子的‘样子’，是‘事’（现象）；构成狮子的‘金子’，是‘理’（本体）。狮子千变万化的样子虽然多，金子却只有一个——这叫‘理遍在事里’（金子遍满狮身）、‘事靠理成就’（狮子靠金子才能成）。狮子每一根毛里都含着金性，每一根毛里又映着无尽的毛——这就是‘一个里有一切，一切里也有一个’（帝释网喻）。狮子会生灭坏灭，金子本性却从不动——这叫‘本体不变、随缘现相；随缘现相、本体不变’。」武则天一听就懂了。</li>\n<li><strong>法义点</strong>：以「图像（实物）+譬喻+对比」三法合一，是华严讲法范本。</li>\n</ul>\n<p><strong>案例丙：帝释网喻</strong></p>\n<ul>\n<li><strong>背景</strong>：《华严》以「帝释殿网」为喻——网上珠珠相映，一珠现一切珠影，一切珠影入一珠，重重无尽。</li>\n<li><strong>意义</strong>：表「一即一切，一切即一」之法界缘起；亦是最宏大的「譬喻」。</li>\n</ul>\n<p><strong>案例丁：澄观、宗密</strong></p>\n<ul>\n<li><strong>澄观（四祖）</strong>：著《华严经疏钞》，融会诸宗。</li>\n<li><strong>宗密（五祖）</strong>：著《原人论》，会通儒释道，显「从本源起，返本还源」。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：华严宗 ========== -->", "quizId": "quiz-19"}, {"id": "school-weishi", "title": "（五）唯识宗", "category": "school", "content": "<h2 id=\"_16\">（五）唯识宗（法相宗）</h2>\n<h3 id=\"1_18\">（1）含义与定位</h3>\n<p>依《瑜伽师地论》《成唯识论》，立「万法唯识」，以八识、三性、五位百法析诸法，转识成智。手法重论议、因明比量、名相辨析——佛学版「心理学＋逻辑学」。</p>\n<h3 id=\"2_18\">（2）意义</h3>\n<ul>\n<li><strong>破执有力</strong>：把「我」「法」执拆到八识、百法层面，执无从立。</li>\n<li><strong>理性严谨</strong>：因明逻辑，最利学者思辨。</li>\n</ul>\n<h3 id=\"3_18\">（3）背后见解</h3>\n<ul>\n<li><strong>万法唯识</strong>：外境非实，皆是识所变（如梦中所见）。</li>\n<li><strong>三性三无性</strong>：遍计所执（妄执）空，依他起（缘生）有，圆成实（真如）是。</li>\n<li class=\"baihua\"><strong>白话</strong>：唯识把一切法分成三种性质：①<strong>遍计所执性</strong>＝我们胡乱分别、硬加上去的错误执着（比如以为有个实在的「我」、实在的「法」），这层是空的、不存在的；②<strong>依他起性</strong>＝一切事物都是靠条件（因缘）才生起的，这种现象层面的「有」是有的；③<strong>圆成实性</strong>＝在这些缘生现象背后，那个真实不变的真如本性。修行，就是去掉第①层的妄执，安住于第③层的真实。</li>\n<li><strong>转识成智</strong>：转八识成四智（成所作智、妙观察智、平等性智、大圆镜智）。</li>\n<li class=\"baihua\"><strong>白话</strong>：凡夫用「八识」（眼耳鼻舌身意＋末那＋阿赖耶）去分别、执着，所以痛苦。修行成就后，这八个识就转成四种智慧：①成所作智（前五识转，能自在成办利生事业）；②妙观察智（第六意识转，善巧观察诸法）；③平等性智（末那识转，人我平等无执着）；④大圆镜智（阿赖耶识转，像大圆镜一样清清楚楚映现一切，无染无著）。简单说：把「迷妄的心识」转成「觉悟的智慧」。</li>\n</ul>\n<h3 id=\"4_17\">（4）具体操作步骤</h3>\n<p><strong>A. 五重唯识观</strong></p>\n<ol>\n<li>\n<p>遣虚存实（遣遍计，存依圆）；2. 舍滥留纯（舍相分，留见分）；3. 摄末归本（摄见相归自证）；4. 隐劣显胜（隐心所，显心王）；5. 遣相证性（遣识相，证圆成）。\n<strong>B. 因明立量（逻辑论证）</strong></p>\n</li>\n<li>\n<p>立宗（主张，如「声是无常」）；2. 立因（理由，如「所作性故」）；3. 立喻（例证，如「如瓶」）；4. 防过失（九句因、因十四过）。\n<strong>C. 三性三无性</strong>：于依他起上，离遍计执，证圆成实。</p>\n</li>\n</ol>\n<h3 id=\"5_17\">（5）详细案例</h3>\n<p><strong>案例甲：玄奘西行</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：唐玄奘（602–664），幼习经，感汉译诸本义理乖互，誓游西域求真典。贞观元年（或三年）私发长安，历流沙、度葱岭，十七年至天竺，师戒贤于那烂陀寺，学《瑜伽师地论》。曲女城大会，立「真唯识量」，无人能破，声震五印。归国译经千余卷，创唯识宗，糅十家释成《成唯识论》。</li>\n<li><strong>前因后果</strong>：因——汉地经论歧互、义理未圆；果——西行取经、译传唯识，中土有了系统瑜伽行学派。</li>\n<li><strong>法义点</strong>：求法与译传，是「引经据典」的极致（以梵本正汉译）。</li>\n</ul>\n<p><strong>案例乙：窥基与「真唯识量」</strong></p>\n<ul>\n<li><strong>背景</strong>：窥基（632–682），玄奘弟子，慈恩大师。著《成唯识论述记》《因明入正理论疏》。</li>\n<li><strong>故事</strong>：玄奘将赴印前，于边界立量「真故极成色，定不离眼识（宗）；自许初三摄，眼所不摄故（因）；如眼识（喻）」，明示「色不离识」，赴印途中以此量无人能破，显唯识正义之坚。</li>\n<li><strong>法义点</strong>：因明比量（论议手法）的典范。</li>\n</ul>\n<p><strong>案例丙：因明「声是无常」比量</strong></p>\n<ul>\n<li><strong>来龙去脉</strong>：胜论派执「声是常」，佛教以比量破之：「声是无常（宗）；所作性故（因）；如瓶（喻）——瓶是所作、瓶是无常；声亦是所作，故声无常。」以「所作性」贯通宗喻，破「声常」执。</li>\n<li><strong>意义</strong>：典型「论议」教学案例，显逻辑破邪之力。</li>\n</ul>\n<p><strong>案例丁：真谛（旧译）</strong></p>\n<ul>\n<li><strong>背景</strong>：陈代真谛三藏，先于玄奘译《摄大乘论》《俱舍论》，开摄论、俱舍之学，为唯识前驱。</li>\n</ul>\n<hr />\n\n<!-- ========== 测试：唯识宗（法相宗） ========== -->", "quizId": "quiz-20"}, {"id": "quickguide", "title": "速通手册", "category": "home", "content": "<h1 id=\"_17\">六、学习者速通手册（大白话 + 速记 + 误区 + 自测）</h1>\n<blockquote>\n<p>前面是「深度版」，这里是「好记版」。先用本部分抓主干，有需再回前查细节。</p>\n</blockquote>\n<h2 id=\"_18\">给学者的三句话</h2>\n<ol>\n<li><strong>别背定义，先抓感觉。</strong> 每种讲法，本质都是「把听不懂的变成听得懂的」。</li>\n<li><strong>十二种手法是一把瑞士军刀。</strong> 好法师一场讲法同时用好几种。</li>\n<li><strong>宗派只是「方便」的不同显用。</strong> 学懂一个，其他就通。</li>\n</ol>\n<h2 id=\"_19\">十二手法 · 一句话速记</h2>\n<p>顺口溜（12 字对应 12 法）：<strong>喻故例问答，颂引身比对，反演唱图通。</strong>\n逐字：譬<strong>喻</strong>、故<strong>事</strong>、举<strong>例</strong>、问<strong>答</strong>、偈<strong>颂</strong>、引<strong>经</strong>、现<strong>身</strong>说法、<strong>对</strong>比、<strong>反</strong>问、演<strong>示</strong>、唱<strong>诵</strong>、图<strong>像</strong>。</p>\n<div class=\"table-wrap\"><table>\n<thead>\n<tr>\n<th>手法</th>\n<th>大白话</th>\n<th>口诀</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>譬喻</td>\n<td>打个比方你就懂</td>\n<td>借物说理</td>\n</tr>\n<tr>\n<td>故事</td>\n<td>讲个故事你就记</td>\n<td>以事显法</td>\n</tr>\n<tr>\n<td>举例</td>\n<td>举个生活例子</td>\n<td>就近取喻</td>\n</tr>\n<tr>\n<td>问答</td>\n<td>你问我答拆疑团</td>\n<td>破执显正</td>\n</tr>\n<tr>\n<td>偈颂</td>\n<td>编成偈子好背</td>\n<td>韵文摄心</td>\n</tr>\n<tr>\n<td>引经</td>\n<td>搬出佛说立凭据</td>\n<td>以经证经</td>\n</tr>\n<tr>\n<td>现身说法</td>\n<td>我自己的经历</td>\n<td>以身示范</td>\n</tr>\n<tr>\n<td>对比</td>\n<td>两下一比就明</td>\n<td>两镜对照</td>\n</tr>\n<tr>\n<td>反问</td>\n<td>先不答，让你疑</td>\n<td>设疑催悟</td>\n</tr>\n<tr>\n<td>演示</td>\n<td>做给你看</td>\n<td>以象表法</td>\n</tr>\n<tr>\n<td>唱诵</td>\n<td>唱出来摄心</td>\n<td>声入八识</td>\n</tr>\n<tr>\n<td>图像</td>\n<td>画出来给你看</td>\n<td>以像表法</td>\n</tr>\n</tbody>\n</table></div>\n<h2 id=\"_20\">五宗派 · 白话速通</h2>\n<div class=\"table-wrap\"><table>\n<thead>\n<tr>\n<th>宗派</th>\n<th>一句话核心</th>\n<th>它最像</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>禅宗</td>\n<td>不靠经书靠自心，一句话让你突然明白</td>\n<td>师傅点你一下</td>\n</tr>\n<tr>\n<td>净土宗</td>\n<td>念「阿弥陀佛」求生极乐，谁都能念</td>\n<td>最简单一门课</td>\n</tr>\n<tr>\n<td>天台宗</td>\n<td>把佛法排成系统表，一步步修</td>\n<td>严谨教学大纲</td>\n</tr>\n<tr>\n<td>华严宗</td>\n<td>世界像网，互相含容，一即一切</td>\n<td>万花筒/帝释网</td>\n</tr>\n<tr>\n<td>唯识宗</td>\n<td>分析你的心识，佛学版心理学+逻辑</td>\n<td>心理学+逻辑</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>三步上手（各宗）</strong></p>\n<ul>\n<li>禅：选话头→行住提撕→疑破印证。</li>\n<li>净：信→愿→行（每天定课念佛）。</li>\n<li>台：学五重玄义→修一心三观→依止观实修。</li>\n<li>华：信理事无碍→学十玄→修法界观。</li>\n<li>识：学八识→学三性→修五重唯识观。</li>\n</ul>\n<p><strong>新手最常踩的坑</strong></p>\n<ul>\n<li>禅：把公案当谜语猜。</li>\n<li>净：口念心散，喊破喉咙也枉然。</li>\n<li>台：被术语绕晕，先抓「一念三千」总纲。</li>\n<li>华：只觉宏大美，落不到修行。</li>\n<li>识：钻名相出不来，忘了「转识成智」目的。</li>\n</ul>\n<h2 id=\"_21\">核心名词 · 白话小词典</h2>\n<div class=\"table-wrap\"><table>\n<thead>\n<tr>\n<th>名词</th>\n<th>大白话</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>方便（upāya）</td>\n<td>为让你懂，什么招都行</td>\n</tr>\n<tr>\n<td>观机逗教</td>\n<td>看人下菜碟（褒义）</td>\n</tr>\n<tr>\n<td>对治</td>\n<td>你有什么病给什么药</td>\n</tr>\n<tr>\n<td>契理契机</td>\n<td>不违真理，又合你根器</td>\n</tr>\n<tr>\n<td>权/实</td>\n<td>权＝临时方便，实＝究竟真理</td>\n</tr>\n<tr>\n<td>顿/渐</td>\n<td>顿＝一下到位，渐＝慢慢来</td>\n</tr>\n<tr>\n<td>公案</td>\n<td>禅宗教学案例，用来参</td>\n</tr>\n<tr>\n<td>话头</td>\n<td>让你参的那句话</td>\n</tr>\n<tr>\n<td>棒喝</td>\n<td>棒打大喝，截断胡思</td>\n</tr>\n<tr>\n<td>波罗蜜</td>\n<td>到彼岸</td>\n</tr>\n</tbody>\n</table></div>\n<h2 id=\"7-20\">7 天速学路线（每天 20 分钟）</h2>\n<ul>\n<li>第1天：背顺口溜+速记表。第2天：精读譬喻、故事、举例。第3天：问答、偈颂、引经、现身、对比。第4天：反问、演示、唱诵、图像。第5天：五宗白话。第6天：名词词典考自己。第7天：做自测题。</li>\n</ul>\n<h2 id=\"20\">综合自测 20 题（做完基本掌握）</h2>\n<ol>\n<li>用比喻的是？→譬喻。2. 「舍身饲虎」属？→故事（本生）。3. 讲自己经历叫？→现身说法。4. 赵州吃茶去属哪宗何法？→禅宗演示/反问。5. 念佛号属？→唱诵。6. 敦煌九色鹿属？→图像。7. 专以比喻说法的一部？→譬喻。8. 「应无所住」出哪经何法？→金刚经问答。9. 棒喝作用？→截断情识逼转身。10. 净土三资粮？→信愿行。11. 天台读经通法？→五重玄义。12. 金狮子讲何理？→理事无碍。13. 唯识核心数目？→八识。14. 观机逗教？→看根器选方法。15. 对治烦恼的是？→对治悉檀。16. 顿渐之分？→化仪四教。17. 三转第一步？→示相转。18. 方便梵文？→upāya。19. 譬喻为何易懂？→人脑擅类比。20. 最该记住的一句话？→观机逗教、应病与药。</li>\n</ol>\n<h2 id=\"_22\">可截图速记卡</h2>\n<pre><code>法师讲法十二手法（顺口溜）：\n  喻 故 例 问 答，颂 引 身 对 比，反 演 唱 图 通\n五宗一句话：\n  禅＝点你一下就明白｜净＝念阿弥陀佛求生｜台＝排好次第一步步修\n  华＝世界像网一即一切｜识＝拆心识转识成智\n总纲：观机逗教，应病与药；方便为门，入佛知见。\n</code></pre>\n<hr />\n<p><em>（本文为「终极深度版」：含十二种手法深度展开、十二部经、应机框架、方便原则、五宗派深度案例，末附速通手册。如需把某宗派修行次第、或手法在现代讲座/短视频中的转化再展开，可继续补充。）</em></p>\n\n<!-- ========== 测试：速通手册（综合） ========== -->", "quizId": "quiz-21"}], "quizzes": [{"id": "quiz-1", "title": "譬喻（比喻）", "questions": [{"q": "「譬喻」在十二部经中属于第几项？", "opts": ["第 3 项", "第 5 项", "第 7 项", "第 10 项"], "correct": 2, "explain": "佛经中专列「譬喻」（Avadāna，阿波陀那）为十二部经第 7 项，足见其地位之重要。"}, {"q": "「指月之指」这个比喻要说明的核心道理是？", "opts": ["手指和月亮一样重要", "比喻只是引导工具，不可执比喻为真理本身", "真理必须通过比喻才能传达", "月亮比手指更真实"], "correct": 1, "explain": "喻如指，月如真理。愚者执指为月（把比喻当真理），智者因指见月（借比喻悟真理）。比喻是方便，不可执方便废真实。"}, {"q": "双编码理论（Paivio）如何解释比喻易记的原因？", "opts": ["比喻用词更简短", "比喻有韵律", "图像+语言双重编码的记忆远强于纯语言", "比喻降低认知负荷"], "correct": 2, "explain": "Paivio 的双编码理论指出，比喻在脑中同时生成画面（图像编码）和语言编码，双重编码的记忆效果远强于纯语言编码。"}, {"q": "火宅喻出自哪部经典？", "opts": ["《华严经》", "《楞严经》", "《法华经·譬喻品》", "《百喻经》"], "correct": 2, "explain": "火宅喻出自《法华经·譬喻品》，是最完整的譬喻教学案例，核心目的是「会三归一」。"}, {"q": "火宅喻中，「大火」比喻什么？", "opts": ["地狱之火", "嗔恨心", "三界（欲界、色界、无色界）的生老病死苦", "末法时代的灾火"], "correct": 2, "explain": "宅「四面俱时欻然火起」喻三界如同燃烧的旧宅，内有生老病死忧悲苦恼之火。大火比喻三界之苦。"}, {"q": "火宅喻中，长者最初喊诸子出来的「羊车、鹿车、牛车」比喻什么？", "opts": ["三种修行法门", "声闻、缘觉、菩萨三乘（权教方便）", "三种布施", "三种波罗蜜"], "correct": 1, "explain": "三车（羊车、鹿车、牛车）喻声闻、缘觉、菩萨三乘，是佛权说的方便。最终赐的「大白牛车」喻一佛乘（实教）。"}, {"q": "化城喻中，「化城」比喻什么？", "opts": ["天堂", "二乘涅槃（有余涅槃），暂歇之处非终极", "极乐净土", "禅定境界"], "correct": 1, "explain": "化城喻二乘涅槃/阿罗汉果，是佛以权智设的「方便休息处」，非终极宝所（佛果）。"}, {"q": "「愚人食盐」的故事要说明什么法义？", "opts": ["饮食要有节制", "中道——方便/苦行适量则益，执之过度则害", "盐是不可或缺的修行助缘", "不可轻信他人"], "correct": 1, "explain": "愚人空口食盐伤身，喻外道误以「苦行即是道」而盲目自苦。法义点是「中道」——修行须离于二边。"}, {"q": "法师临场使用譬喻的七步中，第一步是？", "opts": ["锁定难点——判断听众卡在哪个概念", "近取喻体——选听众经验内的物", "建立对应表——法义映射到喻体", "先喻后合——先讲喻再点出法义"], "correct": 0, "explain": "七步依次为：锁定难点→近取喻体→建立对应表→先喻后合→设问推进→收归实义→防堕两边。"}, {"q": "以下哪一项属于譬喻的「常见误区」？", "opts": ["喻体太常见", "执喻为实＝「认指为月」", "喻体太多样", "法义太深刻"], "correct": 1, "explain": "譬喻三大常见误区：① 喻体太冷僻＝没比喻；② 执喻为实＝「认指为月」；③ 一个喻硬套所有法＝牵强。"}, {"q": "火宅喻中，长者最终赐诸子「大白牛车」比喻什么？", "opts": ["菩萨乘", "缘觉乘", "一佛乘（究竟真实，一乘实相）", "天乘"], "correct": 2, "explain": "大白牛车庄严无比，喻一佛乘。无论声闻缘觉菩萨，最终皆入佛乘——「会三归一」，权终归实。"}, {"q": "楼阁喻（不须作下二屋，先作最上层）说明什么道理？", "opts": ["修行可以顿悟成佛", "修行须次第（持戒→修定→发慧），妄求跳级如无基之楼", "建房要选好工匠", "财富多不一定有用"], "correct": 1, "explain": ""}]}, {"id": "quiz-2", "title": "讲故事（本生/本事/因缘/公案）", "questions": [{"q": "佛教故事的四类是？", "opts": ["本生、本事、因缘、公案", "本生、譬喻、授记、因缘", "公案、本生、方广、希法", "因缘、本事、孤起颂、论议"], "correct": 0, "explain": "佛教故事分四类——本生（佛前生）、本事（弟子前生）、因缘（说法缘起）、公案（禅宗机锋故事）。"}, {"q": "「本生」指的是什么？", "opts": ["佛弟子的前世故事", "佛（释迦牟尼）的前生修行故事", "佛说经的缘起背景", "禅宗祖师的机锋故事"], "correct": 1, "explain": "本生（Jātaka）专指佛过去生修菩萨道的故事，如舍身饲虎、割肉喂鹰等。"}, {"q": "叙事传输理论（Green & Brock）说明故事为何比概念更有力？", "opts": ["故事更短", "听故事时自我防线降低，进入「代入态」，价值观被悄然重塑", "故事更有逻辑", "故事更容易被记住"], "correct": 1, "explain": "Green & Brock 的叙事传输理论指出，人听故事时自我防线降低，进入「代入态」，价值观悄然被故事重塑。"}, {"q": "舍身饲虎的故事中，萨埵太子舍身体现了哪种波罗蜜的极致？", "opts": ["持戒波罗蜜", "布施波罗蜜", "忍辱波罗蜜", "精进波罗蜜"], "correct": 1, "explain": "舍身饲虎显示布施波罗蜜的极致——连身命都可舍。布施不仅舍财，乃至舍头目脑髓。"}, {"q": "尸毗王割肉喂鹰的故事主要体现了什么法义？", "opts": ["布施波罗蜜", "冤亲平等、忍辱无嗔、以自身代众生苦", "精进波罗蜜", "般若波罗蜜"], "correct": 1, "explain": "尸毗王割肉代鸽，体现了冤亲平等（救鸽也顾鹰）、忍辱无嗔（剧痛不动嗔）、以自身代众生苦。"}, {"q": "给孤独长者布金买园的故事中，最终寺名是？", "opts": ["竹林精舍", "灵鹫山", "祇树给孤独园", "那烂陀寺"], "correct": 2, "explain": "须达多（给孤独长者）以金布地，太子感佩，言「园中树木是我施佛」，故寺名「祇树给孤独园」。"}, {"q": "叙事教学六步中，「点题」这一步的作用是？", "opts": ["制造故事张力", "描述主角行为", "「佛告比丘，尔时某某即我身」，收归法义", "引导听众效学"], "correct": 2, "explain": "六步为选材→铺境→设难→显行→点题→回向。「点题」是收归法义，让故事回归教化本意。"}, {"q": "班杜拉社会学习理论如何解释故事的教育效果？", "opts": ["故事降低认知负荷", "看主角怎么做、得什么果，听众间接习得（榜样替代学习）", "故事强化记忆路径", "故事触发情感共鸣"], "correct": 1, "explain": "班杜拉社会学习理论——听众看主角怎么做、得什么果，通过「榜样替代学习」间接习得行为模式。"}, {"q": "关于公案，以下说法正确的是？", "opts": ["公案是佛教故事的统称", "公案是讲解戒律的案例", "公案是禅宗机锋故事，不是知识，是逼人离识的「活句」", "公案是佛本生故事的别称"], "correct": 2, "explain": "公案是禅宗特有的教学形式，不是知识性的故事，而是逼人离意识分别、直契心源的「活句」。"}, {"q": "莲花色比丘尼的故事说明什么道理？", "opts": ["布施的功德", "持戒的重要", "业果不虚、忏悔有力——今生之果各有前因，莫怨天当勤修", "忍辱波罗蜜"], "correct": 2, "explain": "莲花色比丘尼历经坎坷（曾因嫉妒造恶、又因忏悔修善），佛以她的宿世业缘说明「业果不虚、忏悔有力」。"}, {"q": "叙事教学六步的第一步「选材」的原则是？", "opts": ["对贪者说布施本生，对怯者说勇猛本生——对机选材", "选最长的故事讲", "选听众没听过的故事", "选最感动人的故事"], "correct": 0, "explain": "选材须对机——对贪者说布施本生，对怯者说勇猛本生。故事须与听众的烦恼对应。"}, {"q": "以下哪一项属于讲故事的「常见误区」？", "opts": ["故事太短不够详细", "把本生当「神话迷信」而轻藐＝失其象征义", "故事选材太贴切", "点题太明确"], "correct": 1, "explain": ""}]}, {"id": "quiz-3", "title": "举例子（现事例证）", "questions": [{"q": "「举例」与「譬喻」的主要区别是什么？", "opts": ["举例更高级，譬喻更初级", "譬喻用生活事，举例用抽象物", "譬喻用「物」（梦、泡），举例用「事」（生病、种田、堵车）", "没有区别"], "correct": 2, "explain": "譬喻用「物」（如梦、泡等喻体），举例用「事」（如生病、种田、堵车等生活情境）。"}, {"q": "「佛法在世间，不离世间觉」出自哪部经典？", "opts": ["《金刚经》", "《法华经》", "《六祖坛经》", "《楞严经》"], "correct": 2, "explain": "《六祖坛经》「佛法在世间，不离世间觉；离世觅菩提，恰如求兔角。」举生活例正是显此。"}, {"q": "病药喻中，对「贪」病应修什么法？", "opts": ["不净观", "慈悲观", "因缘观", "界分别观"], "correct": 0, "explain": "对治悉檀——贪者修不净观（观身不净，破身见贪），嗔者修慈悲观，痴者修因缘观。"}, {"q": "病药喻中，对「嗔」病应修什么法？", "opts": ["不净观", "慈悲观", "因缘观", "数息观"], "correct": 1, "explain": "嗔者修慈悲观——观众生皆曾为我父母，生怜悯心，破嗔恨。"}, {"q": "燃灯喻（一灯燃千灯）说明什么法义？", "opts": ["布施必得回报", "修行需要光明", "智慧相传、法布施不竭（财布施竭，法布施不竭）", "供灯的功德"], "correct": 2, "explain": "一灯可燃千灯，光光不绝，而本灯之光不减。喻智慧相传、布施不竭。"}, {"q": "举例的操作步骤第一步是？", "opts": ["从听众日常提取素材（病、田、灯、路）", "一对一映射", "引其自悟", "收束到修行应用"], "correct": 0, "explain": "操作步骤四步：①从听众日常提取素材→②一对一映射→③引其自悟→④收束到修行应用。"}, {"q": "举例手法的最大优势是？", "opts": ["展现法师学识", "让抽象义理「落地」，避免「听听感动，回家不动」", "让讲法更有趣", "节省讲法时间"], "correct": 1, "explain": "抽象义理若不与生活挂钩，听众「听听感动，回家不动」。举例让法「落地」。"}, {"q": "病药喻中，对「痴」病应修什么法？", "opts": ["不净观", "慈悲观", "因缘观", "念佛观"], "correct": 2, "explain": "痴者修因缘观——观诸法因缘生，破无明。三毒各有对症之药。"}, {"q": "「药不对病，再名贵也无效；法不对机，再高深也无用」说明什么原则？", "opts": ["法有高下之分", "药越贵越好", "应病与药、因材施教——法无高下，契机为要", "修行不需要法门"], "correct": 2, "explain": "这是对治悉檀的核心——法不对机，再高深也无用。法无高下，契机为要。"}, {"q": "举例手法背后的佛理见解「缘起法遍一切处」意味着什么？", "opts": ["缘起法只在寺庙中有效", "缘起法只适用于出家人", "穿衣吃饭皆是缘起，皆可作法例——生活中处处是法", "缘起法太过深奥不可举例"], "correct": 2, "explain": ""}]}, {"id": "quiz-4", "title": "问答 / 对话", "questions": [{"q": "《金刚经》中向佛提问的弟子是？", "opts": ["阿难", "须菩提", "舍利弗", "目犍连"], "correct": 1, "explain": "《金刚经》由须菩提（解空第一）提问：「应云何住？云何降伏其心？」"}, {"q": "《楞严经》中「七处征心」是佛与谁的对话？", "opts": ["须菩提", "阿难", "文殊菩萨", "维摩诘"], "correct": 1, "explain": "阿难被摩登伽女以幻术所惑，佛救回后问阿难「何处是心？」阿难七次作答，佛逐一破之。"}, {"q": "《金刚经》的核心句「应无所住而生其心」破的是什么执？", "opts": ["破对佛的执着", "破「我、人、众生、寿者」四相之执", "破对苦的执着", "破对修行的执着"], "correct": 1, "explain": "众生执「我、人、众生、寿者」四相，障碍菩提。佛以「无住生心」破四相。"}, {"q": "问答手法中「破执显正」的顺序是？", "opts": ["先立正见，再破错误", "先破错误预设，正见自然显", "只破不立", "只立不破"], "correct": 1, "explain": "问答手法的核心是「破执显正」——先破听众错误预设，正见自然显。"}, {"q": "《维摩诘经》中，维摩诘如何回答「不二法门」？", "opts": ["长篇大论阐述", "以偈颂回答", "默然无言", "反问文殊"], "correct": 2, "explain": "维摩诘「默然无言」。文殊叹「乃至无有文字语言，是真入不二法门」。问答的极处是离言。"}, {"q": "问答手法的操作步骤第五步「印可」是什么意思？", "opts": ["法师向听众道歉", "给听众发奖品", "佛以「善哉」印可，或令疑情顿断——确认听者的领悟", "结束讲法"], "correct": 2, "explain": "五步为设问→破执→显正→再难→印可。「印可」是最后一步——确认听者的领悟。"}, {"q": "将佛的问答比作「东方的产婆术」是因为？", "opts": ["两者都用比喻", "答案不在给，而在引出——如产婆助产，不代生", "两者都长篇说理", "两者都针对女性听众"], "correct": 1, "explain": "苏格拉底产婆术——答案不在给，而在引出。佛的问答正是东方的产婆术。"}, {"q": "「庄严佛土者，即非庄严，是名庄严」这句话的般若逻辑是？", "opts": ["否定庄严的存在", "肯定庄严的真实", "立→破→立：先说有（假名），再破其执（非实），后显中道（是名）", "自相矛盾"], "correct": 2, "explain": "《金刚经》的般若逻辑——「佛说X，即非X，是名X」：立假名→破其执→显中道。"}, {"q": "《楞严经》七处征心后，佛引出的核心概念是？", "opts": ["四圣谛", "十二因缘", "妄心（攀缘）vs 真心（常住）——破妄显真", "六度波罗蜜"], "correct": 2, "explain": "七处征心七破皆非后，佛引出「常住真心、性净明体」。核心法义：妄心 vs 真心，破妄显真。"}, {"q": "问答手法的现代启示是？", "opts": ["面对焦虑要压制念头", "面对焦虑不「压住」念头，而是「不黏著」地生心——与心理学「认知解离」相通", "焦虑时应该多提问", "焦虑时应该念佛号"], "correct": 1, "explain": ""}]}, {"id": "quiz-5", "title": "偈颂 / 诗歌", "questions": [{"q": "「重颂」在十二部经中属于第几项？", "opts": ["第 1 项", "第 2 项", "第 4 项", "第 7 项"], "correct": 1, "explain": "重颂（Geya 祇夜）是十二部经第 2 项，指散文后以偈颂重说一遍。"}, {"q": "「孤起颂」与「重颂」的区别是？", "opts": ["孤起颂更长", "孤起颂不依前文、独立成颂；重颂是散文后重说一遍", "孤起颂用白话，重颂用文言", "没有区别"], "correct": 1, "explain": "重颂是散文后以偈重说一遍；孤起颂（Gāthā 伽陀，第 4 项）不依前文、独立成颂。"}, {"q": "七佛通诫偈「诸恶莫作，众善奉行，自净其意，是诸佛教」总摄了什么？", "opts": ["四圣谛", "十二因缘", "戒定慧三学", "六度波罗蜜"], "correct": 2, "explain": "诸恶莫作＝戒，众善奉行＝戒之广，自净其意＝定慧。四句总摄戒定慧三学。"}, {"q": "神秀的偈「身是菩提树……」代表什么法门？", "opts": ["顿悟门", "渐修门", "方便门", "密教门"], "correct": 1, "explain": "神秀偈代表渐修门——心会被烦恼污染，须时时拂拭、不断修行。执「有染可拂」。"}, {"q": "惠能的偈「菩提本无树……」代表什么法门？", "opts": ["顿悟门", "渐修门", "净土门", "唯识门"], "correct": 0, "explain": "惠能偈代表顿悟门——清净本性本来空寂、本来干净。彻「性本空寂」，当下就是清净。"}, {"q": "《心经》陀罗尼「揭谛揭谛……」的大意是？", "opts": ["赞美佛的功德", "去吧去吧，到彼岸去吧，完全到彼岸，成就菩提", "忏悔业障", "供养三宝"], "correct": 1, "explain": "这句梵文咒语大意是：「去吧、去吧，渡过生死之河到彼岸去吧，大家一起完全到彼岸，成就菩提。」"}, {"q": "偈颂「记忆经济」的优势在古代尤为突出，原因是？", "opts": ["古代人记忆力更好", "古人无印刷、无手机，全靠偈颂口耳相传——韵文有节律易记", "古代只有偈颂没有散文", "偈颂比散文更短"], "correct": 1, "explain": "韵文有节律，古人无印刷、无手机，全靠偈颂口耳相传。偈颂的记忆经济性在口传时代至关重要。"}, {"q": "偈颂在六祖传衣法事件中扮演了什么角色？", "opts": ["只是考试作业", "礼仪性的形式", "偈颂成了「印心」之具——通过偈颂显示见地高下，决定衣法传承", "仅为记录用"], "correct": 2, "explain": "五祖令门人作偈以勘见地。神秀偈显渐修，惠能偈显顿悟。偈颂成了「印心」之具。"}, {"q": "偈颂的操作步骤中，「领众齐诵」的目的是？", "opts": ["考验记忆力", "表演展示", "摄心入法——大众齐诵时心易专注，散乱顿息", "节省讲法时间"], "correct": 2, "explain": "操作步骤第四步「领众齐诵，摄心入法」。偈颂有节律，唱诵摄心，比散文更能入心。"}, {"q": "「长行细说，偈颂提纲领」符合什么教学原则？", "opts": ["循序渐进", "详略双彰——先详说再浓缩，便于记忆与总持", "因材施教", "启发式教学"], "correct": 1, "explain": ""}]}, {"id": "quiz-6", "title": "引经据典", "questions": [{"q": "四依止中「依法不依人」的含义是？", "opts": ["只信佛不信法师", "以法（经教真理）为准，不以说法者个人权威为准", "只读经不拜师", "依法不依僧"], "correct": 1, "explain": "四依止——依法不依人、依义不依语、依了义经不依不了义经、依智不依识。"}, {"q": "引经据典的三大意义中，「防师心自用」指什么？", "opts": ["防止法师太过用心", "依法不依人，引经约束法师的主观发挥", "防止听众自作主张", "防止师徒之间争论"], "correct": 1, "explain": "「防师心自用」——依法不依人，以经教约束法师的主观发挥。"}, {"q": "智者大师讲《法华》时引哪三部经互证？", "opts": ["《阿含》《般若》《楞严》", "《金刚经》《心经》《维摩诘》", "《大品般若》《涅槃》《华严》", "《阿弥陀经》《观经》《无量寿经》"], "correct": 2, "explain": "智者引《大品般若》（说空）、《涅槃》（说佛性）、《华严》（说圆顿）互证。"}, {"q": "蕅益大师《弥陀要解》将净土判为什么？", "opts": ["小乘教", "方便而非究竟", "「巧方便中之极巧、圆顿中最极圆顿」", "仅适合钝根"], "correct": 2, "explain": "蕅益判净土为「巧方便中之极巧、圆顿中最极圆顿」。"}, {"q": "四依止中「依了义经不依不了义经」要求引经时注意什么？", "opts": ["只引大乘经", "须判知所引经的权实、了义不了义，以了义为究竟", "只引佛说不引论典", "引经越多越好"], "correct": 1, "explain": "不同经有权实、顿渐之别，引经须判知其教相定位（判教必要）。"}, {"q": "引经据典的操作步骤第四步「归到现前修行」意味着？", "opts": ["引经后结束讲法", "引经后背诵经文", "引经最终须落实到当下修行实践，不停留在理论", "引经后让听众自己理解"], "correct": 2, "explain": "引经不是掉书袋，最终须归到当下修行实践，否则只是知识堆积。"}, {"q": "以下哪项是引经据典的常见误区？", "opts": ["断章取义、乱引", "引经太少", "引经太通俗", "引经太详细"], "correct": 0, "explain": "引经三大常见误区：① 断章取义、乱引；② 以经压人、不作解；③ 不知权实，把不了义经当究竟。"}, {"q": "「以圣言量镇住异说」中「圣言量」指的是？", "opts": ["法师的个人言论", "佛菩萨圣者所说的经教——作为可信的知识来源", "古代祖师的私人书信", "佛教词典"], "correct": 1, "explain": "「圣言量」即佛菩萨圣者所说的经教，是佛教认识论中的可靠知识来源。"}, {"q": "智者大师「以经证经」时引《药草喻品》说明什么？", "opts": ["只有菩萨能成佛", "「一雨普润，而草木大小不同」——佛一音说法，众生随类得解", "药草能治百病", "种草必有收获"], "correct": 1, "explain": "智者引《药草喻品》「一雨普润，而草木大小不同」——佛一音说法，众生随类得解。"}, {"q": "引经据典中「判教必要」的原因是？", "opts": ["每部经都需要重新翻译", "判教能分出经的高下", "不同经有权实、顿渐之别，引经须判知其教相定位", "判教是法师的专利"], "correct": 2, "explain": ""}]}, {"id": "quiz-7", "title": "现身说法", "questions": [{"q": "现身说法与讲故事的核心区别是？", "opts": ["现身说法更短", "现身说法是法师讲自己的亲身经历，不是讲别人的故事", "现身说法只讲出家前的事", "没有区别"], "correct": 1, "explain": "现身说法是法师以自身修行体验、人生转折、亲身证悟来说法——「我自己的事」。"}, {"q": "目连救母的故事中，目连以钵盛饭给亡母，饭变成了什么？", "opts": ["变成了水", "变成了火炭", "变成了金子", "变成了花"], "correct": 1, "explain": "目连以道眼见亡母堕饿鬼道，以钵盛饭往饷，饭未入口化成火炭——饿鬼业力使食物变为不可食。"}, {"q": "目连救母的故事体现了什么核心法义？", "opts": ["修行必须出家", "孝道贯通出世；自力有限须借僧力；因果不虚可借法转业", "饿鬼道不存在", "阿罗汉无所不能"], "correct": 1, "explain": "目连虽证阿罗汉，自力仍不够救母——须借众僧和合之力。体现孝道、自力有限、因果可转。"}, {"q": "印光大师现身说法的特点是？", "opts": ["以神通感化听众", "自述「我亦薄地凡夫」，以谦卑现身，劝人「老实念佛」", "以学问渊博折服听众", "以苦行吓退听众"], "correct": 1, "explain": "印光大师自号「粥饭僧」，自述「我亦薄地凡夫」，以谦卑现身，劝人「莫换题目」。"}, {"q": "现身说法的「解行相应」出自哪部经的原理？", "opts": ["《法华经》", "《楞严经》「因地不真，果招纡曲」——说者须先自修", "《金刚经》", "《华严经》"], "correct": 1, "explain": "《楞严经》「因地不真，果招纡曲」——说者须先自修。解行相应：理解与实践必须对应。"}, {"q": "Vulnerability（坦诚脆弱）在现身说法中的作用是？", "opts": ["显示法师软弱", "拉近距离，听众从「他好厉害」变成「原来我也可以」", "博取同情", "展示修行困难"], "correct": 1, "explain": "Vulnerability拉近距离——法师自述「我当初也……」，听众从「他好厉害」变成「原来我也可以」。"}, {"q": "现身说法操作步骤中「不炫己德」的目的是？", "opts": ["显得谦虚", "重在「同是凡夫，依法可转」——让听众觉得我也能做到", "隐藏真实水平", "避免引起嫉妒"], "correct": 1, "explain": "不炫己德的目的不是谦虚姿态，而是让听众觉得「他也是凡夫，他做到了，我也能」。"}, {"q": "以下哪项是现身说法的误区？", "opts": ["编造经历＝打妄语、失根基", "讲得太简短", "过于谦虚", "引用太多经文"], "correct": 0, "explain": "现身说法三大误区：① 编造经历＝打妄语、失根基；② 变炫耀＝「我相」未破；③ 只诉苦不点法＝成抱怨。"}, {"q": "虚云老和尚现身说法的特点是？", "opts": ["以理论分析见长", "以百年行持示「行解相应」，常以自身参禅落处为例", "以神通变化摄众", "以著书立说传世"], "correct": 1, "explain": "虚云老和尚以百年行持示「行解相应」，常以自身参禅落处为例，令学人知「路是这样走的」。"}, {"q": "「菩萨现同类身，说同法语」在现身说法中如何体现？", "opts": ["菩萨只对菩萨说法", "法师以与听众同类的身份（同为凡夫、同有烦恼）来现身，拉近距离说法", "菩萨变化各种形象", "只用法语说法"], "correct": 1, "explain": ""}]}, {"id": "quiz-8", "title": "对比 / 对照", "questions": [{"q": "对比手法中，「权」与「实」的关系是？", "opts": ["权是错误的，实是正确的", "权是低级的，实是高级的", "权实不二——权即实之巧施，实即权之归趣", "权和实完全对立"], "correct": 2, "explain": "权实不二——权（方便）是实（究竟）的善巧施设，实是权的最终归趣。"}, {"q": "「十方佛土中，唯有一乘法，无二亦无三」出自哪部经？", "opts": ["《华严经》", "《般若经》", "《法华经》", "《涅槃经》"], "correct": 2, "explain": "此句出自《法华经》，是「开权显实」的核心——只有一佛乘（实），三乘（权）只是方便。"}, {"q": "真俗二谛中，执著「俗谛」会导致什么？", "opts": ["迷——执着万法为实有", "堕断灭见", "证空性", "成佛"], "correct": 0, "explain": "俗谛说万法宛然有。执著俗则迷（执有为实）。正确中道是「色即是空，空即是色」。"}, {"q": "对比手法中，执著「真谛」（空）会导致什么过失？", "opts": ["执着万法实有", "堕断灭见——拨无因果，以为「一切皆空」就不用修行了", "增长我慢", "退失菩提心"], "correct": 1, "explain": "执空则堕断灭——以为「一切皆空」就否定因果、否定修行。中道不偏空有。"}, {"q": "对比手法「辨别学习」的理论依据是？", "opts": ["对比能节省时间", "人靠「差异」理解事物——不比不知「净」，不比不知「染」", "对比能增加信息量", "对比符合逻辑学原理"], "correct": 1, "explain": "辨别学习——人靠「差异」理解事物。不比不知「净」，不比不知「染」。"}, {"q": "对比手法的操作步骤第三步「归到」有哪两种方向？", "opts": ["肯定或否定", "「舍此取彼」或「圆融无碍」", "赞同或反对", "总结或提问"], "correct": 1, "explain": "有时对比后须取舍（舍轮回取涅槃），有时须超越对立（权实不二、色空不二）。"}, {"q": "「色即是空，空即是色」体现的是什么？", "opts": ["色和空是两个东西", "色等于空，空等于色", "二谛中道——有和空是一体两面，不偏不堕", "色不是空，空不是色"], "correct": 2, "explain": "二谛中道——物质现象的当下就是空性，空性也不离物质现象。有和空是一体两面。"}, {"q": "对比手法在《法华经》「开权显实」中的作用是？", "opts": ["贬低三乘", "显影权实关系——三乘是方便门，一佛乘是真实相", "否定小乘修行", "证明法华经最高"], "correct": 1, "explain": "对比是「权实」关系的显影。通过三乘（权）与一佛乘（实）对比，知何者方便、何者真实。"}, {"q": "佛说法的次第（阿含→方等→般若→法华）中，前三时属于什么？", "opts": ["实教", "权教——因根未熟而施设的方便", "密教", "顿教"], "correct": 1, "explain": "阿含、方等、般若皆属「权」——因众生根未熟而施设的方便。至法华时根熟，方显「实」。"}, {"q": "对比手法中「防混淆」的功能主要体现在？", "opts": ["防止听众混淆法师的话", "防止听众混淆不同经典", "权实一比，知何者是方便、何者是真实", "防止听众混淆大小乘"], "correct": 2, "explain": ""}]}, {"id": "quiz-9", "title": "反问 / 设疑", "questions": [{"q": "赵州禅师对「狗子还有佛性也无」的回答是？", "opts": ["有", "无", "既有既无", "不答"], "correct": 1, "explain": "依经教「一切众生皆有佛性」，狗应有。然赵州答「无！」——截断学人的概念知解。"}, {"q": "赵州「无」字话头的「无」是什么意思？", "opts": ["狗确实没有佛性", "佛性不存在", "非断灭无，是逼人离「有无」两边之活句", "赵州说错了"], "correct": 2, "explain": "此「无」非断灭无，而是活句——截断「有佛性」的概念执，逼其离有无两边。"}, {"q": "六祖「风幡」公案中，六祖说「不是风动，不是幡动」下一句是？", "opts": ["是空气在动", "仁者心动", "都没有动", "是佛在动"], "correct": 1, "explain": "六祖曰「不是风动，不是幡动，仁者心动。」破「动」之执，点出争论源于自心妄识。"}, {"q": "反问手法「制造认知失调」的目的是？", "opts": ["让听众难堪", "显示法师高明", "人遇「答不上」会不舒服，这不适正是求悟的动力", "考验听众知识"], "correct": 2, "explain": "「小疑小悟，大疑大悟，不疑不悟」。疑情是觉悟的燃料。"}, {"q": "「念佛的是谁」这个反问的作用是？", "opts": ["质疑念佛的功德", "返观能念之心——由「所念」回头向「能念」，禅净融通之反问", "劝人不要念佛", "考问念佛者的身份"], "correct": 1, "explain": "返观能念之心，由所念（佛号）回头向能念（心），是禅净融通之反问。"}, {"q": "反问手法中「破知识障」的意思是？", "opts": ["佛教知识是有障碍的", "直接给答案，听者只记概念；让他自己参破，才是真悟", "知识越多越障碍", "不需要学习知识"], "correct": 1, "explain": "直接给答案，听者只记概念（死知识），非真悟。反问让他自己参破，才是真悟。"}, {"q": "反问操作步骤中「悟后须明师印证」的原因是？", "opts": ["自己悟的不算数", "防止堕光影——自以为悟实则非悟，须过来人勘验", "明师有认证权", "印证后才能继续修行"], "correct": 1, "explain": "防止「堕光影」（自以为悟实则落入意识境界）。须有实证经验的过来人勘验。"}, {"q": "「疑情为舟」的完整表述是？", "opts": ["疑情越多越好", "疑到「山穷水尽」，忽一转身，桶底脱落", "疑情是修行的障碍", "疑情等于怀疑"], "correct": 1, "explain": "疑到「山穷水尽」（所有思维路径都走不通），忽一转身（离思议），桶底脱落（顿悟）。"}, {"q": "风幡公案中，六祖要破的「能所二取」指的是什么？", "opts": ["风和幡的对立", "心识分别「能动/被动」的对立——都源于自心妄识", "风大和幡大的对立", "动和静的对立"], "correct": 1, "explain": "能所二取——心识分别「能动者」与「被动者」，这二元对立本身就是妄识。"}, {"q": "反问手法与问答手法的主要区别是？", "opts": ["没有区别", "反问只用于禅宗，问答用于所有宗派", "问答会给出答案（破执显正），反问不急给答案，令疑情生逼其自参", "反问比问答更简单"], "correct": 2, "explain": ""}]}, {"id": "quiz-10", "title": "实物 / 动作演示", "questions": [{"q": "拈花微笑公案中，佛拈的是什么花？", "opts": ["莲花", "金波罗华", "玉兰花", "曼陀罗花"], "correct": 1, "explain": "大梵天王献金波罗华，请佛说法。佛默然拈华示众，不置一词。"}, {"q": "拈花微笑中，谁破颜微笑、成为禅宗初祖？", "opts": ["阿难", "大迦叶", "舍利弗", "目犍连"], "correct": 1, "explain": "百万闻法众中唯大迦叶破颜微笑。佛宣告付嘱摩诃迦叶，成禅宗西天初祖。"}, {"q": "俱胝一指公案中，俱胝和尚断童子指的目的是？", "opts": ["惩罚童子模仿", "测试童子胆量", "去「模仿的相」，方见「活的指」", "教童子不要竖指"], "correct": 2, "explain": "一指象征「一心全体」。断指去其「模仿的相」，童子方见「活的指」（真法非形式）。"}, {"q": "演示手法「非语言沟通」的优势在于？", "opts": ["不需要语言能力", "有些境界离言，动作比语言直接（拈花一笑，不立文字）", "动作比语言更快", "动作比语言更有趣"], "correct": 1, "explain": "有些境界离言（言语道断），用语言说反而添妄。动作比语言直接。"}, {"q": "演示手法「冲击注意」的原理是？", "opts": ["动作让人害怕", "突然而来的动作打破听众惯性思维，制造「顿悟窗口」", "动作让人兴奋", "动作让人好奇"], "correct": 1, "explain": "突然而来的动作（如棒喝、断指），打破惯性思维流，制造「顿悟窗口」。"}, {"q": "禅宗「教外别传，不立文字」与哪种手法最对应？", "opts": ["引经据典", "偈颂", "实物/动作演示", "问答"], "correct": 2, "explain": "演示手法体现禅宗「教外别传，不立文字」精神——以无言传无相法。"}, {"q": "演示手法「具身记忆」的意思是？", "opts": ["动作能锻炼身体", "动作记忆深刻——你忘不了一个竖指、一棒、一喝", "身体好才能修行", "动作能治病"], "correct": 1, "explain": "动作记忆比语言记忆更深刻。你忘不了一个竖指、一棒、一喝。"}, {"q": "法师日常演示中「举钵」说法的法义是？", "opts": ["钵是法器", "「这饭碗就是福田，你惜福，福就长」", "钵代表空性", "举钵表示供养"], "correct": 1, "explain": "举钵说法：「这饭碗就是福田，你惜福，福就长。」以日用器物说法。"}, {"q": "演示手法的操作步骤第四步「令会者于言外得旨」意味着？", "opts": ["必须解释演示的含义", "不直接说破，让有缘者在动作之外自悟其意", "所有人都能理解", "只有法师知道意思"], "correct": 1, "explain": "不直接说破，让有缘者在动作之外自悟其意——如拈花唯迦叶微笑。"}, {"q": "拈花微笑公案的「法义点」是？", "opts": ["花代表美丽", "微笑表示礼貌", "最极的演示——以「无言」传「无相法」；心心相印，不假文字", "花是供养佛的"], "correct": 2, "explain": ""}]}, {"id": "quiz-11", "title": "唱诵 / 梵呗", "questions": [{"q": "汉地梵呗之始传为谁所创？", "opts": ["支谦", "曹植（陈思王）", "康僧会", "鸠摩罗什"], "correct": 1, "explain": "东汉末，陈思王曹植游鱼山，闻岩谷水声，乃仿其声制梵呗——汉地梵呗之始。"}, {"q": "「声入八识」中「八识」指的是？", "opts": ["八种感觉", "阿赖耶识——音声直入最深层的意识，潜移默化", "八种修行阶段", "八正道"], "correct": 1, "explain": "八识指阿赖耶识（第八识）。音声直入阿赖耶，「一历耳根，永为道种」。"}, {"q": "焰口施食的缘起与哪位佛弟子有关？", "opts": ["舍利弗", "阿难", "目犍连", "须菩提"], "correct": 1, "explain": "阿难夜见饿鬼（面然），告佛。佛说《救拔焰口饿鬼陀罗尼》。"}, {"q": "唱诵手法「摄散入定」的原理是？", "opts": ["唱诵能催眠", "唱诵节奏引心专注，散乱顿息", "唱诵让人忘记烦恼", "唱诵能消耗体力"], "correct": 1, "explain": "唱诵有节律，节律引心专注。心随音声节奏走，散乱自然止息。"}, {"q": "曹植创鱼山梵呗之前，汉地讽诵用什么音调？", "opts": ["中土民乐", "西域音调——汉人难解", "印度原始音调", "没有固定音调"], "correct": 1, "explain": "此前胡僧来华，讽诵依西域音调，汉人难解。曹植以中土宫商谱之，梵呗始汉化。"}, {"q": "称名念佛「南无阿弥陀佛」属于哪种手法？", "opts": ["引经据典", "反问", "唱诵/梵呗", "偈颂"], "correct": 2, "explain": "称名念佛以声摄心，以心归佛，是最简单之「唱诵」，三根普被。"}, {"q": "唱诵的常见误区「执声迷义」指的是？", "opts": ["声音太大听不清", "只图腔调好听，忘失经义", "执着于某一种腔调", "声音太小没效果"], "correct": 1, "explain": "「执声迷义」——只图腔调好听，忘失经义。唱后须略说其义，音声与义理双运。"}, {"q": "唱诵手法「共修凝聚力」体现在？", "opts": ["人多力量大", "大众同唱，气势与归属感强", "共修时声音更响", "共修时更省力"], "correct": 1, "explain": "大众同唱，气势与归属感强。共修的凝聚力是唱诵的独特优势。"}, {"q": "鱼山梵呗的创立体现了什么法义？", "opts": ["音乐比语言重要", "方便随方——随地域文化调整方便", "只有鱼山的音声最好", "梵呗必须有水声"], "correct": 1, "explain": "曹植以中土宫商谱梵呗，令汉人易入。体现「方便随方」——随地域文化调整方便。"}, {"q": "唱诵操作步骤第四步「唱后略说其义」的目的是？", "opts": ["考验听众", "音声与义理双运——不只唱还要懂", "延长法会时间", "展示法师学识"], "correct": 1, "explain": ""}]}, {"id": "quiz-12", "title": "图像 / 变相", "questions": [{"q": "敦煌壁画《九色鹿》据哪部经典绘制？", "opts": ["《法华经》", "《鹿王本生》", "《华严经》", "《观无量寿经》"], "correct": 1, "explain": "壁画据《鹿王本生》绘于莫高窟。九色神鹿救溺人，溺人背恩贪赏引王猎鹿，终遭报。"}, {"q": "图像手法的最大优势是？", "opts": ["比文字更美", "文盲、童稚、异语者，看图即懂——视觉直入", "保存更久", "制作更简单"], "correct": 1, "explain": "视觉直入——文盲、童稚、异语者，看图即懂。图像突破文字壁垒。"}, {"q": "曼荼罗（坛城）在密教中表什么？", "opts": ["佛的画像", "法界——胎藏界显「理」，金刚界显「智」", "寺庙平面图", "装饰图案"], "correct": 1, "explain": "密教以曼荼罗表法界。胎藏界显「理」（理具万行），金刚界显「智」（智断次第）。"}, {"q": "图像手法「象征密度高」的意思是？", "opts": ["图像颜色多", "一幅曼荼罗含摄全体教理（方位、本尊、种子字）", "图像画得很密", "一幅画有很多人物"], "correct": 1, "explain": "象征密度高——一幅曼荼罗含摄全体教理。方位、本尊、种子字各有表法含义。"}, {"q": "九色鹿故事中，溺人背恩的报应是什么？", "opts": ["被鹿踢死", "周身生疮", "被国王处死", "堕地狱"], "correct": 1, "explain": "溺人贪赏引王猎鹿，背恩之报——周身生疮。壁画让丝路商旅、村妇一眼即懂因果。"}, {"q": "图像手法背后的见解「以像表法」意味着？", "opts": ["佛像就是佛", "相即性之显；像非偶像，是「法之载体」", "造像越多功德越大", "只有佛的像才能表法"], "correct": 1, "explain": "以像表法——相即性之显；像非偶像，是「法之载体」。不可执像为神。"}, {"q": "图像手法的常见误区「执像为神」指的是？", "opts": ["像太大太庄严", "偶像崇拜——迷于相，把法之载体当法本身", "像太小不够庄严", "画像不够精美"], "correct": 1, "explain": "执像为神（偶像崇拜）＝迷于相。像非偶像，是法之载体。执像则失表法本意。"}, {"q": "水陆画在法会中的作用是？", "opts": ["装饰道场", "以画召请六道鬼神，普度幽冥——图像是「普度的请柬」", "记录法会盛况", "供人欣赏"], "correct": 1, "explain": "水陆画以画召请六道鬼神，普度幽冥。图像是「普度的请柬」。"}, {"q": "图像手法「长久熏习」的优势是？", "opts": ["画像不会损坏", "像立千年，持续教化", "画比文字保存更久", "画不需要更新"], "correct": 1, "explain": "长久熏习——像立千年，持续教化。壁画、造像千年仍向见者说法。"}, {"q": "图像手法的操作步骤中「指画说法」的意思是？", "opts": ["画画给人看", "指画说法：「此画中……即是……」——边指画边讲解法义", "用手画画", "画完就结束"], "correct": 1, "explain": ""}]}, {"id": "quiz-13", "title": "十二部经（体裁即讲法）", "questions": [{"q": "十二部经是？", "opts": ["十二本书", "十二种经文体裁，本身也是讲法方式", "十二部大乘经典", "十二部小乘经典"], "correct": 1, "explain": "十二部经（十二分教）是佛教学者对一代时教的体裁归纳，每一「部」既是一种经文体裁，也是一种讲法方式。"}, {"q": "「自说」（Udāna 优陀那）的讲法性格是？", "opts": ["以理服人", "无问自说，显佛悲心", "借物说理", "以诗表法"], "correct": 1, "explain": "自说——无人请问，佛主动宣说。如《阿弥陀经》无启问者，佛自说净土。显佛悲心。"}, {"q": "「授记」（Vyākaraṇa）的讲法性格是？", "opts": ["叙事伏笔", "给信心与方向——佛预言弟子「汝于来世当得作佛」", "以比喻说法", "问答辨析"], "correct": 1, "explain": "授记——佛预言弟子未来成佛。讲法性格＝「给信心与方向」。《法华·授记品》。"}, {"q": "「方广」（Vaipulya 毘佛略）的讲法性格是？", "opts": ["以神变摄信", "说深妙理、境界无量", "便于记诵", "以弟子宿缘显因果"], "correct": 1, "explain": "方广——广大深妙之教。讲法性格＝「说深妙理、境界无量」。《华严》《大般若》。"}, {"q": "「论议」（Upadeśa 优波提舍）的讲法性格是？", "opts": ["以理服人——问答辨析、逻辑讨论", "以事显法", "以像表法", "无问自说"], "correct": 0, "explain": "论议——问答辨析、逻辑讨论。讲法性格＝「以理服人」。《大智度论》即论议体。"}, {"q": "「本生」（Jātaka 阇陀伽）的讲法性格是？", "opts": ["以佛因地显菩萨道", "借物说理", "给信心与方向", "说深妙理"], "correct": 0, "explain": "本生——佛过去生修行故事。讲法性格＝「以佛因地显菩萨道」。舍身饲虎等。"}, {"q": "《阿弥陀经》属于十二部经中的哪一部？", "opts": ["契经", "重颂", "自说", "譬喻"], "correct": 2, "explain": "《阿弥陀经》无启问者，佛自说净土，属于「自说」（Udāna）。显佛悲心——无人问而自说。"}, {"q": "一部经常兼多种体裁。以下说法正确的是？", "opts": ["每部经只属一种体裁", "《法华》有契经、重颂、譬喻、授记等多种", "十二部经就是十二部书", "大乘经不属于十二部"], "correct": 1, "explain": "十二部非「十二本书」，是「十二种体裁」。一部经常兼多种——如《法华》有契经、重颂、譬喻、授记等。"}, {"q": "「孤起颂」（Gāthā 伽陀）与「重颂」的区别是？", "opts": ["孤起颂更长", "孤起颂不依前文独立成颂，重颂是散文后重说", "孤起颂更短", "没有区别"], "correct": 1, "explain": "孤起颂——不依前文、独立成颂。重颂——散文后以偈重说一遍。"}, {"q": "「因缘」（Nidāna 尼陀那）的讲法性格是？", "opts": ["以理服人", "叙事伏笔——交代「因何缘起而说此经」", "借物说理", "以神变摄信"], "correct": 1, "explain": ""}]}, {"id": "quiz-14", "title": "应机施教的框架（四悉檀/化仪四教/三转法轮）", "questions": [{"q": "四悉檀中，先令听众欢喜生信的是？", "opts": ["世界悉檀", "为人悉檀", "对治悉檀", "第一义悉檀"], "correct": 0, "explain": "世界悉檀——顺世间情宜而说，先令欢喜生信。如佛说布施得福，顺世人求福之心。"}, {"q": "四悉檀中，针对具体烦恼下药的是？", "opts": ["世界悉檀", "为人悉檀", "对治悉檀", "第一义悉檀"], "correct": 2, "explain": "对治悉檀——针对具体烦恼下药。贪者不净观，嗔者慈悲观，痴者因缘观。"}, {"q": "四悉檀中，终指诸法实相、究竟真理的是？", "opts": ["世界悉檀", "为人悉檀", "对治悉檀", "第一义悉檀"], "correct": 3, "explain": "第一义悉檀——终指诸法实相、究竟真理。前三是「权」，此一是「实」。"}, {"q": "化仪四教中，「顿」的特点是？", "opts": ["由浅入深", "直下全提，不假阶次", "同听异闻", "随人得益不同"], "correct": 1, "explain": "顿——直下全提，不假阶次。如《华严》对圆顿大根，说「初发心时便成正觉」。"}, {"q": "化仪四教中，「渐」的例子是？", "opts": ["《华严》对圆顿大根", "阿含→方等→般若→法华，由浅入深", "同听一味各人异解", "随人得益无定"], "correct": 1, "explain": "渐——由浅入深。阿含（破执）→方等（弹偏）→般若（说空）→法华（显实）。"}, {"q": "三转法轮中，第一步「示相转」是？", "opts": ["劝「苦应知、集应断」", "开示「此是苦、此是集、此是灭、此是道」——先让你「认识」", "佛以果证「我已知苦」", "令众生发菩提心"], "correct": 1, "explain": "示相转——开示「此是苦（逼迫性）、此是集（招感性）、此是灭（可证性）、此是道（可修性）」。先认识。"}, {"q": "三转法轮中，第三步「作证转」是？", "opts": ["开示四谛", "劝修四谛", "佛以果证「我已知苦、已断集、已证灭、已修道」——最后「印证」", "令众生发愿"], "correct": 2, "explain": "作证转——佛以果证「我已知苦、已断集、已证灭、已修道，此法真实不虚」。最后印证。"}, {"q": "四悉檀中，看个人根性因材施教的是？", "opts": ["世界悉檀", "为人悉檀", "对治悉檀", "第一义悉檀"], "correct": 1, "explain": "各各为人悉檀（为人悉檀）——看个人根性因材施教。对持戒者说戒功德，对智慧者说空。"}, {"q": "化仪四教中，「秘密」的意思是？", "opts": ["佛秘密传法", "同听一味，各人异解，互不相知（「同听异闻」）", "密教修行", "不公开说法"], "correct": 1, "explain": "秘密——同听一味，各人异解，互不相知。佛以一音说法，众生随类得解而互不知。"}, {"q": "三转法轮的意义是？", "opts": ["必须三步讲完", "任何一场有效讲法都暗合「认知→行动→印证」三转", "只有初转法轮用", "三步缺一不可"], "correct": 1, "explain": ""}]}, {"id": "quiz-15", "title": "根本原则——方便（upāya）", "questions": [{"q": "「方便」（upāya）的准确含义是？", "opts": ["不究竟的方法", "为达究竟目的而施设的善巧方法——「究竟的善巧显现」", "随便应付", "临时的凑合"], "correct": 1, "explain": "方便译自 upāya，意「善巧方便」——为令众生入佛知见而施设的种种善巧方法。它不是「不究竟」，而是「究竟的善巧显现」。"}, {"q": "「诸佛以一大事因缘出现于世」的「大事因缘」是？", "opts": ["讲经说法", "让众生「开示悟入」佛之知见", "建立僧团", "示现神通"], "correct": 1, "explain": "一切佛降生到这世上，只为了让众生「开、示、悟、入」佛的知见（觉悟真理、成佛）。"}, {"q": "方便的「桥梁」功能是？", "opts": ["连接此岸和彼岸的桥", "众生在彼岸，佛在此岸说法，方便是桥", "连接大小乘的桥", "连接古今的桥"], "correct": 1, "explain": "方便是架在「佛（此岸说法者）」和「众生（彼岸迷惑者）」之间的一座桥。"}, {"q": "「权实不二」的含义是？", "opts": ["权和实是两个东西", "方便是「权」，实相是「实」；然权即实之巧施，非离实别有方便", "权比实低一级", "实比权高一级"], "correct": 1, "explain": "权实不二——方便是「权」，实相是「实」；然权即实之巧施，非离实别有方便。《法华》「开权显实」。"}, {"q": "方便的操作要领「应病与药」的意思是？", "opts": ["法师生病也要说法", "听众患何烦恼，即予何法，不执一法", "药越贵越好", "一种药治百病"], "correct": 1, "explain": "应病与药——听众患何烦恼，即予何法，不执一法。如同医生对症下药。"}, {"q": "「契理契机」中「契理」和「契机」分别指？", "opts": ["契理=合佛法，契机=合根器", "契理=合逻辑，契机=合机会", "契理=合理，契机=合时机", "契理=合天理，契机=合人机"], "correct": 0, "explain": "契理——不违实相（合佛法真理）；契机——顺众生根器（合听众条件）。方便之尺度：越契理方便越广，越契机方便越巧。"}, {"q": "方便的「弹性」体现在？", "opts": ["佛法可以随意改变", "佛法能随地域、时代、根器而变化（汉传、藏传、南传各异其方便，同契一实相）", "方便就是随便", "佛法随时在变"], "correct": 1, "explain": "正因为「方便」，佛法才能随地域、时代、根器而变化。汉传、藏传、南传各异其「方便」，同契一实相。"}, {"q": "《法华》三车喻是方便的典型。以下说法正确的是？", "opts": ["三车是究竟", "以羊鹿牛三车（权）引子出火宅，终赐大白牛车（实）——方便之典型", "大白牛车也是方便", "三车和大车没有区别"], "correct": 1, "explain": "以三车（权）引子出火宅，终赐大白牛车（实）——方便的典型。权终归实。"}, {"q": "维摩诘「入不二法门」中，对利根说「默然」是什么？", "opts": ["不回答", "最高方便——对利根者，默然即是最极的善巧", "表示不屑", "表示无奈"], "correct": 1, "explain": "维摩诘对利根说「默然」，即是最高方便——对根机已熟者，不须言说，默然即摄。"}, {"q": "方便的现代启示是？", "opts": ["目标和方法都可以灵活", "目标坚定（契理），方法灵活（契机）——教育、管理、沟通皆需方便", "方法和目标都随意", "只要结果好手段不重要"], "correct": 1, "explain": ""}]}, {"id": "quiz-16", "title": "禅宗", "questions": [{"q": "禅宗自称的核心纲领是？", "opts": ["依经解义", "教外别传，不立文字，直指人心，见性成佛", "念佛求生净土", "判教体系"], "correct": 1, "explain": "禅宗自称「教外别传，不立文字，直指人心，见性成佛」。不依赖经教次第，以「顿悟」为归。"}, {"q": "达摩安心公案中，慧可说「觅心了不可得」后，达摩如何回应？", "opts": ["继续追问", "「我与汝安心竟」", "打慧可一棒", "令慧可离去"], "correct": 1, "explain": "达摩「将心来，与汝安！」慧可「觅心了不可得。」达摩「我与汝安心竟。」——心本不可得，安即得。"}, {"q": "赵州「吃茶去」公案中，赵州对院主说「吃茶去」的目的是？", "opts": ["请院主喝茶", "以「吃茶去」一语扫却分别，显「不二」——无论新故，喝茶的「这个」无别", "测试院主茶艺", "惩罚院主"], "correct": 1, "explain": "院主分别「曾到/不曾到」，落二边。赵州以「吃茶去」扫却分别，显平常心是道。"}, {"q": "百丈野狐公案中，老人前世错答什么导致堕野狐身五百世？", "opts": ["「不落因果」", "「不昧因果」", "「无因果」", "「有因果」"], "correct": 0, "explain": "老人答「大修行人‘不落因果’」（落断见），堕五百世野狐。百丈改答「不昧因果」，脱身。"}, {"q": "百丈野狐公案中，百丈的正确回答是？", "opts": ["「不落因果」", "「不昧因果」", "「无因果」", "「有因果」"], "correct": 1, "explain": "「不昧因果」——大修行人照样落在因果里，只是不迷惑、不恐惧、不造恶业。一字之差，天渊之别。"}, {"q": "德山棒的手法特点是？", "opts": ["打错的人", "无论你说得对不对，皆棒——「道得也三十棒，道不得也三十棒」", "只打弟子", "用棒指路"], "correct": 1, "explain": "德山上堂「道得也三十棒，道不得也三十棒。」——无论对错皆棒，逼离「说」之执。"}, {"q": "临济喝有四样，以下哪项不是？", "opts": ["如金刚王宝剑", "如踞地金毛狮子", "如探竿影草", "如雷霆万钧"], "correct": 3, "explain": "四喝：一喝如金刚王宝剑（斩妄执）、如踞地金毛狮子（震慑）、如探竿影草（探虚实）、不作一喝用（泯绝）。"}, {"q": "六祖惠能闻哪句经文而悟入？", "opts": ["「应无所住而生其心」", "「诸恶莫作」", "「色即是空」", "「阿弥陀佛」"], "correct": 0, "explain": "惠能卖柴过客店，闻客诵《金刚经》「应无所住而生其心」，恍然有省，赴黄梅弘忍。"}, {"q": "丹霞烧佛公案的法义点是？", "opts": ["木佛可以烧", "破偶像执——真佛非木", "取暖无罪", "舍利在木佛中"], "correct": 1, "explain": "丹霞取木佛烧火取暖。院主诃之，丹霞「我觅舍利」「木佛何有舍利」——破偶像执，真佛非木。"}, {"q": "参话头（看话禅）的操作中，以下哪步是正确的？", "opts": ["择话头→思维分析→得出结论→验证", "择话头→行住坐卧提起→不思维卜度只「疑」着→疑团将破→遇缘触着豁然打破", "择话头→念诵→计数→回向", "择话头→查阅资料→讨论→总结"], "correct": 1, "explain": ""}]}, {"id": "quiz-17", "title": "净土宗", "questions": [{"q": "净土宗的「三资粮」是？", "opts": ["戒定慧", "信、愿、行", "闻思修", "觉正净"], "correct": 1, "explain": "以「信、愿、行」三资粮，持名念佛，求生阿弥陀佛极乐净土。"}, {"q": "中国净土宗初祖是？", "opts": ["善导大师", "慧远大师", "昙鸾大师", "印光大师"], "correct": 1, "explain": "东晋慧远在庐山东林寺结白莲社，率百二十三贤共期往生净土，创中国净土门庭。"}, {"q": "净土宗被称为「易行道」的原因是？", "opts": ["不用修行", "念佛「下手易、成功高」——老弱、识字不识字皆能念", "只念佛号", "不用持戒"], "correct": 1, "explain": "比起禅之「难行」，念佛「下手易、成功高」。普摄群机——老弱、识字不识字，皆能念。"}, {"q": "善导大师被尊为什么化身？", "opts": ["释迦牟尼佛", "阿弥陀佛", "观世音菩萨", "大势至菩萨"], "correct": 1, "explain": "善导每念佛一声即有一道光明从口出，著《观经四帖疏》，力倡「一切善恶凡夫皆可念佛往生」。被尊为弥陀化身。"}, {"q": "昙鸾大师「舍仙归净」的故事中，谁劝他归向净土？", "opts": ["慧远大师", "菩提流支", "善导大师", "达摩"], "correct": 1, "explain": "昙鸾本习仙道求长寿，北归遇菩提流支。支曰「此方何足贵？吾有《观无量寿经》，念佛往生，寿同无量。」鸾遂焚仙经。"}, {"q": "净土宗「他力本愿」的意思是？", "opts": ["不靠自己修行", "乘阿弥陀佛本愿力，非凡夫自力可拟", "只靠佛不靠法", "佛替你修行"], "correct": 1, "explain": "他力本愿——乘阿弥陀佛本愿力（十念必生），非凡夫自力可拟。净土是他力法门。"}, {"q": "持名念佛的操作中「三业相应」指？", "opts": ["身口意三业", "口念、耳听、心忆——三业相应", "身拜、口念、心观", "身行、口说、心念"], "correct": 1, "explain": "摄心称念：口念、耳听、心忆，三业相应。以计数（念珠/计数器）防散。"}, {"q": "少康法师摄化童稚的手法是？", "opts": ["讲故事", "以「图像（佛从口出）」+「唱诵」+「故事感化」三法合一", "讲道理", "打坐示范"], "correct": 1, "explain": "少康令小儿念佛，念一声口中出一佛，念十声出十佛，如连珠状。三法合一摄化童稚。"}, {"q": "净土宗「横超生死」的意思是？", "opts": ["慢慢了生死", "一生净土，即超轮回，不待历劫", "在世间了生死", "靠自力了生死"], "correct": 1, "explain": "横超生死——一生净土，即超轮回，不待历劫。如竹虫横咬穿出，不须一节节往上。"}, {"q": "印光大师弘法的核心主张是？", "opts": ["参禅悟道", "「老实念佛，莫换题目」", "研究教理", "修密法"], "correct": 1, "explain": ""}]}, {"id": "quiz-18", "title": "天台宗", "questions": [{"q": "天台宗的宗骨经典是？", "opts": ["《华严经》", "《法华经》", "《楞严经》", "《解深密经》"], "correct": 1, "explain": "天台宗以《法华》为宗骨，立「一念三千、三谛圆融、一心三观」，以「五时八教」判摄一代时教。"}, {"q": "天台「五重玄义」是解经通法，其五步是？", "opts": ["序正流通", "释名、辨体、明宗、论用、判教", "信解行证", "教理行果"], "correct": 1, "explain": "五重玄义：①释名（解经题）②辨体（明所依体＝实相）③明宗（修行宗要）④论用（力用）⑤判教（所属教相）。"}, {"q": "天台「一心三观」是？", "opts": ["观过去现在未来", "观空（破假实）→观假（立一切法）→观中（空假不二），于一念心具观三谛", "观身受心法", "观苦集灭道"], "correct": 1, "explain": "一心三观：观空（破假实）→观假（立一切法）→观中（空假不二），于一念心具观三谛（空假中）。"}, {"q": "天台「五时」的顺序是？", "opts": ["阿含→华严→方等→般若→法华", "华严→鹿苑（阿含）→方等→般若→法华涅槃", "般若→阿含→方等→华严→法华", "方等→阿含→华严→般若→法华"], "correct": 1, "explain": "五时：华严时→鹿苑时（阿含）→方等时→般若时→法华涅槃时。由浅入深，终显圆教。"}, {"q": "湛然「无情有性」的意思是？", "opts": ["植物没有佛性", "草木瓦石皆有佛性——扩如来藏义，显法界一体", "只有无情才有佛性", "无情即有情"], "correct": 1, "explain": "唐湛然倡「无情有性」——草木瓦石皆有佛性。破「唯有情有性」之局，显法界一体。"}, {"q": "天台「化法四教」是？", "opts": ["顿渐秘密不定", "藏、通、别、圆", "小乘大乘", "空假中"], "correct": 1, "explain": "化法四教（内容表）：藏、通、别、圆。化仪四教（风格表）：顿、渐、秘密、不定。"}, {"q": "智者大师的「天台三大部」是？", "opts": ["《法华玄义》《法华文句》《摩诃止观》", "《法华经》《涅槃经》《大品般若》", "《维摩诘》《楞严》《华严》", "《大智度论》《中论》《百论》"], "correct": 0, "explain": "天台三大部：《法华玄义》《法华文句》《摩诃止观》。智顗驻天台山讲此三部，奠定天台教观。"}, {"q": "天台宗「三谛圆融」的「三谛」是？", "opts": ["真俗中", "空假中", "空有非", "真妄如"], "correct": 1, "explain": "三谛：空谛（破假实）、假谛（立一切法）、中谛（空假不二）。三谛圆融——不偏空有。"}, {"q": "天台判教中，《法华》属于什么教？", "opts": ["藏教", "通教", "别教", "圆教"], "correct": 3, "explain": "《法华》是第五时圆教，会三归一，开权显实。圆教是天台四教（藏通别圆）中最圆满的。"}, {"q": "天台宗「权实不二」的判教意义是？", "opts": ["分高下", "判教非分高下，是显「皆佛方便、终归一实」", "权比实低", "实比权高"], "correct": 1, "explain": ""}]}, {"id": "quiz-19", "title": "华严宗", "questions": [{"q": "华严宗的宗经是？", "opts": ["《法华经》", "《华严经》", "《涅槃经》", "《解深密经》"], "correct": 1, "explain": "华严宗以《华严经》为宗，立「法界缘起、理事无碍、周遍含容」。"}, {"q": "法藏「金狮子章」中，「金」和「狮子」分别代表什么？", "opts": ["金=事，狮子=理", "金=理（本体），狮子=事（现象）", "金=真，狮子=俗", "金=空，狮子=有"], "correct": 1, "explain": "法藏执金狮子：狮子相是「事」（现象），金性是「理」（本体）。理遍于事，事揽理成。"}, {"q": "华严宗「法界三观」的第三观是？", "opts": ["真空绝相观", "理事无碍观", "周遍含容观（一多相即、重重无尽）", "一心三观"], "correct": 2, "explain": "法界三观：①真空绝相观②理事无碍观③周遍含容观（一多相即、重重无尽）。"}, {"q": "帝释网喻说明什么法义？", "opts": ["网能捕鱼", "一即一切，一切即一——法界缘起，重重无尽", "网象征束缚", "帝释天最强"], "correct": 1, "explain": "帝释殿网珠珠相映，一珠现一切珠影，一切珠影入一珠，重重无尽。表法界缘起。"}, {"q": "华严宗「理事无碍」的意思是？", "opts": ["理和事对立", "理（真如）遍在事（万法），事揽理成——金与狮子不一不二", "理比事高", "事比理重要"], "correct": 1, "explain": "理事无碍——理遍在事，事揽理成。金与狮子不一不二。狮子生灭，金性不动——不变随缘，随缘不变。"}, {"q": "法藏给武则天讲法界缘起，用的是什么做比喻？", "opts": ["莲花", "殿前金狮子", "帝释网", "大海"], "correct": 1, "explain": "武则天读《华严》不解「法界缘起」，法藏以殿前金狮子为喻开示，成《金狮子章》。"}, {"q": "华严宗「十玄门」说明什么？", "opts": ["十个修行阶段", "缘起无碍——同时具足、广狭自在、一多相即、隐显俱成等", "十种境界", "十种法门"], "correct": 1, "explain": "十玄门（智俨、法藏）显缘起无碍——同时具足、广狭自在、一多相即、隐显俱成等。"}, {"q": "华严宗「六相圆融」的六相是？", "opts": ["总别、同异、成坏", "色空、真俗、顿渐", "空假中、真妄如", "总别、同异、因果"], "correct": 0, "explain": "六相圆融：总别、同异、成坏，六相无碍。显一切法相即相入。"}, {"q": "杜顺在华严宗的地位是？", "opts": ["三祖", "初祖——创「法界三观」，为华严观法奠基", "五祖", "二祖"], "correct": 1, "explain": "杜顺（557–640），华严初祖，创「法界三观」，为华严观法奠基。"}, {"q": "华严宗「周遍含容」的意思是？", "opts": ["到处都有", "一微尘中含容法界，如因陀罗网——一即一切", "容纳万物", "周遍宇宙"], "correct": 1, "explain": ""}]}, {"id": "quiz-20", "title": "唯识宗（法相宗）", "questions": [{"q": "唯识宗的核心主张是？", "opts": ["万法皆空", "万法唯识——外境非实，皆是识所变", "万法实有", "万法无常"], "correct": 1, "explain": "依《瑜伽师地论》《成唯识论》，立「万法唯识」——外境非实，皆是识所变（如梦中所见）。"}, {"q": "唯识宗的「八识」中，第八识是？", "opts": ["意识", "末那识", "阿赖耶识", "眼识"], "correct": 2, "explain": "八识：眼耳鼻舌身意（前六识）＋末那识（第七识）＋阿赖耶识（第八识）。阿赖耶含藏一切种子。"}, {"q": "「转识成智」是将八识转成几智？", "opts": ["三智", "四智", "五智", "六智"], "correct": 1, "explain": "转八识成四智：成所作智、妙观察智、平等性智、大圆镜智。把迷妄的心识转成觉悟的智慧。"}, {"q": "唯识「三性」中，属于「妄执」（空的、不存在的）的是？", "opts": ["遍计所执性", "依他起性", "圆成实性", "依他起和圆成实"], "correct": 0, "explain": "遍计所执性＝胡乱分别、硬加上去的错误执着，是空的。依他起（缘生）有，圆成实（真如）是。"}, {"q": "玄奘在那烂陀寺师从谁学《瑜伽师地论》？", "opts": ["戒贤", "戒日王", "龙树", "无著"], "correct": 0, "explain": "玄奘历十七年至天竺，师戒贤于那烂陀寺，学《瑜伽师地论》。曲女城大会立「真唯识量」，无人能破。"}, {"q": "唯识宗「五重唯识观」的第一重是？", "opts": ["摄末归本", "遣虚存实（遣遍计，存依圆）", "隐劣显胜", "遣相证性"], "correct": 1, "explain": "五重唯识观：①遣虚存实②舍滥留纯③摄末归本④隐劣显胜⑤遣相证性。"}, {"q": "因明立量的三支是？", "opts": ["宗因喻", "宗因合", "宗因结", "宗因举例"], "correct": 0, "explain": "因明立量：①宗（主张，如「声是无常」）②因（理由，如「所作性故」）③喻（例证，如「如瓶」）。"}, {"q": "「真唯识量」是谁立的？", "opts": ["窥基", "玄奘", "戒贤", "无著"], "correct": 1, "explain": "玄奘将赴印前于边界立量「真唯识量」，明示「色不离识」，赴印途中以此量无人能破。"}, {"q": "唯识宗「三性三无性」中，「依他起性」是？", "opts": ["妄执，空的", "缘生现象层面的「有」", "真如本性", "不存在的"], "correct": 1, "explain": "依他起性＝一切事物靠条件（因缘）才生起，这种现象层面的「有」是有的。修行在依他起上离遍计执，证圆成实。"}, {"q": "玄奘西行求法的根本原因是？", "opts": ["游历西域", "汉译诸本义理乖互，誓游西域求真典", "逃避战乱", "传播汉地佛法"], "correct": 1, "explain": ""}]}, {"id": "quiz-21", "title": "速通手册（综合）", "questions": [{"q": "十二手法的顺口溜是？", "opts": ["喻故例问答，颂引身比对，反演唱图通", "譬喻故事举例问答", "喻故例问，颂引身对，反演唱图", "喻故例问答颂引身比对反演唱图通"], "correct": 0, "explain": "顺口溜：喻故例问答，颂引身比对，反演唱图通。逐字对应十二手法。"}, {"q": "五宗派中，「不靠经书靠自心」的是？", "opts": ["净土宗", "禅宗", "天台宗", "华严宗"], "correct": 1, "explain": "禅宗＝不靠经书靠自心，一句话让你突然明白。最像「师傅点你一下」。"}, {"q": "五宗派中，「念阿弥陀佛求生极乐，谁都能念」的是？", "opts": ["禅宗", "净土宗", "天台宗", "唯识宗"], "correct": 1, "explain": "净土宗＝念「阿弥陀佛」求生极乐，谁都能念。最像「最简单一门课」。"}, {"q": "五宗派中，「把佛法排成系统表，一步步修」的是？", "opts": ["禅宗", "净土宗", "天台宗", "唯识宗"], "correct": 2, "explain": "天台宗＝把佛法排成系统表，一步步修。最像「严谨教学大纲」。"}, {"q": "五宗派中，「世界像网，互相含容，一即一切」的是？", "opts": ["禅宗", "净土宗", "华严宗", "唯识宗"], "correct": 2, "explain": "华严宗＝世界像网，互相含容，一即一切。最像「万花筒/帝释网」。"}, {"q": "五宗派中，「分析你的心识，佛学版心理学+逻辑」的是？", "opts": ["禅宗", "净土宗", "天台宗", "唯识宗"], "correct": 3, "explain": "唯识宗＝分析你的心识，佛学版心理学+逻辑。最像「心理学+逻辑」。"}, {"q": "「方便（upāya）」的大白话解释是？", "opts": ["方便就是随便", "为让你懂，什么招都行", "方便就是简单", "方便就是快捷"], "correct": 1, "explain": "方便的大白话＝为让你懂，什么招都行。"}, {"q": "「观机逗教」的大白话是？", "opts": ["观察机会教导", "看人下菜碟（褒义）", "看机会传教", "观察机械教学"], "correct": 1, "explain": "观机逗教的大白话＝看人下菜碟（褒义）——先观根器再定方法。"}, {"q": "「权/实」的大白话是？", "opts": ["权＝权力，实＝实在", "权＝临时方便，实＝究竟真理", "权＝权利，实＝现实", "权＝权威，实＝实际"], "correct": 1, "explain": "权＝临时方便（拐杖），实＝究竟真理（目的地）。权终归实。"}, {"q": "总纲「观机逗教，应病与药；方便为门，入佛知见」的意思是？", "opts": ["看机会教，给药治病", "看根器选方法，对症下药；以善巧方便为门，令众生入佛的知见", "观察教导，治病给药", "方便入门，看见佛"], "correct": 1, "explain": "总纲：看根器选方法（观机逗教），对症下药（应病与药）；以善巧方便为门（方便为门），令众生觉悟成佛（入佛知见）。"}, {"q": "新手在禅宗最常踩的坑是？", "opts": ["念佛不够虔诚", "把公案当谜语猜", "打坐时间太短", "不读经书"], "correct": 1, "explain": "禅宗新手最常踩的坑：把公案当谜语猜。公案不是猜谜，是逼人离识的活句。"}, {"q": "新手在唯识宗最常踩的坑是？", "opts": ["念佛散乱", "钻名相出不来，忘了「转识成智」目的", "不持戒", "不拜佛"], "correct": 1, "explain": ""}]}], "scenes": [{"num": 1, "title": "丧子母亲来寺院求助", "tags": ["临终关怀", "现身说法", "故事"], "audience": "中年女性，刚失去独子，悲痛欲绝，质疑因果</p>", "situation": "一位母亲在儿子意外去世后来到寺院，哭着问法师：「我儿子这么善良，为什么死的是他？佛说善有善报，报在哪里？」</p>", "method": "现身说法 + 故事（目连救母）+ 譬喻（种子与果实的时间差）</p>", "dharma": "因果通三世——今生之果各有前因，但因果不虚，忏悔与回向可转业。</p>", "analysis": "法师先放下手中事务，请母亲坐下，递一杯温水。不急于讲道理，先安静倾听她哭诉三到五分钟。待她情绪稍缓，轻声说：「我理解您的痛苦，失去孩子是世间最痛的事。」先共情，不评判。\n\n接着讲目连救母的故事：「佛的大弟子目连，神通第一，他证得阿罗汉后，用道眼看到亡母堕入饿鬼道。他以钵盛饭送去，饭到母亲嘴边却化为火炭——个人的力量，连阿罗汉都救不了自己的母亲。最后佛告诉他：要在七月十五僧自恣日，以百味饮食供养十方僧众，借大众和合的力量，才能转业。目连照做了，母亲才脱离苦道。」\n\n停顿片刻，让故事沉淀。然后以譬喻收束：「因果就像种树，种子种下去到结果，中间有时间差。不是不报，时辰未到。您儿子善良的种子，一定有他的果报，只是我们凡夫看不到全貌。」\n\n最后引导行动：「现在最能帮到您儿子的，是为他做功德回向。我们可以一起念一卷《地藏经》，或者您在佛前供一盏灯，把这份功德回向给他。让他因为您的修行而得到利益——这是真正的大孝。」语气平和，不催促，给她时间消化。"}, {"num": 2, "title": "知识分子质疑轮回", "tags": ["问答", "引经", "知识分子"], "audience": "大学教授，逻辑严密，认为轮回不可证实</p>", "situation": "一位哲学系教授听经后质问：「轮回无法用科学证明，佛教凭什么让人信？」</p>", "method": "问答（破执显正）+ 举例（意识流的连续性）+ 引经</p>", "dharma": "轮回非「信则有不信则无」，而是可通过逻辑推理和修行体验渐次验证的。</p>", "analysis": "法师不急于反驳，先肯定对方的严谨态度：「教授问得非常好。科学讲究实证，这是对的态度。佛教其实也不排斥实证——佛陀说的法，都是可以自己验证的。」\n\n然后举例引导：「您昨天的意识流，延续到了今天。您还记得昨晚做的梦吗？那个做梦的心，跟现在思考的心，是同一条意识流。死亡只是身体这个'载体'坏了，但意识流并不会因此断灭——就像水流过一块石头，石头换了，水还在流。」\n\n引《楞严经》七处征心：「佛问阿难：你的心在哪里？在身内？在身外？七次问答，佛把阿难所有关于'心是物质'的预设都破了。心不是大脑的产物，心是非物质的觉知体。这是两千五百年前的'意识研究'。」\n\n最后不强行说服，留余地：「您不妨先不急着下结论。科学也在发展——量子力学已经发现观察者影响被观察者，意识问题远未定论。您可以先试着修观，从观察自己的念头开始，用自己的体验来验证。佛教欢迎质疑，大疑大悟。」"}, {"num": 3, "title": "老年人念不下佛号", "tags": ["唱诵", "举例", "老人"], "audience": "七十岁老奶奶，不识字，想念佛但心散乱</p>", "situation": "老奶奶说：「法师，我也想念佛，但念着念着就想到孙子、想到买菜，心乱得很。」</p>", "method": "唱诵（摄散入定）+ 举例（生活中的专注训练）</p>", "dharma": "以声摄心——念佛的关键不在「不想别的」，而在「听到自己念」。</p>", "analysis": "法师微笑，不批评她心散乱，先肯定：「您能想到念佛，这本身就是善根。心散乱不是您的错，凡夫的心本来就这样，连年轻人都做不到完全不散乱。」\n\n教她十念法：「您念佛的时候，做三件事：第一，嘴巴念出来——南无阿弥陀佛；第二，耳朵听清楚自己念的声音；第三，心里想着佛。口念、耳听、心忆，这三件事同时做，心就没有空去想别的了。就像您切菜——手在切、眼在看、心在想，三件事同时做，就不会切到手。」\n\n拿出念珠递给她：「您用这串念珠，念一声拨一颗。一珠一念，手也有事做了，四件事同时做，心更不容易跑。不用念多，每天定个数字——十圈就好，差不多一千声。念完了就算完成今天的功课。」\n\n最后鼓励：「念头跑了不要紧，发现了就拉回来，拉回来就是在修行。老奶奶念佛，不要求清净心，只要求'念了就好'。您每天念，念久了心自然就定了。阿弥陀佛不嫌弃任何人。」"}, {"num": 4, "title": "年轻人觉得佛法消极", "tags": ["对比", "问答", "年轻人"], "audience": "25岁程序员，认为佛教「消极避世」，与奋斗精神矛盾</p>", "situation": "年轻人直接问：「佛教说一切皆空、不要执着，那我还努力工作干什么？躺平算了。」</p>", "method": "对比（真俗二谛）+ 问答</p>", "dharma": "「空」不是什么都没有，而是「不执着」——努力而不执著结果。真俗不二。</p>", "analysis": "法师直接回应他的核心困惑，不回避：「您把'空'理解成了'什么都没有'，这是最大的误会。佛法说的空，不是说你不用努力了，恰恰相反——空是让你努力但不执着。」\n\n用他能懂的比喻：「您写代码，对吧？您写的时候要认真——架构要设计好，bug要修，这是'有'。但如果一个bug修不好，您就崩溃了、失眠了、跟同事吵架了，这就是'执着'。空是：认真写，但不被结果绑架。bug修好了，很好；修不好，也不天塌。认真而不执着，效率反而更高。」\n\n再以真俗二谛对比收束：「俗谛——您要工作、要赚钱、要养家，因果宛然有，这些都不能否认。真谛——但您不要把工作、金钱当成永恒不变的来抓，它们随时会变。色即是空，空即是色——努力工作和不执着结果，是一体两面，不矛盾。」\n\n最后点睛：「所以佛法不是让你躺平，是让你'尽力而为，随缘而安'。该奋斗奋斗，该放下放下。这才是空的真实义。」"}, {"num": 5, "title": "病患者问「为什么是我」", "tags": ["现身说法", "譬喻", "对治"], "audience": "中年男性，刚确诊癌症，愤怒不平</p>", "situation": "患者说：「我一辈子没做坏事，为什么得癌症？那些坏人活得好好的。」</p>", "method": "现身说法（印光大师「我亦薄地凡夫」）+ 譬喻（业力如暗流）</p>", "dharma": "因果通三世，病苦可能是宿业现前，但也正是修行的契机——转病为道。</p>", "analysis": "法师先不谈因果理论，坐在患者身旁，目光平视：「我先不跟你讲大道理。得了这个病，换谁都會觉得不公平。你的感受，我理解。」\n\n停顿几秒，让共情到位。然后慢慢说：「印光大师——净土宗第十三代祖师，一生修行精进，晚年也生病。他怎么说自己的？他说'我亦薄地凡夫'——我也是个凡夫，也有业报。连大师都不回避生病这件事。所以生病不代表你做错了什么，业力如地下暗流，我们看不到它何时涌出。」\n\n引入譬喻：「病就像一个提前通知——佛给你的提前通知。一般人突然走了，什么都没准备。你现在还有时间，这是佛给你的机会，让你提前做好准备。」\n\n引导修行方向：「你可以把病当作修行的催化剂。每天花十分钟念佛，念的时候想：如果我好了，我要好好利益他人；如果我走了，我求生净土。生死都交给阿弥陀佛，你自己不用扛。」\n\n最后：「你现在最该做的不是追问'为什么是我'，而是想'我接下来怎么用这段时间'。把愤怒转化为精进，这是病给你的礼物。」"}, {"num": 6, "title": "小学生参观寺院问「佛是真的吗」", "tags": ["图像", "举例", "童稚"], "audience": "10岁小学生，学校组织参观寺院</p>", "situation": "小学生仰头看大佛，天真地问：「这个佛是真的吗？他活着吗？」</p>", "method": "图像（以像表法）+ 举例（生活中的比喻）</p>", "dharma": "佛像不是「神」，是「老师」——佛是觉悟的人，像是为了纪念和学习的方便。</p>", "analysis": "法师蹲下来，与孩子平视，笑着说：「你问得真好！这个问题很多大人都不敢问呢。」\n\n指着佛像，用孩子能懂的语言讲：「这尊佛像，就像你们教室墙上贴的孔子像。孔子爷爷已经不在了，对不对？但你们看到他的像，就知道要好好学习。佛像也一样——佛是一个特别了不起的老师，他教我们怎么做一个好人、怎么不生气、怎么帮助别人。我们看到佛像，就想起他教的这些道理。」\n\n停一下，问孩子：「你们班有没有特别聪明的同学？大家会去问他怎么学习，对不对？佛就是那个'最聪明的同学'，他把学习的好方法告诉了所有人。我们拜佛，不是在拜木头，是在说：'老师，我想跟你学。'就像你对你们班学霸说'教教我'一样。」\n\n最后：「所以佛像不是'活的'，但佛教的道理是活的。你记住一条就够了——做好事、不说谎、不欺负人，这就是在跟佛学了。好不好？」"}, {"num": 7, "title": "企业家问「做生意能学佛吗」", "tags": ["举例", "问答", "居士"], "audience": "成功企业家，担心佛教与商业冲突</p>", "situation": "企业家问：「做生意难免要谈判、要竞争，甚至要『套路』，这和佛教戒妄语、不偷盗矛盾吗？」</p>", "method": "举例（维摩诘居士）+ 问答</p>", "dharma": "佛法在世间——居士在世间行菩萨道，以正业正命为修行，不以离世间为佛法。</p>", "analysis": "法师不否定他的疑虑，先肯定：「您能想到这个问题，说明您对修行是认真的。做生意和学佛确实有张力，但不是对立的。」\n\n引维摩诘的例子：「佛教有一位大居士叫维摩诘，他是在家人，财富无量，生意做得很大。但佛经说他'虽处居家不着三界'——身在商场，心不被绑住。他做生意，但不用欺骗手段；他赚钱，但把钱用来利益众生。这是在家菩萨的典范。」\n\n解决具体困惑：「您说谈判难免要'套路'——其实好的谈判不是骗对方，而是找到双赢的方案。你让一步，对方让一步，双方都能接受，这就是'自利利他'。正业正命——正当的生意、公平的竞争，本身就是修行。」\n\n引《六祖坛经》收束：「六祖说'佛法在世间，不离世间觉'。您把企业管理好，员工工资按时发，产品对得起客户，依法纳税——这些本身就是菩萨行。不用离开生意场去修行，生意场就是您的道场。念佛可以早晚各十分钟，关键不在时间长短，在心有没有归向佛。」\n\n最后：「藕益大师说过，持戒不是不做事，是做正当事。您用佛法的智慧做生意，反而会比别人做得更长远。」"}, {"num": 8, "title": "抑郁症患者想出家逃避", "tags": ["问答", "对比", "对治"], "audience": "30岁女性，重度抑郁，想出家「逃避一切」</p>", "situation": "她说：「我太痛苦了，世间什么都没意思，我想出家，躲进寺庙里。」</p>", "method": "问答（破执显正）+ 对比（出世 vs 逃避）</p>", "dharma": "出家是「面对」不是「逃避」——如果心不转，换环境没用。</p>", "analysis": "法师不直接拒绝，也不鼓励，先问一个问题：「您觉得寺庙里就没有烦恼了吗？」\n\n等她回答后，继续：「寺庙里也有人情冷暖，也有事务纷争。出家人有出家的功课，不是换个地方就什么烦恼都没了。如果您的心没有转变，换了环境，烦恼会跟着您走。」\n\n以譬喻说明：「生病了要吃药。您不能说'换个房间病就好了'——病在身上，不在房间。您的痛苦在心里，不在世间。心不转，去到哪里都一样。」\n\n对比出世与逃避：「出世不是身体跑掉，是心超越。佛陀出家，是已经看透了、放下了才出家的，不是逃避。您现在的状态是逃避——想躲开痛苦。但痛苦不会因为您躲就消失。」\n\n给具体建议：「我建议您先做三件事：第一，配合医生治疗，把病治好；第二，每天念佛十分钟，调伏内心的痛苦；第三，等您心定了、不逃避了，再考虑出家的事。到时候如果您还想去，我支持您。但现在，先治心。」"}, {"num": 9, "title": "外国人问「佛教为什么拜偶像」", "tags": ["图像", "问答", "初机"], "audience": "外国访客，基督教背景，对佛教拜像不解</p>", "situation": "外国访客问：「你们为什么拜雕像？这不是偶像崇拜吗？」</p>", "method": "图像（以像表法）+ 问答</p>", "dharma": "佛像非偶像，是「法之载体」——拜像不是拜木头，是借像忆念佛的教导。</p>", "analysis": "法师不辩驳，用对方能理解的方式解释：「您有照片吗？出门时带家人的照片？」\n\n等对方点头后继续：「您想念家人时，看看照片——您不是在拜那张纸，是在忆念照片背后的人。佛像就是这个道理。佛已经不在了，但我们看到佛像，就想起佛的教导。拜佛像不是拜木头石头，是借这个形象收心、忆念佛法。」\n\n引《金刚经》：「佛自己都说过：'若以色见我，以音声求我，是人行邪道，不能见如来。'——佛明确说不要执着于形相。所以拜像只是方便手段，不是目的。」\n\n进一步解释：「天主教也有圣像、十字架，看到十字架就想到耶稣的牺牲。佛教的佛像也是同理——看到佛的慈悲相，提醒自己也要慈悲；看到佛的禅定相，提醒自己也要修定。这是一种教育方式，不是偶像崇拜。」\n\n最后：「当然，如果有人执着到认为'佛像就是佛'，那确实就是偶像崇拜了——但这不是佛教的教义，是个人理解偏差。正信的佛教，像是工具，法才是根本。」"}, {"num": 10, "title": "夫妻吵架来寺院评理", "tags": ["譬喻", "举例", "居士"], "audience": "中年夫妻，当众在法师面前互相指责</p>", "situation": "妻子：「他整天打麻将不管家！」丈夫：「她唠叨个没完！」两人请法师评理。</p>", "method": "譬喻（镜子）+ 举例 + 反问</p>", "dharma": "各自反省自己的「因」，不执着对方的「过」——修行从自己开始。</p>", "analysis": "法师不判谁对谁错，让两人先坐下，各倒一杯茶。\n\n等两人安静后，以譬喻引导：「你们看佛龛旁边那面镜子——镜子照到丑的人，不是镜子的错；照到美的人，镜子也不会变美。你们看对方的问题，其实对方也是你的镜子——你从他身上照出了自己的习气。」\n\n转向丈夫：「您说太太唠叨。她为什么唠叨？是不是您有些事没做到位，她才反复说？如果您主动做好了，她还有唠叨的理由吗？」再转向妻子：「您说他打麻将不管家。您唠叨能让他不打吗？越唠叨他越烦，越烦越去打。换个方式——他回来时你不说他，给他倒杯茶，看看他什么反应。」\n\n以反问收束：「你们都改变不了对方。但你们能改变自己吗？从今天起，做一个实验：一个月内，他不打麻将、她不唠叨。先从自己做起——您能不能一个月不唠叨？您能不能一个月不打麻将？谁先做到，谁就是修行人。」\n\n最后：「夫妻之道就是修行道。不用来寺院评理，回家各自改自己。一个月后如果还有问题，再来找我。」"}, {"num": 11, "title": "临终者问「死后去哪里」", "tags": ["故事", "唱诵", "临终"], "audience": "80岁老人，病危，恐惧死亡</p>", "situation": "老人拉着法师的手：「我快走了，死后到底去哪里？我害怕。」</p>", "method": "故事（净土经典）+ 唱诵（称名念佛）+ 现身说法</p>", "dharma": "信愿念佛，求生净土——临终一念归佛，即蒙佛接引。</p>", "analysis": "法师坐在老人床边，握着他的手，不急不缓地说：「老人家，您不用怕。我跟您说说，死后去哪里。」\n\n讲净土：「佛在《阿弥陀经》里说，有一个世界叫极乐净土，那里没有病痛、没有衰老、没有恐惧。阿弥陀佛发过愿：只要有人真心念他的名号，愿意去他的净土，临终时阿弥陀佛就会来接引您。就像搬家——从这间又老又破的房子，搬到一间金碧辉煌的新房子。」\n\n教念佛：「您现在跟着我念——南无阿弥陀佛。不用念多，就这六个字。念的时候想着阿弥陀佛就在您面前，金光照着您。您念一声，佛就离您近一步。」\n\n开始轻声领念：「南无阿弥陀佛……南无阿弥陀佛……」语速缓慢，配合老人的呼吸节奏，念约三五分钟。\n\n然后说：「您从现在起，心里就念这六个字。想到害怕了就念，想到家人了也念。把所有念头都换成这一句佛号。阿弥陀佛一定会来接您。很多老修行走的时候都很安详，因为他们知道去哪里。您也知道去哪里了——去极乐净土。不用怕。」\n\n最后对家属说：「你们在旁边也跟着念，声音轻一点，不要哭。你们念佛就是帮他。一直念到他断气之后八小时，不要动他的身体。」"}, {"num": 12, "title": "大学生问「佛教怎么看AI」", "tags": ["问答", "举例", "年轻人"], "audience": "计算机系大学生，对AI与佛教的关系好奇</p>", "situation": "学生问：「AI越来越聪明，将来会不会成佛？佛教怎么看AI？」</p>", "method": "问答 + 举例</p>", "dharma": "佛性的关键不在「智能」而在「觉性」——AI有智能无觉性，不能成佛，但可作为修行的助缘。</p>", "analysis": "法师分层回答，不否定AI的价值，但厘清界限：「这个问题很好，分两层说。」\n\n第一层：「从佛教唯识看，人有八识——眼耳鼻舌身意，加上末那识和阿赖耶识。AI有'智能'，但没有八识。它没有阿赖耶识（含藏种子的深层意识），没有末那识（执着的根源），所以它没有烦恼可转，也没有觉性可开。AI是工具，属于'器世间'，不是'有情众生'。佛性是在有情众生的觉性上说的，AI没有这个基础。」\n\n第二层：「但这不意味着AI跟佛教无关。AI可以是'方便'——用AI传播佛法、辅助学经、翻译经典，这是法布施的新载体。就像印刷术发明后，佛经可以大量印制传播，AI是这个时代的'印刷术'。」\n\n用比喻收束：「AI就像一本会说话的经书。经书自己不会成佛，但能帮人成佛。AI的智能再高，它还是在'所知'的层面运作，没有'能知'的觉性。智能和觉性是两回事——智能是处理信息的能力，觉性是知道自己存在的那个'知'。AI有前者无后者。」\n\n最后：「所以不用担心AI成佛。但如果AI能帮你们更好地学佛，那是好事。技术是中性的，看怎么用。」"}, {"num": 13, "title": "穷人问「没钱怎么布施」", "tags": ["举例", "故事", "对治"], "audience": "清洁工阿姨，收入微薄，想布施但力不从心</p>", "situation": "阿姨说：「法师，我也想布施积福，但工资那么低，拿不出钱。」</p>", "method": "举例（七种不花钱的布施）+ 故事（贫女一灯）</p>", "dharma": "布施不在钱多钱少，在心——「心施」比「财施」更广。</p>", "analysis": "法师笑着摇头：「谁说布施一定要花钱？《阿含经》里佛说了七种不花钱的布施。」\n\n逐一讲：「第一，眼施——用慈祥的眼光看人，不用嫌弃的眼神。您打扫走廊时，跟每个路过的人善意地对视一下，这就是布施。第二，面施——对人微笑。您见到邻居笑一笑，别人一天心情都好。第三，言施——说好话、说鼓励人的话。第四，身施——帮人做事。您把走廊打扫干净，让所有人有干净的环境走，这就是身施。第五，心施——真心关心别人。第六，床座施——在公交上让座。第七，房舍施——给路人指路、提供方便。」\n\n讲贫女一灯的故事：「佛在世时，有个贫女穷到只有一文钱，她买了一盏油灯供佛。国王供了万盏灯，风吹灭了好多。但贫女那盏灯，神风吹不灭。佛说：贫女的灯，以真诚心点，功德最大。布施不在钱多钱少，在心。」\n\n收束：「您每天打扫走廊就是布施——您让几十个人有干净的环境。您对人微笑就是布施——您给了别人温暖。这些功德，跟捐一万块钱一样大，甚至更大。有钱出钱，有力出力，有心出心。您的心比金子还珍贵。」"}, {"num": 14, "title": "科学家问「空性是否等于虚无」", "tags": ["对比", "问答", "知识分子"], "audience": "物理学博士，把「空」理解为「什么都没有」</p>", "situation": "博士问：「佛教说『色即是空』，是不是说物质不存在？这跟物理学的观测矛盾。」</p>", "method": "对比（真俗二谛）+ 问答</p>", "dharma": "「空」不是「无」，是「无自性」——事物存在，但没有固定不变的本质。</p>", "analysis": "法师用物理学类比来回答，不说抽象哲学：「博士，您研究物理，我用量子力学来类比。」\n\n「量子力学说，微观层面物质是'概率波'，不是确定的实体。观测之前，粒子没有确定的位置——这跟佛教说的'空'很像。空不是说桌子不存在，是说桌子没有固定不变的自性。它是因缘和合的——木材、钉子、胶水、工匠，凑在一起才叫'桌子'。哪天拆了，桌子就不存在了。所以桌子'有'（现象层面），但桌子'空'（没有固定本质）。」\n\n以真俗二谛对比收束：「俗谛——桌子宛然有，你能看到、能摸到、能放东西。真谛——桌子无自性，它在变、终将坏灭。中道是'色即是空，空即是色'——有和无是一体两面。物质存在，但没有永恒不变的本质。这不跟你们的观测吻合吗？物质在宏观层面'有'，在微观层面'不确定'。」\n\n最后：「所以佛法说的空，跟物理学不矛盾。空不是虚无主义，是对'固定本质'的否定。现象有，本质空——这就是缘起性空。」"}, {"num": 15, "title": " grieving家属问「亡亲在哪里」", "tags": ["故事", "譬喻", "临终"], "audience": "家属刚失去母亲，问法师「妈妈现在在哪里」</p>", "situation": "女儿哭着问：「妈妈走了三天了，她现在在哪里？她还好吗？」</p>", "method": "故事（中阴身教法）+ 譬喻（换衣服）</p>", "dharma": "亡者在中阴阶段（最多49天），随业力转生——家属为其做功德可助其往生善道。</p>", "analysis": "法师语气柔和，不回避问题：「您妈妈走了三天，您想知道她在哪里，我告诉您。」\n\n讲中阴身：「人死后到下一世投生之间，有一段中间状态，叫'中阴身'，最长四十九天。就像换衣服——脱了旧衣服（身体），还没穿上新衣服（下一世身体），中间有一段'换衣时间'。这段时间她的心还在，她能看到家人、能感知到你们的思念。」\n\n给具体建议：「在这四十九天里，您能为妈妈做几件事：第一，每天念一卷《地藏经》回向给她——地藏菩萨发过愿，要度尽地狱众生，念他的经功德很大。第二，去寺院为她供灯、供斋，以三宝之力回向。第三，行善——捐钱给需要的人、放生、帮助别人，把功德回向给她。这些她都能收到。」\n\n讲目连救母：「佛的大弟子目连，证了阿罗汉，用神通看到亡母在饿鬼道。他一个人的力量救不了——最后靠七月十五供养十方僧众的功德，才把母亲度脱。所以个人的力量有限，要借三宝和僧众的力量。」\n\n最后：「您不用太担心。这四十九天是最关键的，您为她做的每一件善事、念的每一卷经，都在帮她。等四十九天过了，她就会随业力转生。您现在把悲伤转化为行动——这是真正能帮到妈妈的方式。」"}, {"num": 16, "title": "戒毒青年问「罪业能消吗」", "tags": ["现身说法", "故事", "对治"], "audience": "28岁男性，戒毒中，深感自责</p>", "situation": "青年低着头说：「我以前吸毒、偷东西、害了很多人，这些罪业能消吗？我还有救吗？」</p>", "method": "现身说法（莲花出淤泥）+ 故事（央掘魔罗）</p>", "dharma": "罪业性空——真心忏悔、改过修行，罪业可消。放下屠刀，立地成佛。</p>", "analysis": "法师注视青年的眼睛，语气坚定但不严厉：「你问我你还有没有救？我告诉你——有。」\n\n讲央掘魔罗的故事：「佛在世时有个人叫央掘魔罗，他受了外道蛊惑，以为杀人能得解脱。他杀了九百九十九个人，还要杀母亲凑一千。佛出现在他面前，他追佛追不上，佛回头说：'我已经停下了，你还没有停下。'他一听就悟了，放下屠刀跟佛出家，后来证了阿罗汉。连杀了九百九十九人的人都能解脱，你过去做的事，跟这比起来呢？」\n\n引入譬喻：「莲花从淤泥里长出来——淤泥越脏，莲花越大。你的过去就是淤泥，但你从淤泥里站起来，反而比一直在顺境中的人更有力量。因为你真知道苦，你的出离心是真的。」\n\n讲忏悔的正确方法：「忏悔不是天天自责、觉得自己是坏人。忏悔是：承认做错了，后不再做，然后积极行善弥补。罪业本性是空的——'罪从心起将心忏'，心一转，业就转。你现在戒毒、来寺院求改过，这个心一念生起，旧业就开始消了。」\n\n最后给方向：「从今天起，每天做三件事：念佛一千声消业，做一件善事积福，晚上反省今天有没有起恶念。坚持下去，你的人生会完全不同。你信不信？」"}, {"num": 17, "title": "家庭主妇问「带娃也能修行吗」", "tags": ["举例", "问答", "居士"], "audience": "全职妈妈，两个孩子，没时间打坐念佛</p>", "situation": "妈妈说：「我也想修行，但一天到晚带孩子做饭，根本没时间打坐念佛。」</p>", "method": "举例（生活中的禅）+ 问答</p>", "dharma": "修行不在形式——做事时心清明、不抱怨，就是修行。生活即是道场。</p>", "analysis": "法师不否定她的困扰，先理解：「带孩子确实辛苦，一天下来连喘口气的时间都没有，更别说打坐念佛了。」\n\n转换观念：「但修行不在形式——不是非要盘腿打坐、念满一万声佛号才算修行。六祖惠能说过，'搬柴运水皆是禅'。您做的事情本身就是修行，关键是您做的时候心是什么状态。」\n\n逐一举例：「您切菜的时候，好好切，不想别的——手在切、眼在看、心专注在刀和菜上。这就是修定。孩子哭闹时，您不发脾气、不烦躁，耐心哄——这就是修忍辱。做饭时想：'愿吃过这饭的家人都健康'——这就是布施。洗碗时想：'洗去碗上的油污，也洗去心上的烦恼'——这就是修行。」\n\n收束：「您不需要另外找时间修行。您把每天在做的事，加上一个'觉知'——做的时候知道自己在做什么、心不跑——家务就变成了修行。家庭就是您的道场，孩子就是您的善知识。做饭、洗衣、带孩子，件件都是波罗蜜。」\n\n最后：「每天睡前花三分钟，回顾今天：有没有发脾气？有没有对孩子失去耐心？有就忏悔，没有就随喜。三分钟就够了。这也是修行。」"}, {"num": 18, "title": "退休干部问「佛教与党的政策矛盾吗」", "tags": ["问答", "举例", "初机"], "audience": "退休老干部，担心信佛与政治立场冲突</p>", "situation": "老干部问：「我是党员，信佛会不会和党的政策矛盾？佛教教人消极，对国家建设不利吧？」</p>", "method": "问答 + 举例</p>", "dharma": "佛教「庄严国土、利乐有情」与建设社会不矛盾——佛教徒做好公民、贡献社会，即庄严国土。</p>", "analysis": "法师不回避政治话题，正面回应：「这个问题很多老同志问过。佛教和党的政策不矛盾，我从几个层面说。」\n\n第一层面：「佛教讲'报四重恩'——报父母恩、报众生恩、报国土恩、报三宝恩。'报国土恩'就是爱国。佛教不反政府、不反社会，要求信徒做好公民。」\n\n第二层面：「佛教五戒——不杀、不盗、不淫、不妄、不酒。这跟法律和道德完全一致。不杀=不害人，不盗=不贪污，不妄=不造假，这跟党员的要求有什么矛盾？」\n\n第三层面举例：「抗战时期，虚云老和尚带头赈灾救民。太虚大师倡'人生佛教'，号召佛教徒积极参与社会建设。佛教徒在社会上做好本职工作、服务群众，这就是'庄严国土'——建设美好社会。」\n\n收束：「佛教教人'消极'是误解。佛教说的是不执着，不是不做事。相反，菩萨道要求'不入涅槃、还入生死'——主动入世利益众生。您作为党员，把工作做好、把群众服务好、不贪不占——这就是在行菩萨道。信佛让您成为更好的党员，不是让您逃避党员的责任。」"}, {"num": 19, "title": "职场白领问「同事使坏怎么办」", "tags": ["譬喻", "举例", "对治"], "audience": "30岁白领，被同事背刺，愤怒想报复</p>", "situation": "白领说：「同事在领导面前说我坏话，害我被批。我气死了，想报复他，佛教说不嗔，那我怎么办？」</p>", "method": "譬喻（炭火）+ 举例 + 对治（慈悲观）</p>", "dharma": "嗔火自灼——报复伤害的是自己的心。以慈悲观转嗔为悲。</p>", "analysis": "法师不急于说教，先让他把愤怒说完。然后平静地问：「你报复了他，然后呢？」\n\n等他愣住后继续：「你报复他，他再报复你，循环到什么时候？而且你手握热炭想扔别人——先烫的是你自己。你的愤怒伤害的不是他，是你自己。你气得睡不着，他可能睡得很好。」\n\n引入慈悲观的对治法：「佛教有个方法叫慈悲观。不是让你原谅他——你没义务原谅。是让你换一个角度看他：他使坏，是因为他有自己的烦恼、自己的恐惧、自己的不安全感。一个内心安定的人，不需要去踩别人。他就像一个病人——生病的人。你不用跟他一般见识。」\n\n给具体建议：「你现在做两件事：第一，不要以牙还牙。不是为他，是为你自己——不让自己变成跟他一样的人。第二，把精力放在让自己更优秀上。用成绩说话，让领导看到你的能力。最好的'报复'是让他看到你过得比他好。」\n\n收束：「嗔火自灼。你把愤怒转化为精进——他的恶意反而成了你前进的燃料。这是最好的处理方式。佛说的不嗔，不是让你忍气吞声，是让你把那股能量用在对的地方。」"}, {"num": 20, "title": "老修行执着「境界」", "tags": ["反问", "对比", "对治"], "audience": "修行多年的居士，执着打坐时的「光感」体验</p>", "situation": "居士兴奋地说：「法师，我打坐时看到光了！是不是快开悟了？」</p>", "method": "反问 + 对比（真悟与光影）</p>", "dharma": "境界如幻——执着境界即魔境。真悟无相，不执着任何体验。</p>", "analysis": "法师不鼓励也不否定，平静地问：「你打坐时看到光，我想问你——看到光的是谁？」\n\n等他思考后继续：「你说'我看到光了'——那个'我'是谁？光是你看到的对象，但能看光的那个'心'是什么？你去参这个。」\n\n对比真悟与光影：「禅宗说'光影门头'——打坐时看到光、看到佛、看到各种境界，这些都是意识活动，不是开悟。真正的开悟是'桶底脱落'——你所有概念、所有抓取，一下子全碎了。不是'看到什么'，是'看破了什么'。」\n\n引《楞严经》：「佛在《楞严经》里专门讲了五十种阴魔——修行中会看到各种光、各种境界，佛说这些全是色阴区域的现象，不是成就。执着了就是魔境，不执着就继续用功。」\n\n给具体指导：「好的境界不如没有境界。你看到光了，怎么办？不追、不拒、不告诉别人、不沾沾自喜。继续用你的功——参你的话头，或者念你的佛。光来了不追，光走了不留。用功如常，跟没看到光一样。」\n\n最后：「如果境界越来越强、影响到正常生活，就停下来，不要硬坐。去做点体力劳动，散散步。修行是长远的事，不急在一时。」"}, {"num": 21, "title": "新皈依者问「该修哪个宗派」", "tags": ["对比", "问答", "初机"], "audience": "刚皈依的居士，面对各宗派不知选哪个</p>", "situation": "新居士问：「禅、净、天台、华严、唯识……我该修哪个？哪个最好？」</p>", "method": "对比（五宗派各有方便）+ 问答</p>", "dharma": "法无高下，契机为要——选与自己根器最相应的，一门深入。</p>", "analysis": "法师不急于推荐某个宗派，先了解情况：「你先告诉我，你平时怎么学的佛？你看什么经？你打坐还是念佛？你觉得自己是什么性格？」\n\n听他回答后，以譬喻引导：「各宗派就像不同的药——治不同的病。没有'最好'的药，只有'最对症'的药。你是什么病，就吃什么药。」\n\n逐一对比：「你喜欢直接参究'我是谁'这种问题，逻辑强、根器利——可以学禅宗，参话头。你喜欢简单、求稳当、不想太复杂——净土宗，念佛求生极乐，谁都能念。你喜欢系统、爱思辨、想把理论搞清楚——天台宗，学五重玄义、一心三观。你境界宏阔、重圆融、想理解'一即一切'——华严宗。你喜欢分析、爱逻辑、想搞懂心识运作——唯识宗。」\n\n给建议：「你先各了解一点——每个宗派花一周时间读读入门书。然后选跟你最相应的，一门深入。不要朝三暮四，今天禅明天净后天唯识——那样哪个都学不好。」\n\n收束：「佛说八万四千法门，为治八万四千烦恼。法门无高下，契机就是最好的。你选了一个就坚持下去，像打井一样——在一个地方一直打，总能出水。到处换地方，永远打不出水。」"}, {"num": 22, "title": "僧人问「讲经没人听怎么办」", "tags": ["问答", "举例", "法师"], "audience": "年轻法师，讲经听众越来越少，受挫</p>", "situation": "年轻法师沮丧地说：「我认真备课讲经，但听众越来越少，是我讲得不好吗？」</p>", "method": "问答 + 举例（善导大师）</p>", "dharma": "观机逗教——不是法不好，是契机不够。先让观众欢喜（世界悉檀），再导入正法。</p>", "analysis": "法师不安慰他，直接问核心问题：「你讲经时，是讲你想讲的，还是听众需要听的？」\n\n等他思考后继续：「你认真备课，讲的都是教理名相——但听众是谁？老奶奶听不懂'一念三千'，年轻人觉得'十二因缘'跟他没关系。你讲得再好，他们听不进去，等于没讲。」\n\n举例善导大师：「善导大师每念一声佛，口中就出一道光明。他没有讲长篇大论——他念佛，大众看到光，自己就信了。不是让你也现神通，是学他的善巧——用听众能接受的方式讲。」\n\n给具体建议：「你下次讲经前，先做三件事：第一，了解听众是谁——是居士还是出家人？年纪大还是年轻？文化程度如何？第二，用他们听得懂的语言讲——少用术语，多用生活例子。第三，先讲他们关心的问题——怎么处理烦恼、怎么面对生病、怎么教育孩子——把佛法跟他们的生活挂钩。」\n\n收束：「佛法有句话叫'契理契机'——道理要对（契理），方法要合听众的机（契机）。你备课很认真，契理没问题。现在要补的是契机。先让观众欢喜（世界悉檀），再渐入正法。法再好，听众听不进去等于没讲。」"}, {"num": 23, "title": "失恋青年来寺院散心", "tags": ["譬喻", "现身说法", "年轻人"], "audience": "22岁大学生，刚被分手，心灰意冷</p>", "situation": "青年在寺院长椅上发呆，法师路过，他说：「师父，我被甩了，活着没意思。」</p>", "method": "譬喻（梦、泡）+ 现身说法</p>", "dharma": "无常——得失皆是因缘聚散。痛苦来自执着，非来自失去本身。</p>", "analysis": "法师不急于说教，在长椅旁坐下，安静片刻后轻声说：「被甩的感觉，像天塌了一样。我理解。」\n\n听他倾诉片刻，然后慢慢说：「你觉得'活着没意思'——但这个'没意思'不是真的没意思，是你太痛了，痛到想逃避。你 不是不想活，是不想这么痛。」\n\n引入譬喻：「感情就像手握沙子。你攥得越紧，流失越快。不是你不好，是因缘变了。因缘和合则聚，因缘消散则灭——这不是你的错，也不是她的错，是因缘如此。《金刚经》说'一切有为法，如梦幻泡影'——不是说感情是假的，是说它如梦一样，因缘和合而生、因缘散而灭。梦是真的痛，但梦终究会醒。」\n\n现身说法：「我年轻时也有过类似经历。当时觉得天塌了，什么都完了。后来学佛才知道——那次失去反而让我走上了修行路。你现在觉得痛，但十年后回头看，这可能是一个转折点。」\n\n给方向：「你现在不用想'以后怎么办'。先做一件事——每天来寺院走走，或者在家念十分钟'观世音菩萨'。观音菩萨是救苦救难的，你心里苦，就念他的名号。不用理解什么道理，就是念。念久了，心会慢慢安下来。心安了，你就知道下一步怎么走了。」"}, {"num": 24, "title": "富商问「布施有没有功德」", "tags": ["反问", "故事", "对治"], "audience": "富商，以「布施求福报」心态大量捐款</p>", "situation": "富商骄傲地说：「法师，我给寺庙捐了一百万，功德很大吧？」</p>", "method": "反问 + 故事（达摩与梁武帝）</p>", "dharma": "着相布施，福报有限；三轮体空，功德无量。</p>", "analysis": "法师不奉承，直接讲达摩与梁武帝的公案：「您说捐了一百万，我给您讲个故事。」\n\n「梁武帝问达摩祖师：'我造寺度僧，布施无数，有什么功德？'达摩说：'实无功德。'梁武帝很不高兴。达摩为什么这么说？——因为梁武帝心里想的是'我捐了''我有功德'，这一执着，功德就变成了有漏的福报——像银行存款，用完就没了。真功德是'三轮体空'——施者（您）、受者（寺庙）、施物（钱），三轮都不可得，不着相布施，功德才无量。」\n\n反问引导：「您捐款时，心里想的是'我捐了'吗？如果是，那就是着相。着相布施得的是福报——下辈子有钱、有地位。但福报用完就没了，不解脱。不着相布施得的是功德——直接趣向解脱。」\n\n收束：「您捐一百万，如果心不着相——'我捐了，但不执着我在捐、不执着捐了多少、不求回报'——功德无量。如果心里想'我捐了很多，佛要保佑我'——那就是有漏福报，不是真功德。」\n\n最后：「布施最好的心态是：捐了就忘了。像左手给右手，自然得很，不觉得自己在'做善事'。这才是无相布施。」"}, {"num": 25, "title": "老奶奶执着「吃素」与家人冲突", "tags": ["举例", "问答", "居士"], "audience": "老奶奶严格吃素，家人不满，家庭矛盾加剧</p>", "situation": "老奶奶抱怨：「我吃素他们都不理解，还故意在我面前吃肉。我气死了！」</p>", "method": "举例 + 问答</p>", "dharma": "吃素是个人修行，不应成为家人的负担——以和为贵，以身作则而非以法压人。</p>", "analysis": "法师不直接评判对错，先反问：「您吃素是为了修行，还是为了证明自己比家人清净？」\n\n等她愣住后继续：「如果是后者，那吃素反而成了'法执'——用佛法来标榜自己、要求别人。这不是修行，是我慢。」\n\n讲六祖的例子：「六祖惠能在猎人队里待了十五年。猎人吃肉，他就吃肉边菜——不是说吃素不对，是说不执着形式。他是开悟的人，在肉锅旁边也能修行。您在家吃素，不要变成家人的负担，不要让他们觉得'你学佛了就跟我们不一样了'。」\n\n给具体建议：「您吃素，默默吃就好。不在家人面前强调'我要吃素你们得配合我'。家人吃肉，您不批评、不皱眉。做饭时给他们做荤菜，自己吃素的。他们问起，简单说'我学佛想吃素'，不多解释、不争辩。」\n\n收束：「家人看到您吃素后身体好、脾气好、不唠叨了，他们自然尊重，甚至跟着吃。修行是感化，不是要求。您用吃素来'要求'家人，他们反感；您用吃素来'感化'家人，他们佩服。哪条路好，您自己选。」"}, {"num": 26, "title": "临终助念时家属争吵", "tags": ["唱诵", "譬喻", "临终"], "audience": "老人临终，子女为遗产争吵，影响助念</p>", "situation": "老人刚断气，子女在病房外为房产争吵，助念的居士很为难。</p>", "method": "唱诵（大声念佛摄众）+ 譬喻（最后一条路）</p>", "dharma": "临终是最关键时刻——亡者的心识最易受干扰。家属争吵会令亡者起嗔心，堕恶道。</p>", "analysis": "法师果断行动：先大声领众念佛，以音声盖过争吵声。「南无阿弥陀佛——」声音沉稳有力，持续三分钟，让病房重新安静。\n\n然后召集所有家属到走廊，语气严肃但平和：「你们父亲正在走人生最重要的一段路。你们现在吵的每一句话，他都能听到。临终的人心识特别敏感，你们一吵，他起嗔心——嗔心一起，直堕恶道。你们是想让他走好，还是想让他因为你们吵架而堕下去？」\n\n以譬喻说明：「就像送人上火车。你们在月台上吵架，车上的人能安心吗？他走这条路，是最关键的时刻。房产的事，等丧事办完再说。现在最重要的事——陪他最后一程。」\n\n给具体安排：「你们现在分两班，每班两小时，轮流在他身边念佛。念'南无阿弥陀佛'，声音轻一点，不要哭。念的时候心里想：'爸爸（妈妈），您跟着佛走，不要牵挂我们。'一直念到他断气后八小时。这是你们能为他做的最后一件事——也是最有用的事。」\n\n最后：「财产是身外之物，你们以后再分。但现在这一刻，过去了就没了。你们孝顺还是不孝顺，就看你现在怎么做。」"}, {"num": 27, "title": "居士问「可以吃肉吗」", "tags": ["问答", "引经", "居士"], "audience": "初学佛的居士，对吃肉与学佛的关系困惑</p>", "situation": "居士问：「法师，学佛必须吃素吗？我工作应酬多，很难不吃肉。」</p>", "method": "问答 + 引经</p>", "dharma": "汉传佛教提倡吃素，但居士可循序渐进——关键是惭愧心与三净肉。</p>", "analysis": "法师不强制，分层回答：「学佛不等于必须吃素，但鼓励吃素。我分几层说。」\n\n第一层：「出家人必须吃素——这是戒律。但居士不强制，可以循序渐进。佛在世时，僧团也吃三净肉——不见杀、不闻杀、不为我杀。所以您现在应酬多，吃三净肉是可以的，不算犯戒。」\n\n第二层引经：「但佛在《楞伽经》《涅槃经》里呵斥吃肉——'一切肉者，无不得命根而有死者'。就是说，所有肉背后都有一条命。佛彻底禁止吃肉，是从慈悲心出发——你吃它的肉，跟它结恶缘，怎么生慈悲？」\n\n第三层给路径：「您不用一下子全断。循序渐进：先从初一、十五吃素开始，一个月两天。习惯了，再加到每周一天。再习惯了，自然就不想吃了。很多居士都是这样慢慢来的。」\n\n收束关键：「关键在心。您现在吃肉时，有惭愧心——'我还不行，但我发愿将来能断'——这份惭愧心本身就是修行。不用自责，不用焦虑。学佛是长远的事，一步一步来。应酬时吃肉边菜，或者点几个素菜，不刻意表现'我吃素'，自然就好。」"}, {"num": 28, "title": "癌症晚期患者问「念佛能治好吗」", "tags": ["现身说法", "问答", "临终"], "audience": "50岁女性，癌症晚期，把念佛当「治病手段」</p>", "situation": "患者急切问：「法师，我天天念佛一万声，癌症能好吗？别人说念佛能消业障。」</p>", "method": "现身说法 + 问答（破执显正）</p>", "dharma": "念佛能消业障，但目的不在治病——若念佛只为治病，好了就退心，不好就疑佛。</p>", "analysis": "法师不直接说「能」或「不能」，先破执：「您念佛的目的是什么？如果只为治病，那万一是定业不可转——病没好，您就不信佛了吗？」\n\n破其预设后，现身说法：「我见过念佛病好的，也见过念佛走了的。印光大师——净土宗十三祖——也是在病中走的。念佛能不能消业障？能。但消不消、消多少，取决于三个条件：业的轻重、念佛的诚心、因果的定与不定。有些是定业——必须受的，念佛只能减轻；有些是不定业——念佛可以转。」\n\n教她正确的发愿方式：「您不妨这样发愿：'如果佛要我活着度众生，就让我好。如果佛要我往生净土，就让我走。生死都交给佛，我自己不挑。'这样念佛，无论结果如何，您的心都是安的——好了是佛加持，走了是佛接引。」\n\n引导转念：「您现在把念佛从'治病手段'升级为'修行'——念佛不只为了病好，是为了跟阿弥陀佛相应。病好是佛的安排，病不好也是佛的安排。您只管念，结果交给佛。」\n\n最后：「我给您一个功课：每天念佛一万声，念完回向——'愿生西方净土中，九品莲花为父母'。把方向从'治病'转到'求生净土'。您把生死都交出去了，病还有什么好怕的？」"}, {"num": 29, "title": "年轻僧人想「闭关」", "tags": ["反问", "对比", "法师"], "audience": "年轻僧人，出家三年，想闭关「速证开悟」</p>", "situation": "年轻僧人：「师父，我想闭关三年，好好用功，争取开悟。」</p>", "method": "反问 + 对比（闭关与利他）</p>", "dharma": "闭关须有基础——教理不通、定力不够、菩提心未发，闭关易出偏差。</p>", "analysis": "法师不批准也不拒绝，先反问两个问题：「您闭关想证什么？为谁闭关？」\n\n等他回答后继续：「如果您说'想证开悟'——越求越远。开悟不是'求'来的，是'放下'来的。您带着'我要开悟'的心去闭关，这个'我要'本身就是最大的障碍。」\n\n对比祖师大德：「达摩面壁九年，是在已经有深厚教理基础和实证经验后才做的。六祖开悟后，还在猎人队里保任十五年。闭关不是初学的事——就像发动机没热好就加速，会翻车。」\n\n给三步建议：「您想用功，我建议分三步走：第一步，先把教理学通——《楞严经》《法华经》《六祖坛经》，至少花两年打基础。第二步，先做短期精进——七天、二十天的密集用功，不要一上来就三年。第三步，菩提心发起来——您闭关是为了谁？只为自己开悟，是小乘心；为度众生而闭关，才是大乘心。」\n\n收束：「闭关不是逃避，是加速。但基础不够就加速，不是翻车就是走偏。您现在出家三年，正是打基础的时候。先把功课做扎实，教理通了、定力够了、菩提心发了，再闭关——那时候闭关才真有用。现在先把心安下来，好好学。」"}, {"num": 30, "title": "非佛教徒问「学佛有什么用」", "tags": ["譬喻", "举例", "问答", "初机"], "audience": "路人路过寺院，好奇进来，对佛教完全不了解</p>", "situation": "路人随口问：「你们信佛的，到底图什么？学佛有什么用？」</p>", "method": "譬喻（药方）+ 举例（生活中的应用）</p>", "dharma": "学佛的「用」——减少烦恼、增长智慧、找到生命的方向。</p>", "analysis": "法师用最简语言回答，不传教、不说教：「佛法就是教人怎么少烦恼、怎么活得明白。」\n\n举例说明：「您焦虑了——佛法教'不黏著'，念头来了不跟着跑，焦虑就淡了。您跟人吵架了——佛法教先看自己的心，是不是自己先起了分别。您怕死了——佛法教念佛求生净土，死了有去处，不用怕。」\n\n以譬喻收束：「佛法就像药方。您不生病时觉得没用，生病了才知道珍贵。但学佛最好在没'大病'时就开始——不要等到生死关头才临时抱佛脚。」\n\n留一个开放的入口：「您今天路过进来，就是缘分。不用急着信什么、做什么。回去后如果感兴趣，可以上网搜一部叫《心经》的经，只有两百六十字，三分钟就读完。读完如果觉得有道理，再慢慢了解。佛教不拉人入教，佛门永远敞开，您什么时候想来都行。」\n\n最后笑着说：「今天来了就算结了善缘。下次路过再进来坐坐，喝杯茶。不用带什么，人来就好。」"}]};
+
+// ========== 全局状态 ==========
+var currentTab = 'home';
+var currentRoute = null;
+
+// ========== 工具函数 ==========
+function $(sel, parent){ return (parent||document).querySelector(sel); }
+function $$(sel, parent){ return Array.from((parent||document).querySelectorAll(sel)); }
+function el(tag, attrs, children){
+  var e = document.createElement(tag);
+  if(attrs) Object.keys(attrs).forEach(function(k){
+    if(k==='class') e.className = attrs[k];
+    else if(k==='html') e.innerHTML = attrs[k];
+    else if(k.startsWith('on')) e.addEventListener(k.slice(2), attrs[k]);
+    else e.setAttribute(k, attrs[k]);
+  });
+  if(children){
+    if(typeof children==='string') e.innerHTML = children;
+    else if(Array.isArray(children)) children.forEach(function(c){ if(c) e.appendChild(c); });
+    else e.appendChild(children);
+  }
+  return e;
+}
+
+// ========== 存储 ==========
+var Store = {
+  get: function(key, def){
+    try{ var v = localStorage.getItem('fashi_'+key); return v? JSON.parse(v) : def; }catch(e){ return def; }
+  },
+  set: function(key, val){
+    try{ localStorage.setItem('fashi_'+key, JSON.stringify(val)); }catch(e){}
+  }
+};
+
+// ========== 路由 ==========
+function navigate(route){
+  location.hash = route;
+}
+
+// 返回：优先history.back，无历史则回到对应Tab首页
+function goBack(){
+  var hash = location.hash.slice(1) || '/home';
+  var parts = hash.split('/');
+  
+  // 如果已经是Tab首页，回到首页
+  if(['home','method','school','quiz','scene'].indexOf(parts[1]) >= 0 && parts.length === 2){
+    navigate('/home');
+    return;
+  }
+  
+  // 子页面返回到对应Tab
+  if(parts.length >= 3){
+    if(parts[1] === 'method' || parts[1] === 'school' || parts[1] === 'quiz' || parts[1] === 'scene'){
+      navigate('/' + parts[1]);
+      return;
+    }
+    // chapter路由特殊处理
+    if(parts[1] === 'chapter'){
+      navigate('/home');
+      return;
+    }
+  }
+  
+  // 默认尝试history.back
+  if(window.history.length > 1){
+    window.history.back();
+  }else{
+    navigate('/home');
+  }
+}
+
+function handleRoute(){
+  var hash = location.hash.slice(1) || '/home';
+  var parts = hash.split('/');
+  var tab = parts[1] || 'home';
+  
+  // 切换Tab
+  if(['home','method','school','quiz','scene'].indexOf(tab) >= 0){
+    switchTab(tab);
+  }
+  
+  // 处理子路由
+  if(tab === 'home' && parts.length === 2){
+    renderHome();
+  } else if(tab === 'method' && parts.length === 2){
+    renderMethodList();
+  } else if(tab === 'method' && parts.length === 3){
+    renderChapter(parts[2]);
+  } else if(tab === 'school' && parts.length === 2){
+    renderSchoolList();
+  } else if(tab === 'school' && parts.length === 3){
+    renderChapter(parts[2]);
+  } else if(tab === 'quiz' && parts.length === 2){
+    renderQuizList();
+  } else if(tab === 'quiz' && parts.length === 3){
+    renderQuiz(parts[2]);
+  } else if(tab === 'scene' && parts.length === 2){
+    renderSceneList();
+  } else if(tab === 'chapter' && parts.length === 3){
+    // 通用章节路由（从首页跳转用）
+    renderChapter(parts[2]);
+  } else {
+    renderHome();
+  }
+}
+
+function switchTab(tab){
+  currentTab = tab;
+  $$('.tab-item').forEach(function(t){
+    t.classList.toggle('active', t.dataset.tab === tab);
+  });
+}
+
+// ========== 顶部栏 ==========
+function updateHeader(title, showBack){
+  var backBtn = $('.header-back');
+  var titleEl = $('.header-title');
+  titleEl.textContent = title;
+  backBtn.style.visibility = showBack ? 'visible' : 'hidden';
+}
+
+// ========== 页面渲染 ==========
+function getPageContainer(){
+  var c = $('#page-container');
+  if(!c){
+    c = el('div', {id:'page-container'});
+    document.body.appendChild(c);
+  }
+  return c;
+}
+
+function clearPage(){
+  var c = getPageContainer();
+  c.innerHTML = '';
+  window.scrollTo(0, 0);
+}
+
+// ----- 首页 -----
+function renderHome(){
+  updateHeader('法师讲佛法的方法', false);
+  clearPage();
+  var c = getPageContainer();
+  
+  c.innerHTML = `
+    <div class="home-hero">
+      <h1>法师讲佛法的方法</h1>
+      <p>终极深度版 · 含测试与场景</p>
+    </div>
+    
+    <div class="quick-grid">
+      <div class="quick-card" onclick="navigate('/method')">
+        <div class="quick-card-icon">📖</div>
+        <div class="quick-card-title">讲法手法</div>
+        <div class="quick-card-count">十二种手法深度展开</div>
+      </div>
+      <div class="quick-card" onclick="navigate('/school')">
+        <div class="quick-card-icon">⛩️</div>
+        <div class="quick-card-title">宗派教理</div>
+        <div class="quick-card-count">五宗派+框架+原则</div>
+      </div>
+      <div class="quick-card" onclick="navigate('/quiz')">
+        <div class="quick-card-icon">✍️</div>
+        <div class="quick-card-title">测试中心</div>
+        <div class="quick-card-count">21组 · 216题</div>
+      </div>
+      <div class="quick-card" onclick="navigate('/scene')">
+        <div class="quick-card-icon">🌐</div>
+        <div class="quick-card-title">场景案例</div>
+        <div class="quick-card-count">30个实际说法场景</div>
+      </div>
+    </div>
+    
+    <div class="home-section" style="margin-top:24px">
+      <div class="home-section-title">快速开始</div>
+      <div class="home-card" onclick="navigate('/chapter/overview')">
+        <div class="home-card-icon">📋</div>
+        <div class="home-card-body">
+          <div class="home-card-title">概览：法师讲法的总逻辑</div>
+          <div class="home-card-desc">四层架构 · 手法层→体裁层→策略层→原则层</div>
+        </div>
+        <div style="color:var(--muted);font-size:18px">›</div>
+      </div>
+      <div class="home-card" onclick="navigate('/chapter/quickguide')">
+        <div class="home-card-icon">⚡</div>
+        <div class="home-card-body">
+          <div class="home-card-title">速通手册</div>
+          <div class="home-card-desc">顺口溜·速记表·白话词典·7天路线</div>
+        </div>
+        <div style="color:var(--muted);font-size:18px">›</div>
+      </div>
+    </div>
+    
+    <div class="home-section">
+      <div class="home-section-title">学习路线</div>
+      <div class="home-card" onclick="navigate('/method')">
+        <div class="home-card-icon">1️⃣</div>
+        <div class="home-card-body">
+          <div class="home-card-title">先学十二种手法</div>
+          <div class="home-card-desc">譬喻、故事、举例、问答、偈颂、引经……</div>
+        </div>
+        <div style="color:var(--muted);font-size:18px">›</div>
+      </div>
+      <div class="home-card" onclick="navigate('/school')">
+        <div class="home-card-icon">2️⃣</div>
+        <div class="home-card-body">
+          <div class="home-card-title">再学五宗派操作</div>
+          <div class="home-card-desc">禅、净土、天台、华严、唯识</div>
+        </div>
+        <div style="color:var(--muted);font-size:18px">›</div>
+      </div>
+      <div class="home-card" onclick="navigate('/quiz')">
+        <div class="home-card-icon">3️⃣</div>
+        <div class="home-card-body">
+          <div class="home-card-title">做测试检验</div>
+          <div class="home-card-desc">逐题即时反馈 · 记录进度</div>
+        </div>
+        <div style="color:var(--muted);font-size:18px">›</div>
+      </div>
+      <div class="home-card" onclick="navigate('/scene')">
+        <div class="home-card-icon">4️⃣</div>
+        <div class="home-card-body">
+          <div class="home-card-title">看场景案例</div>
+          <div class="home-card-desc">30个实际说法中的场景与应对</div>
+        </div>
+        <div style="color:var(--muted);font-size:18px">›</div>
+      </div>
+    </div>
+  `;
+}
+
+// ----- 讲法手法列表 -----
+function renderMethodList(){
+  updateHeader('十二种讲法手法', true);
+  clearPage();
+  var c = getPageContainer();
+  
+  var methods = APP_DATA.chapters.filter(function(ch){ return ch.category === 'method'; });
+  
+  c.innerHTML = '<div class="list-page">' +
+    '<div class="list-group-title">临场手法层 · 十二种</div>' +
+    methods.map(function(ch, i){
+      var quizInfo = '';
+      if(ch.quizId){
+        var quiz = APP_DATA.quizzes.find(function(q){ return q.id === ch.quizId; });
+        if(quiz) quizInfo = '<span class="list-item-badge">'+quiz.questions.length+'题</span>';
+      }
+      return '<div class="list-item" onclick="navigate(\'/method/'+ch.id+'\')">' +
+        '<div class="list-item-num">'+(i+1)+'</div>' +
+        '<div class="list-item-title">'+ch.title+'</div>' +
+        quizInfo +
+        '<div class="list-item-arrow">›</div>' +
+      '</div>';
+    }).join('') +
+  '</div>';
+}
+
+// ----- 宗派列表 -----
+function renderSchoolList(){
+  updateHeader('宗派教理', true);
+  clearPage();
+  var c = getPageContainer();
+  
+  var schoolChapters = APP_DATA.chapters.filter(function(ch){ return ch.category === 'school'; });
+  
+  // 分组
+  var groups = [
+    {title:'体裁与策略', ids:['twelve-sutras','framework','upaya']},
+    {title:'五宗派操作', ids:['school-chan','school-pureland','school-tiantai','school-huayan','school-weishi']},
+  ];
+  
+  var html = '<div class="list-page">';
+  groups.forEach(function(g){
+    html += '<div class="list-group-title">'+g.title+'</div>';
+    g.ids.forEach(function(cid, i){
+      var ch = schoolChapters.find(function(c){ return c.id === cid; });
+      if(!ch) return;
+      var quizInfo = '';
+      if(ch.quizId){
+        var quiz = APP_DATA.quizzes.find(function(q){ return q.id === ch.quizId; });
+        if(quiz) quizInfo = '<span class="list-item-badge">'+quiz.questions.length+'题</span>';
+      }
+      html += '<div class="list-item" onclick="navigate(\'/school/'+ch.id+'\')">' +
+        '<div class="list-item-num">'+(i+1)+'</div>' +
+        '<div class="list-item-title">'+ch.title+'</div>' +
+        quizInfo +
+        '<div class="list-item-arrow">›</div>' +
+      '</div>';
+    });
+  });
+  html += '</div>';
+  c.innerHTML = html;
+}
+
+// ----- 章节详情 -----
+function renderChapter(chId){
+  var ch = APP_DATA.chapters.find(function(c){ return c.id === chId; });
+  if(!ch){ renderHome(); return; }
+  
+  // 确定返回的路由
+  var backRoute = ch.category === 'method' ? '/method' : (ch.category === 'school' ? '/school' : '/home');
+  
+  updateHeader(ch.title, true);
+  clearPage();
+  var c = getPageContainer();
+  
+  var html = '<div class="reader-page"><div class="reader-content">' + ch.content + '</div>';
+  
+  // 如果有测试，显示按钮
+  if(ch.quizId){
+    var quiz = APP_DATA.quizzes.find(function(q){ return q.id === ch.quizId; });
+    if(quiz){
+      var progress = Store.get('quiz_'+ch.quizId, null);
+      var progressText = '';
+      if(progress){
+        var answered = progress.answers.filter(function(a){ return a !== null; }).length;
+        progressText = ' (已答'+answered+'/'+quiz.questions.length+'题)';
+      }
+      html += '<button class="reader-quiz-btn" onclick="navigate(\'/quiz/'+ch.quizId+'\')">✍️ 做本节测试'+progressText+'</button>';
+    }
+  }
+  
+  html += '</div>';
+  c.innerHTML = html;
+  
+  // 处理mermaid
+  if(window.mermaid){
+    var mermaidEls = c.querySelectorAll('.mermaid');
+    if(mermaidEls.length > 0){
+      try{
+        window.mermaid.initialize({startOnLoad:false, theme:'base',
+          themeVariables:{primaryColor:'#fdf6e3',lineColor:'#9c3b2e',fontSize:'14px'}});
+        mermaidEls.forEach(function(e, i){
+          e.setAttribute('data-mermaid-id', 'm'+i);
+        });
+        window.mermaid.run({nodes: mermaidEls});
+      }catch(e){}
+    }
+  }
+}
+
+// ----- 测试列表 -----
+function renderQuizList(){
+  updateHeader('测试中心', true);
+  clearPage();
+  var c = getPageContainer();
+  
+  var groups = [
+    {title:'一、十二种讲法手法', ids:['quiz-1','quiz-2','quiz-3','quiz-4','quiz-5','quiz-6','quiz-7','quiz-8','quiz-9','quiz-10','quiz-11','quiz-12']},
+    {title:'二、体裁·策略·原则', ids:['quiz-13','quiz-14','quiz-15']},
+    {title:'三、五宗派', ids:['quiz-16','quiz-17','quiz-18','quiz-19','quiz-20']},
+    {title:'四、综合', ids:['quiz-21']},
+  ];
+  
+  var html = '<div class="list-page">';
+  
+  // 统计总进度
+  var totalAnswered = 0, totalQuestions = 0;
+  APP_DATA.quizzes.forEach(function(q){
+    totalQuestions += q.questions.length;
+    var p = Store.get('quiz_'+q.id, null);
+    if(p) totalAnswered += p.answers.filter(function(a){ return a !== null; }).length;
+  });
+  html += '<div style="text-align:center;padding:16px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow);margin-bottom:16px">' +
+    '<div style="font-size:2em;font-weight:700;color:var(--accent)">'+totalAnswered+'<span style="font-size:.6em;color:var(--muted)">/'+totalQuestions+'</span></div>' +
+    '<div style="font-size:.85em;color:var(--muted)">已答题数</div>' +
+    '<div style="margin-top:8px"><button onclick="clearAllQuizProgress()" style="background:var(--accent-soft);color:var(--accent);border:none;border-radius:8px;padding:6px 16px;font-size:.82em;cursor:pointer;font-family:inherit">重置全部进度</button></div>' +
+  '</div>';
+  
+  groups.forEach(function(g){
+    html += '<div class="list-group-title">'+g.title+'</div>';
+    g.ids.forEach(function(qid, i){
+      var quiz = APP_DATA.quizzes.find(function(q){ return q.id === qid; });
+      if(!quiz) return;
+      var progress = Store.get('quiz_'+qid, null);
+      var badge = '';
+      if(progress && progress.completed){
+        badge = '<span class="list-item-badge" style="background:rgba(74,124,89,.15);color:var(--quiz-correct)">✓ '+progress.score+'/'+quiz.questions.length+'</span>';
+      }else if(progress){
+        var answered = progress.answers.filter(function(a){ return a !== null; }).length;
+        if(answered > 0) badge = '<span class="list-item-badge">'+answered+'/'+quiz.questions.length+'</span>';
+        else badge = '<span class="list-item-badge">'+quiz.questions.length+'题</span>';
+      }else{
+        badge = '<span class="list-item-badge">'+quiz.questions.length+'题</span>';
+      }
+      html += '<div class="list-item" onclick="navigate(\'/quiz/'+qid+'\')">' +
+        '<div class="list-item-num">'+(i+1)+'</div>' +
+        '<div class="list-item-title">'+quiz.title+'</div>' +
+        badge +
+        '<div class="list-item-arrow">›</div>' +
+      '</div>';
+    });
+  });
+  html += '</div>';
+  c.innerHTML = html;
+}
+
+function clearAllQuizProgress(){
+  if(!confirm('确定要重置全部答题进度吗？此操作不可撤销。')) return;
+  APP_DATA.quizzes.forEach(function(q){
+    localStorage.removeItem('fashi_quiz_'+q.id);
+  });
+  renderQuizList();
+}
+
+// ----- 答题（逐题即时反馈） -----
+function renderQuiz(quizId){
+  var quiz = APP_DATA.quizzes.find(function(q){ return q.id === quizId; });
+  if(!quiz){ renderQuizList(); return; }
+  
+  updateHeader(quiz.title, true);
+  clearPage();
+  var c = getPageContainer();
+  
+  // 加载或初始化进度
+  var progress = Store.get('quiz_'+quizId, {
+    answers: quiz.questions.map(function(){ return null; }),
+    completed: false,
+    score: 0
+  });
+  
+  var total = quiz.questions.length;
+  
+  c.innerHTML = '<div class="quiz-container">' +
+    '<div class="quiz-header">' +
+      '<h2>'+quiz.title+'</h2>' +
+      '<div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qprogress" style="width:0%"></div></div>' +
+      '<div class="quiz-progress-text" id="qprogresstext">第 1 / '+total+' 题</div>' +
+    '</div>' +
+    '<div id="quiz-questions"></div>' +
+    '<div id="quiz-result-area"></div>' +
+  '</div>';
+  
+  renderQuizQuestions(quiz, progress, quizId);
+}
+
+function renderQuizQuestions(quiz, progress, quizId){
+  var container = $('#quiz-questions');
+  if(!container) return;
+  
+  container.innerHTML = '';
+  var total = quiz.questions.length;
+  
+  quiz.questions.forEach(function(q, qi){
+    var userAnswer = progress.answers[qi];
+    var answered = userAnswer !== null;
+    
+    var card = el('div', {class:'quiz-q-card', id:'qcard-'+qi});
+    
+    // 题目
+    var qText = el('div', {class:'quiz-q-text', html:'<span class="quiz-q-num">'+(qi+1)+'</span>'+q.q});
+    card.appendChild(qText);
+    
+    // 选项
+    var optLabels = ['A','B','C','D'];
+    q.opts.forEach(function(opt, oi){
+      var optEl = el('div', {
+        class: 'quiz-opt' + (answered ? ' disabled' : ''),
+        html: '<span class="opt-label">'+optLabels[oi]+'</span><span>'+opt+'</span>'
+      });
+      
+      if(answered){
+        if(oi === q.correct) optEl.classList.add('correct');
+        if(oi === userAnswer && userAnswer !== q.correct) optEl.classList.add('wrong');
+      }else{
+        optEl.addEventListener('click', function(){
+          answerQuestion(quiz, progress, quizId, qi, oi, optEl, card);
+        });
+      }
+      
+      card.appendChild(optEl);
+    });
+    
+    // 反馈区（已答时显示）
+    if(answered){
+      var isCorrect = userAnswer === q.correct;
+      var fb = el('div', {
+        class: 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong'),
+        html: '<span class="fb-icon">'+(isCorrect?'✅':'❌')+'</span> <strong>'+(isCorrect?'回答正确！':'回答错误')+'</strong><br>'+q.explain
+      });
+      card.appendChild(fb);
+      
+      // 下一题按钮
+      if(qi < total - 1){
+        var nextBtn = el('button', {
+          class:'quiz-next-btn',
+          html:'下一题 →'
+        });
+        nextBtn.addEventListener('click', function(){
+          var next = $('#qcard-'+(qi+1));
+          if(next){
+            next.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        });
+        card.appendChild(nextBtn);
+      }
+    }
+    
+    container.appendChild(card);
+  });
+  
+  // 更新进度条
+  updateQuizProgress(quiz, progress);
+  
+  // 检查是否完成
+  var allAnswered = progress.answers.every(function(a){ return a !== null; });
+  if(allAnswered && !progress.completed){
+    progress.completed = true;
+    progress.score = progress.answers.filter(function(a, i){ return a === quiz.questions[i].correct; }).length;
+    Store.set('quiz_'+quizId, progress);
+    showQuizResult(quiz, progress, quizId);
+  }else if(progress.completed){
+    showQuizResult(quiz, progress, quizId);
+  }
+}
+
+function answerQuestion(quiz, progress, quizId, qi, answer, optEl, card){
+  if(progress.answers[qi] !== null) return; // 已答过
+  
+  progress.answers[qi] = answer;
+  Store.set('quiz_'+quizId, progress);
+  
+  var q = quiz.questions[qi];
+  var isCorrect = answer === q.correct;
+  
+  // 标记选项
+  var opts = card.querySelectorAll('.quiz-opt');
+  opts.forEach(function(opt, oi){
+    opt.classList.add('disabled');
+    if(oi === q.correct) opt.classList.add('correct');
+    if(oi === answer && !isCorrect) opt.classList.add('wrong');
+  });
+  
+  // 显示反馈
+  var fb = el('div', {
+    class: 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong'),
+    html: '<span class="fb-icon">'+(isCorrect?'✅':'❌')+'</span> <strong>'+(isCorrect?'回答正确！':'回答错误。正确答案：'+['A','B','C','D'][q.correct])+'</strong><br>'+q.explain
+  });
+  card.appendChild(fb);
+  
+  // 下一题按钮
+  var total = quiz.questions.length;
+  if(qi < total - 1){
+    var nextBtn = el('button', {
+      class:'quiz-next-btn',
+      html:'下一题 →'
+    });
+    nextBtn.addEventListener('click', function(){
+      var next = $('#qcard-'+(qi+1));
+      if(next) next.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+    card.appendChild(nextBtn);
+  }
+  
+  // 更新进度
+  updateQuizProgress(quiz, progress);
+  
+  // 检查完成
+  var allAnswered = progress.answers.every(function(a){ return a !== null; });
+  if(allAnswered){
+    progress.completed = true;
+    progress.score = progress.answers.filter(function(a, i){ return a === quiz.questions[i].correct; }).length;
+    Store.set('quiz_'+quizId, progress);
+    setTimeout(function(){ showQuizResult(quiz, progress, quizId); }, 500);
+  }
+}
+
+function updateQuizProgress(quiz, progress){
+  var total = quiz.questions.length;
+  var answered = progress.answers.filter(function(a){ return a !== null; }).length;
+  var pct = Math.round(answered / total * 100);
+  var bar = $('#qprogress');
+  var text = $('#qprogresstext');
+  if(bar) bar.style.width = pct + '%';
+  if(text) text.textContent = '第 ' + Math.min(answered+1, total) + ' / ' + total + ' 题（已答'+answered+'）';
+}
+
+function showQuizResult(quiz, progress, quizId){
+  var area = $('#quiz-result-area');
+  if(!area) return;
+  
+  var score = progress.score;
+  var total = quiz.questions.length;
+  var pct = Math.round(score / total * 100);
+  
+  var msg = '';
+  if(pct >= 90) msg = '🎉 优秀！你对这部分内容掌握得很好。';
+  else if(pct >= 70) msg = '👍 不错！还有一些细节可以回顾。';
+  else if(pct >= 50) msg = '💪 继续努力！建议重读本章内容。';
+  else msg = '📖 别灰心！回头再看看章节内容，重新做一遍。';
+  
+  area.innerHTML = '<div class="quiz-result">' +
+    '<div style="font-size:.9em;color:var(--muted);margin-bottom:8px">测试完成！</div>' +
+    '<div class="quiz-result-score">'+score+'</div>' +
+    '<div class="quiz-result-total">/ '+total+' 题（'+pct+'%）</div>' +
+    '<div class="quiz-result-msg">'+msg+'</div>' +
+    '<button class="quiz-restart-btn" onclick="restartQuiz(\''+quizId+'\')">🔄 重做本测试</button>' +
+  '</div>';
+  
+  area.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+function restartQuiz(quizId){
+  Store.set('quiz_'+quizId, {
+    answers: APP_DATA.quizzes.find(function(q){ return q.id === quizId; }).questions.map(function(){ return null; }),
+    completed: false,
+    score: 0
+  });
+  renderQuiz(quizId);
+}
+
+// ----- 场景列表 -----
+function renderSceneList(){
+  updateHeader('实际说法场景', true);
+  clearPage();
+  var c = getPageContainer();
+  
+  // 获取所有标签
+  var allTags = [];
+  APP_DATA.scenes.forEach(function(s){
+    s.tags.forEach(function(t){ if(allTags.indexOf(t) < 0) allTags.push(t); });
+  });
+  
+  var html = '<div class="scene-page">' +
+    '<div class="scene-filter">' +
+      '<button class="scene-tag-btn active" data-filter="all">全部</button>';
+  
+  // 只显示主要筛选标签
+  var mainTags = ['临终','年轻人','知识分子','居士','初机','老人','法师','对治','童稚'];
+  mainTags.forEach(function(t){
+    if(allTags.indexOf(t) >= 0){
+      html += '<button class="scene-tag-btn" data-filter="'+t+'">'+t+'</button>';
+    }
+  });
+  html += '</div><div id="scene-list"></div></div>';
+  
+  c.innerHTML = html;
+  
+  renderSceneCards('all');
+  
+  // 绑定筛选
+  $$('.scene-tag-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      $$('.scene-tag-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderSceneCards(btn.dataset.filter);
+    });
+  });
+}
+
+function renderSceneCards(filter){
+  var list = $('#scene-list');
+  if(!list) return;
+  
+  var scenes = APP_DATA.scenes.filter(function(s){
+    if(filter === 'all') return true;
+    return s.tags.indexOf(filter) >= 0;
+  });
+  
+  list.innerHTML = scenes.map(function(s){
+    var tagsHtml = s.tags.map(function(t){ return '<span class="scene-tag">'+t+'</span>'; }).join('');
+    return '<div class="scene-card" data-num="'+s.num+'">' +
+      '<div class="scene-card-header">' +
+        '<span class="scene-num">'+s.num+'</span>' +
+        '<span class="scene-title">'+s.title+'</span>' +
+      '</div>' +
+      '<div class="scene-tags">'+tagsHtml+'</div>' +
+      '<div class="scene-detail" id="scene-detail-'+s.num+'">' +
+        '<p><span class="scene-label">听众特征：</span>'+s.audience+'</p>' +
+        '<p><span class="scene-label">场景描述：</span>'+s.situation+'</p>' +
+        '<p><span class="scene-label">应对手法：</span>'+s.method+'</p>' +
+        '<p><span class="scene-label">法义要点：</span>'+s.dharma+'</p>' +
+        '<div class="scene-detail-box"><span class="scene-label">具体实操：</span>'+s.analysis+'</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  
+  // 绑定点击展开
+  $$('.scene-card', list).forEach(function(card){
+    card.addEventListener('click', function(){
+      var num = card.dataset.num;
+      var detail = $('#scene-detail-'+num);
+      if(detail) detail.classList.toggle('show');
+    });
+  });
+}
+
+// ========== 字体大小 ==========
+function setFontSize(size){
+  document.documentElement.style.setProperty('--font-size', size + 'px');
+  Store.set('fontSize', size);
+  $$('.font-size-btn').forEach(function(b){ b.classList.remove('active'); });
+  var btn = $('.font-size-btn[data-size="'+size+'"]');
+  if(btn) btn.classList.add('active');
+}
+
+function toggleFontPopup(){
+  var p = $('#font-popup');
+  if(p) p.classList.toggle('show');
+}
+
+// ========== 暗色模式 ==========
+function toggleTheme(){
+  var current = document.documentElement.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  Store.set('theme', next);
+  var btn = $('#theme-btn');
+  if(btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
+}
+
+// ========== 初始化 ==========
+function init(){
+  // 恢复字体大小
+  var fontSize = Store.get('fontSize', 17);
+  setFontSize(fontSize);
+  
+  // 恢复主题
+  var theme = Store.get('theme', null);
+  if(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+  var themeBtn = $('#theme-btn');
+  if(themeBtn) themeBtn.textContent = (theme === 'dark') ? '☀️' : '🌙';
+  
+  // 路由
+  window.addEventListener('hashchange', handleRoute);
+  
+  // 如果没有hash，默认首页
+  if(!location.hash){
+    location.hash = '/home';
+  }else{
+    handleRoute();
+  }
+  
+  // 点击其他区域关闭字体弹窗
+  document.addEventListener('click', function(e){
+    var popup = $('#font-popup');
+    var fontBtn = $('#font-btn');
+    if(popup && popup.classList.contains('show') && !popup.contains(e.target) && e.target !== fontBtn){
+      popup.classList.remove('show');
+    }
+  });
+}
+
+// 启动
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', init);
+}else{
+  init();
+}
+
+</script>
+</body>
+</html>
