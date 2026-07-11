@@ -370,7 +370,7 @@ body{
 <!-- 顶部栏 -->
 <header class="app-header">
   <button class="header-back" id="back-btn" onclick="goBack()">‹</button>
-  <div class="header-title">讲法</div>
+  <div class="header-title"></div>
   <div class="header-actions">
     <button class="header-btn" id="font-btn" onclick="toggleFontPopup()">A</button>
     <button class="header-btn" id="theme-btn" onclick="toggleTheme()">🌙</button>
@@ -553,7 +553,7 @@ function clearPage(){
 
 // ----- 首页 -----
 function renderHome(){
-  updateHeader('讲法', false);
+  updateHeader('', false);
   clearPage();
   var c = getPageContainer();
   
